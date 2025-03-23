@@ -13,9 +13,11 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# --- SET FABRIC_HOME DIRECTORY ---
-[ "$(pwd | awk -F'/' '{ print $NF }')" == "scripts" ] && FABRIC_HOME=$(pwd | sed 's+scripts++g' | sed 's+/$++g') || FABRIC_HOME=$(pwd)
+# Resolve the script's directory, handling symlinks if possible
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P 2>/dev/null || pwd -P)
+FABRIC_HOME=$(dirname "$SCRIPT_DIR")
 
+# Certificate name and path
 CERTDIR=$FABRIC_HOME/cert
 CERTNAM=acme
 [ ! -d $CERTDIR/$CERTNAM ] && mkdir -p $CERTDIR/$CERTNAM
