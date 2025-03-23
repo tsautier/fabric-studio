@@ -1,0 +1,69 @@
+#!/bin/bash
+
+echo "# Install Packages"
+apt update
+apt install libnss3-tools mysql-client curl -y
+
+echo "# Configuring Keyboard"
+echo "setxkbmap -layout ch -model macbook79 -rules evdev" > /home/fortinet/.xinitrc
+echo "keycode 20 = minus underscore"    >  /home/fortinet/.Xmodmap
+echo "keycode 60 = less greater"        >> /home/fortinet/.Xmodmap
+echo "keycode 42 = g G at"              >> /home/fortinet/.Xmodmap
+
+chown -R fortinet:fortinet /home/fortinet
+
+echo "# Set Local hostnames"
+echo "10.1.1.100  *.k3s.fortidemo.ch"           >> /etc/hosts
+echo "10.1.1.100  echoserver.k3s.fortidemo.ch"  >> /etc/hosts
+
+echo "# Change Script Permission"
+chown fortinet:fortinet /home/fortinet/bin/res
+chown fortinet:fortinet /home/fortinet/bin/xkb
+chmod a+x /home/fortinet/bin/res /home/fortinet/bin/xkb
+
+echo "# Starting X Server"
+startx -- -screen 0 1728x960x24 &
+sleep 10
+
+echo "# Disable App Armor"
+systemctl stop apparmor
+systemctl disable apparmor
+
+echo "# Install Chrom Browser"
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg -i /google-chrome-stable_current_amd64.deb
+apt-get install -f
+sudo apt install /google-chrome-stable_current_amd64.deb
+echo "start: google-chrome"
+
+# --- DISABLE BROWERSER CHECK ON STARTUP ---
+sed -i 's|Exec=/usr/bin/google-chrome|Exec=/usr/bin/google-chrome --no-default-browser-check|' /usr/share/applications/google-chrome.desktop
+update-desktop-database ~/.local/share/applications
+
+mv /usr/bin/google-chrome /usr/bin/google-chrome.old
+echo "#!/bin/bash"    >  /usr/bin/google-chrome
+echo "/etc/alternatives/google-chrome --disable-features=PasswordImport --disable-sync --no-first-run --no-default-browser-check" >> /usr/bin/google-chrome
+chmod a+x /usr/bin/google-chrome
+
+echo "# Password less SuDo"
+sed -i 's|^root[[:space:]]\+ALL=(ALL:ALL)[[:space:]]\+ALL|root    ALL=(ALL) NOPASSWD: ALL|' /etc/sudoers
+
+echo "# Configure Screen Resolution"
+apt remove xscreensaver -y   # Remote Screen Save
+systemctl stop unattended-upgrades
+systemctl disable unattended-upgrades
+apt remove --purge unattended-upgrades -y
+rm -rf /usr/libexec/lubuntu-update-notifier
+cat  /etc/sddm.conf
+systemctl restart sddm
+sleep 20
+su - fortinet -c "/home/fortinet/bin/res"
+su - fortinet -c "/home/fortinet/bin/xkb"
+
+#su - fortinet -c 'xrandr --newmode "3456x2234_60.00"  522.50  3456 3736 4128 4800  2234 2237 2247 2293 -hsync +vsync'
+#su - fortinet -c "xrandr --addmode eDP-1 3456x2234_60.00"
+#su - fortinet -c "xrandr --output eDP-1 --mode 3456x2234_60.00"
+#echo "xrandr --output eDP-1 --mode 3456x2234_60.00" > /home/fortinet/xrandr.sh
+#chown fortinet:fortinet /home/fortinet/xrandr.sh
+#chmod a+x /home/fortinet/xrandr.sh
+
