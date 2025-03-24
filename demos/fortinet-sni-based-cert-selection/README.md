@@ -1,6 +1,6 @@
-# FortiWeb - Hosting Multiple DNS Domains with SNI Support
+# FortiWeb - SNI Based Certificate Selection
 
-This demo describes a scenario where three company websites — **www.aspex.com**, **www.acme.com**, and **www.globex.com** — are hosted on the same web server. All three domain names resolve to the same IP address and are protected by individual SSL/TLS certificates.
+The SNI Based Certificate Selection describes a scenario where Multiple DNS Domains are mapped to the same virtual-ip of the FortiWeb where the TCP Hello packet and Server Name Indication (SNI) is used to select the correct SSL/TLS Certificate for each Domain. In this Demo we have three company websites — **www.aspex.com**, **www.acme.com**, and **www.globex.com** — are hosted on the same web server. All three domain names resolve to the same IP address and are protected by individual SSL/TLS certificates.
 
 ![R13S06](https://raw.githubusercontent.com/pivotal-sadubois/fabric-studio/main/demos/fortinet-sni-based-cert-selection/images/R13S06.jpg)
 
