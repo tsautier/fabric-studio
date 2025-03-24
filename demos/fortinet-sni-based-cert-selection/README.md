@@ -1,4 +1,4 @@
-# FortiWeb - SNI Based Certificate Selection
+# FortiWeb - SNI Based Certificate Selection 
 
 The SNI Based Certificate Selection describes a scenario where Multiple DNS Domains are mapped to the same virtual-ip of the FortiWeb where the TCP Hello packet and Server Name Indication (SNI) is used to select the correct SSL/TLS Certificate for each Domain. In this Demo we have three company websites — **www.aspex.com**, **www.acme.com**, and **www.globex.com** — are hosted on the same web server. All three domain names resolve to the same IP address and are protected by individual SSL/TLS certificates.
 
