@@ -2,7 +2,7 @@
 
 This demo describes a scenario where three company websites — **www.aspex.com**, **www.acme.com**, and **www.globex.com** — are hosted on the same web server. All three domain names resolve to the same IP address and are protected by individual SSL/TLS certificates.
 
-![R13S06](https://raw.githubusercontent.com/pivotal-sadubois/fabric-studio/main/demos/fortiweb-content-routing-sni/images/R13S06.jpg)
+![R13S06](https://raw.githubusercontent.com/pivotal-sadubois/fabric-studio/main/demos/fortinet-sni-based-cert-selection/images/R13S06.jpg)
 
 ## SSL/TLS with Multiple DNS Domains
 
@@ -20,6 +20,6 @@ This ensures that the client receives the correct certificate, allowing the hand
 
 # Demo Setup and Introduction
 
-![layout](https://raw.githubusercontent.com/pivotal-sadubois/fabric-studio/main/demos/fortiweb-content-routing-sni/images/layout.png)
+![layout](https://raw.githubusercontent.com/pivotal-sadubois/fabric-studio/main/demos/fortinet-sni-based-cert-selection/images/layout.png)
 
 
