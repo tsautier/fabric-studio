@@ -19,18 +19,23 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P 2>/dev/null || pwd -P
 
 # verify machine architecure
 ARCH=$(uname -m)
-[ "$ARCH" != "x86_64" ] && echo "ERROR: $0 Wrong machine architecure, x86_64 needed"; exit 0
+[ "$ARCH" != "x86_64" ] && echo "ERROR: $0 Wrong machine architecure, x86_64 needed" && exit 0
 
 # Load secrets and passwords from local drive
 [ -f $HOME/.tanzu-demo-hub.cfg ] && source $HOME/.tanzu-demo-hub.cfg
 
-# login to dockerhub
-docker login -u $TDH_REGISTRY_DOCKER_USER -p $TDH_REGISTRY_DOCKER_PASS > /dev/null 2>&1; ret=$?
+# verify login to dockerhub
+docker pull sadubois/employeedb:1.4.1 > /dev/null 2>&1; ret=$?
 if [ $ret -ne 0 ]; then 
-  echo "ERROR: $0 failed to login to docker hub"
-  echo "       => docker login $REGISTRY_NAME -u $REGISTRY_USER -p $REGISTRY_PASS"; exit 1
+  #docker login -u $TDH_REGISTRY_DOCKER_USER -p $TDH_REGISTRY_DOCKER_PASS > /dev/null 2>&1; ret=$?
+  docker login -u $TDH_REGISTRY_DOCKER_USER -p $TDH_REGISTRY_DOCKER_PASS 
+  if [ $ret -ne 0 ]; then 
+    echo "ERROR: $0 failed to login to docker hub"
+    echo "       => docker login $REGISTRY_NAME -u $REGISTRY_USER -p $REGISTRY_PASS"; exit 1
+  fi
 fi
 
+echo "$FABRIC_HOME/docker/"
 for app in $(ls -1 $FABRIC_HOME/docker/); do
   [ ! -f $FABRIC_HOME/docker/${app}/Dockerfile ] && continue
 
