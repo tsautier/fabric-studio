@@ -34,7 +34,7 @@ fi
 for app in $(ls -1 $FABRIC_HOME/docker/); do
   [ ! -f $FABRIC_HOME/docker/${app}/Dockerfile ] && continue
 
-echo "N:$app"
+  docker build -f $FABRIC_HOME/docker/${app}/Dockerfile -t ${app}$:latest $FABRIC_HOME/docker/${app}
 
 done
 
