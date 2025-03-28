@@ -1,9 +1,9 @@
 #!/bin/bash
 #===============================================================================
-# SCRIPT NAME:    gen_acme_ca.sh
-# DESCRIPTION:    Generate private key and certificate for ACME Private CA
+# SCRIPT NAME:    gen_fabric_project_files.sh
+# DESCRIPTION:    
 # AUTHOR:         Sacha Dubois, Fortinet
-# CREATED:        2025-03-14
+# CREATED:        2025-03-23
 # VERSION:        1.0
 #===============================================================================
 # CHANGE LOG:
@@ -16,6 +16,25 @@ IFS=$'\n\t'
 # Resolve the script's directory, handling symlinks if possible
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P 2>/dev/null || pwd -P)
 [ $(basename $SCRIPT_DIR) == "fabric-studio" ] && FABRIC_HOME=$SCRIPT_DIR || FABRIC_HOME=$(dirname $SCRIPT_DIR)
+
+
+
+echo "SCRIPT_DIR:$SCRIPT_DIR"
+echo "FABRIC_HOME:$FABRIC_HOME"
+
+exit
+
+for n in $(ls -1 $FABRIC_HOME/device_config); do
+
+echo "N:$n"
+
+done
+
+echo " ▪ OKTA Username Claim          $TDH_OKTA_USERNAME_CLAIM"
+
+
+
+exit
 
 # Certificate name and path
 CERTDIR=$FABRIC_HOME/cert
@@ -32,23 +51,7 @@ cp -r $FABRIC_HOME/files/postinstall-debian-k3s/* $BUILDDIR
 cp -r $FABRIC_HOME/cert $BUILDDIR/home/fortinet
 cd $BUILDDIR && tar cfz $FABRIC_HOME/postinstall/k3s.tgz * && cd $FABRIC_HOME
 
-exit
 
-echo "Generate Client files ($FABRIC_HOME/postinstall-files/kbg_screen.tgz)"
-rm -rf $BUILDDIR && mkdir -p $BUILDDIR
-cp -r postinstall-debian-client/* $BUILDDIR
-cp -r Certificates $BUILDDIR/home/fortinet
-cd $BUILDDIR && tar cfz $FABRIC_HOME/postinstall-files/kbg_screen.tgz * && cd $FABRIC_HOME
 
-echo "Generate MySQL files ($FABRIC_HOME/postinstall-files/mysql.tgz)"
-rm -rf $BUILDDIR && mkdir -p $BUILDDIR
-cp -r postinstall-debian-mysql/* $BUILDDIR
-cd $BUILDDIR && tar cfz $FABRIC_HOME/postinstall-files/mysql.tgz * && cd $FABRIC_HOME
 
-exit
-# Copy postinstall scripts to the Project
-cp postinstall-files/k3s.tgz Kubernetes/config/1/LXC/k3s.tgz
-cp postinstall-files/kbg_screen.tgz Kubernetes/config/1/DEBIAN/kbg_screen.tgz
-cp postinstall-files/mysql.tgz Kubernetes/config/1/DEBIAN/mysql.tgz
 
-rm -rf $BUILDDIR

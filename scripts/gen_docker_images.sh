@@ -1,7 +1,7 @@
 #!/bin/bash
 #===============================================================================
-# SCRIPT NAME:    gen_acme_ca.sh
-# DESCRIPTION:    Generate private key and certificate for ACME Private CA
+# SCRIPT NAME:    scripts/gen_docker_images.sh
+# DESCRIPTION:    Generate Docker Images and upload to DockerHub
 # AUTHOR:         Sacha Dubois, Fortinet
 # CREATED:        2025-03-14
 # VERSION:        1.0
@@ -16,6 +16,31 @@ IFS=$'\n\t'
 # Resolve the script's directory, handling symlinks if possible
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P 2>/dev/null || pwd -P)
 [ $(basename $SCRIPT_DIR) == "fabric-studio" ] && FABRIC_HOME=$SCRIPT_DIR || FABRIC_HOME=$(dirname $SCRIPT_DIR)
+
+# verify machine architecure
+ARCH=$(uname -m)
+[ "$ARCH" != "x86_64" ] && echo "ERROR: $0 Wrong machine architecure, x86_64 needed"; exit 0
+
+# Load secrets and passwords from local drive
+[ -f $HOME/.tanzu-demo-hub.cfg ] && source $HOME/.tanzu-demo-hub.cfg
+
+# login to dockerhub
+docker login -u $TDH_REGISTRY_DOCKER_USER -p $TDH_REGISTRY_DOCKER_PASS > /dev/null 2>&1; ret=$?
+if [ $ret -ne 0 ]; then 
+  echo "ERROR: $0 failed to login to docker hub"
+  echo "       => docker login $REGISTRY_NAME -u $REGISTRY_USER -p $REGISTRY_PASS"; exit 1
+fi
+
+for app in $(ls -1 $FABRIC_HOME/docker/); do
+  [ ! -f $FABRIC_HOME/docker/${app}/Dockerfile ] && continue
+
+echo "N:$app"
+
+done
+
+exit
+
+
 
 # Certificate name and path
 CERTDIR=$FABRIC_HOME/cert

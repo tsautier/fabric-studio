@@ -15,7 +15,7 @@ IFS=$'\n\t'
 
 # Resolve the script's directory, handling symlinks if possible
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P 2>/dev/null || pwd -P)
-FABRIC_HOME=$(dirname "$SCRIPT_DIR")
+[ $(basename $SCRIPT_DIR) == "fabric-studio" ] && FABRIC_HOME=$SCRIPT_DIR || FABRIC_HOME=$(dirname $SCRIPT_DIR)
 
 # Certificate name and path
 CERTDIR=$FABRIC_HOME/cert

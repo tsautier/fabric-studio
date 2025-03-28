@@ -1,0 +1,9 @@
+# Stoppe und entferne eventuell laufende Container mit image 'globex-web'
+docker ps -a --filter ancestor=globex-web --format "{{.ID}}" | xargs -r docker stop
+docker ps -a --filter ancestor=globex-web --format "{{.ID}}" | xargs -r docker rm
+
+# Neu bauen
+docker build -t globex-web .
+
+# Neu starten
+docker run -d -p 8080:80 globex-web
