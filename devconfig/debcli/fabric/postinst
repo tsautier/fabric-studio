@@ -1,0 +1,106 @@
+#!/bin/bash
+#===============================================================================
+# SCRIPT NAME:    debcli/fabric/postinst
+# DESCRIPTION:    Additions
+# AUTHOR:         Sacha Dubois, Fortinet
+# CREATED:        2025-03-14
+# VERSION:        1.0
+#===============================================================================
+# CHANGE LOG:
+# 2025-03-15 sdubois Initial version
+#===============================================================================
+
+echo "# Install Packages"
+apt update
+apt install libnss3-tools mysql-client curl libnss3-tools -y
+
+echo "# Configuring Keyboard"
+echo "setxkbmap -layout ch -model macbook79 -rules evdev" > /home/fortinet/.xinitrc
+echo "keycode 20 = minus underscore"    >  /home/fortinet/.Xmodmap
+echo "keycode 60 = less greater"        >> /home/fortinet/.Xmodmap
+echo "keycode 42 = g G at"              >> /home/fortinet/.Xmodmap
+
+# Create Log Firectory
+mkdir -p /var/log/fortinet && chown fortinet:fortinet /var/log/fortinet
+
+echo "# Set Local hostnames"
+echo "10.1.1.100  *.k3s.fortidemo.ch"           >> /etc/hosts
+echo "10.1.1.100  echoserver.k3s.fortidemo.ch"  >> /etc/hosts
+
+echo "# Change Script Permission"
+chown fortinet:fortinet /home/fortinet/bin/res
+chown fortinet:fortinet /home/fortinet/bin/xkb
+chmod a+x /home/fortinet/bin/res /home/fortinet/bin/xkb
+
+echo "# Disable App Armor"
+systemctl stop apparmor
+systemctl disable apparmor
+
+# Download the latest .deb from GitHub
+wget -q https://github.com/marktext/marktext/releases/latest/download/marktext-amd64.deb
+dpkg -i marktext-amd64.deb
+
+echo "# Install Chrom Browser"
+wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg -i /google-chrome-stable_current_amd64.deb
+apt-get install -f
+sudo apt install /google-chrome-stable_current_amd64.deb
+echo "start: google-chrome"
+
+# --- DISABLE BROWERSER CHECK ON STARTUP ---
+sed -i 's|Exec=/usr/bin/google-chrome|Exec=/usr/bin/google-chrome --no-default-browser-check|' /usr/share/applications/google-chrome.desktop
+update-desktop-database ~/.local/share/applications
+mv /usr/bin/google-chrome /usr/bin/google-chrome.old
+mv  /usr/bin/google-chrome-orig /usr/bin/google-chrome
+chmod a+xr /usr/bin/google-chrome
+
+# Set correct permision and ownership
+[ -d /home/fortinet ] && chown -R fortinet:fortinet /home/fortinet
+
+# Set Chrome as the default browser
+xdg-settings set default-web-browser google-chrome.desktop
+
+# Create App Load Generator
+xdg-mime default load-generator-handler.desktop x-scheme-handler/load-generator
+xdg-mime default loadgen.desktop x-scheme-handler/loadgen
+xdg-mime query default x-scheme-handler/load-generator
+
+echo "# Password less SuDo"
+chown root:root /etc/sudoers.d /etc/sudoers.d/fortinet
+chmod 440 /etc/sudoers.d/fortinet
+
+echo "# Configure Screen Resolution"
+apt remove xscreensaver -y   # Remote Screen Save
+systemctl stop unattended-upgrades
+systemctl disable unattended-upgrades
+apt remove --purge unattended-upgrades -y
+rm -rf /usr/libexec/lubuntu-update-notifier
+systemctl restart sddm
+sleep 30
+
+
+# Set correct permision and ownership
+[ -d /home/fortinet ] && chown -R fortinet:fortinet /home/fortinet
+
+su - fortinet -c "/home/fortinet/bin/res"
+su - fortinet -c "/home/fortinet/bin/xkb"
+
+echo "Create NSS DB"
+[ -d /home/fortinet/.pki/nssdb ] && mkdir -p /home/fortinet/.pki/nssdb
+echo fortinet > /home/fortinet/.pki/pwfile
+[ ! -f /home/fortinet/.pki/nssdb/cert9.db ] && certutil -N -d sql:/home/fortinet/.pki/nssdb -f /home/fortinet/.pki/pwfile
+certutil -L -d sql:/home/fortinet/.pki/nssdb
+echo "Register Fortinet CA Certificate"
+certutil -d sql:/home/fortinet/.pki/nssdb -A -t "C,," -n "Fortidemo CA" -i  /home/fortinet/cert/fortidemo/ca.crt -f /home/fortinet/.pki/pwfile
+certutil -L -d sql:/home/fortinet/.pki/nssdb
+chown -R fortinet:fortinet /home/fortinet/.pki /home/fortinet/certutil.log
+
+#su - fortinet -c "certutil -N -d sql:/home/fortinet/.pki/nssdb --empty-password"
+#certutil -N -d sql:/home/fortinet/.pki/nssdb --empty-password
+#NSSDB="sql:/home/fortinet/.pki/nssdb"
+#while ! certutil -L -d "$NSSDB" &>/dev/null; do
+#  sleep 1
+#done
+#certutil -d sql:/home/fortinet/.pki/nssdb -A -t "C,," -n "Fortidemo CA" -i  /home/fortinet/cert/fortidemo/ca.crt > /home/fortinet/certutil.log 2>&1
+#su - fortinet -c "certutil -d sql:/home/fortinet/.pki/nssdb -A -t \"C,,\" -n \"Fortidemo CA\" -i  /home/fortinet/cert/fortidemo/ca.crt > /home/fortinet/certutil.log 2>&1"
+

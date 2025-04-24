@@ -1,0 +1,20 @@
+{
+   "command_toggle_centered": {
+      "message": "切换居中"
+   },
+   "command_toggle_refresh": {
+      "message": "切換自動刷新"
+   },
+   "command_toggle_side": {
+      "message": "切換側邊欄"
+   },
+   "command_toggle_theme": {
+      "message": "切換主題"
+   },
+   "ext_desc": {
+      "message": "在瀏覽器中預覽 Markdown 的最佳方式。"
+   },
+   "ext_name": {
+      "message": "Markdown Reader"
+   }
+}

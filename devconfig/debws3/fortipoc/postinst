@@ -1,0 +1,24 @@
+#!/bin/bash
+#===============================================================================
+# SCRIPT NAME:    debws1/fabric/postinst
+# DESCRIPTION:    Additions
+# AUTHOR:         Sacha Dubois, Fortinet
+# CREATED:        2025-03-14
+# VERSION:        1.0
+#===============================================================================
+# CHANGE LOG:
+# 2025-03-15 sdubois Initial version
+#===============================================================================
+
+echo ""
+echo "Update Packages"
+apt update
+apt install curl jq -y
+
+# Create Log Firectory
+mkdir -p /var/log/fortinet && chown fortinet:fortinet /var/log/fortinet
+
+# Set correct permision and ownership
+[ -d /home/fortinet ] && chown -R fortinet:fortinet /home/fortinet
+
+echo "# debug1"

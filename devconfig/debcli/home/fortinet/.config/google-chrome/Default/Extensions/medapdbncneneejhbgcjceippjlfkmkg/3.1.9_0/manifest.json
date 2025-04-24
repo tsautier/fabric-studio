@@ -1,0 +1,67 @@
+{
+   "action": {
+      "default_icon": "./assets/logo.png",
+      "default_popup": "./dist/popup/index.html",
+      "default_title": "__MSG_ext_name__"
+   },
+   "author": "Bener",
+   "background": {
+      "service_worker": "./dist/background/index.mjs"
+   },
+   "commands": {
+      "toggleCentered": {
+         "description": "__MSG_command_toggle_centered__",
+         "suggested_key": {
+            "default": "Alt+Shift+C"
+         }
+      },
+      "togglePageTheme": {
+         "description": "__MSG_command_toggle_theme__",
+         "suggested_key": {
+            "default": "Alt+Shift+T"
+         }
+      },
+      "toggleRefresh": {
+         "description": "__MSG_command_toggle_refresh__",
+         "suggested_key": {
+            "default": "Alt+Shift+R"
+         }
+      },
+      "toggleSide": {
+         "description": "__MSG_command_toggle_side__",
+         "suggested_key": {
+            "default": "Alt+Shift+B"
+         }
+      }
+   },
+   "content_scripts": [ {
+      "css": [ "dist/content/style.css" ],
+      "js": [ "dist/content/index.global.js" ],
+      "matches": [ "*://*/*.md", "*://*/*.mdx", "*://*/*.mkd", "*://*/*.markdown", "*://*/*.MD", "*://*/*.MDX", "*://*/*.MKD", "*://*/*.MARKDOWN", "file://*/*.md", "file://*/*.mdx", "file://*/*.mkd", "file://*/*.markdown", "file://*/*.MD", "file://*/*.MDX", "file://*/*.MKD", "file://*/*.MARKDOWN", "*://*/*.md?*", "*://*/*.mdx?*", "*://*/*.mkd?*", "*://*/*.markdown?*", "*://*/*.MD?*", "*://*/*.MDX?*", "*://*/*.MKD?*", "*://*/*.MARKDOWN?*", "file://*/*.md?*", "file://*/*.mdx?*", "file://*/*.mkd?*", "file://*/*.markdown?*", "file://*/*.MD?*", "file://*/*.MDX?*", "file://*/*.MKD?*", "file://*/*.MARKDOWN?*" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+   },
+   "default_locale": "en",
+   "description": "__MSG_ext_desc__",
+   "homepage_url": "https://md-reader.github.io",
+   "icons": {
+      "128": "./assets/logo.png",
+      "16": "./assets/logo.png",
+      "32": "./assets/logo.png",
+      "48": "./assets/logo.png",
+      "512": "./assets/logo.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtq6Mby/quPWXBbPep/FZ200nMK9h0+WJ0LGnZSL7bf1h2YX+O1dQZKBhIDUpA0TDSx/65Y4pxel38Mb/MXcleyogMCIn01diBMawYEo9pUOdVobB6Mjgqd5l6i1r7njsdiAFxjtBHxGrNMsr/j17aGjLROhuVeJpvAVi6jRwTtIOwex/LCyGOV6/+0d2YvnC8TRJrMo3prTLQeAIMxwzjY4p6gyIeGwEyg6C9P3df/q/63x/XOQnOSYavJ4oTQvhPGW7x69TVFD/pnw0BZP7TQqNJX2obMQpXexT3svwBRD2W7yvGv9lB1IOl4m8Aiq5biYrIwt1fh5Lj1G10Zv4QQIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_ext_name__",
+   "permissions": [ "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.1.9",
+   "version_name": "3.1.9",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "assets/*", "dist/popup/*", "dist/options/*" ]
+   } ]
+}

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=LoadGenerator
+Exec=xfce4-terminal --geometry=1569x600-45+52 -e "/home/fortinet/bin/ansible-playbook-setup-employeedb-lb.sh"
+Type=Application
+Terminal=true
+MimeType=x-scheme-handler/load-generator;
