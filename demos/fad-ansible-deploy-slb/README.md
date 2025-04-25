@@ -21,7 +21,12 @@ Open the CLI in the Fabric Studio and verify the VNC Access parametes for the 'C
 (fabric-studio) # model fabric vm access list 'FortiADC Deploy SLB with Ansible' 'Client' --select type=VNC
 41 Default VNC PUBLIC access to Client
 ```
-
+In the case the output of the command show 'VNC PRIVATE access' for either the 'Admin0 or the 'Client0 system, the execure the 
+following command to modify it to 'VNC PUBLIC access'
+```
+(fabric-studio) # model vm access update 37 '{"mode": "PUBLIC"}'
+37 Default VNC PUBLIC access to Admin
+```
 
 
 
