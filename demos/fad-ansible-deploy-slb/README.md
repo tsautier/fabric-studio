@@ -12,7 +12,16 @@ This demo showcases the following actions:
 # Forti Studio - Setup Guide
 The following guide explains how the setup a VNC connection from you local machine to the fabric-studio clinet (debcli) and admin (debadm). By using 
 VNC allows to have a better keyboard mapping and screen resolution and overal increased performance.
-![SETUP.md](https://raw.githubusercontent.com/pivotal-sadubois/fabric-studio/main/demos/fad-ansible-deploy-slb/SETUP.md)
+## Verify VNC Settings
+Open the CLI in the Fabric Studio and verify the VNC Access parametes for the 'Client' and 'Admin' debian systems. 
+```
+(fabric-studio) # model fabric vm access list 'FortiADC Deploy SLB with Ansible' 'Admin' --select type=VNC
+37 Default VNC PUBLIC access to Admin
+
+(fabric-studio) # model fabric vm access list 'FortiADC Deploy SLB with Ansible' 'Client' --select type=VNC
+41 Default VNC PUBLIC access to Client
+```
+
 
 
 
