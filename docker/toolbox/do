@@ -1,0 +1,9 @@
+# Stoppe und entferne eventuell laufende Container mit image 'toolbox'
+docker ps -a --filter ancestor=toolbox --format "{{.ID}}" | xargs -r docker stop
+docker ps -a --filter ancestor=toolbox --format "{{.ID}}" | xargs -r docker rm
+
+# Neu bauen
+docker build -t toolbox .
+
+# Neu starten
+docker run -d -p 8080:80 toolbox
