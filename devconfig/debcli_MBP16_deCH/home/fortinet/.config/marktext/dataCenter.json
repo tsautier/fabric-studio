@@ -1,0 +1,14 @@
+{
+	"imageFolderPath": "/home/fortinet/.config/marktext/images",
+	"screenshotFolderPath": "/home/fortinet/.config/marktext/screenshot",
+	"webImages": [],
+	"cloudImages": [],
+	"currentUploader": "none",
+	"imageBed": {
+		"github": {
+			"owner": "",
+			"repo": "",
+			"branch": ""
+		}
+	}
+}

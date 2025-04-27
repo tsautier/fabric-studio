@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/fortinet/bin/res
+Hidden=false
+X-GNOME-Autostart-enabled=true
+Name=Set Custom Resolution

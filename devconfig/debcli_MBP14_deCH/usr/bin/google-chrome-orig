@@ -1,0 +1,28 @@
+#!/bin/bash
+read url < /url
+
+if ! pgrep -f "google-chrome" > /dev/null; then
+    echo "Chrome already running. Exiting."
+    exit 0
+fi
+
+rm -rf ~/.config/google-chrome/Default/Sessions/
+rm -rf ~/.config/google-chrome/Default/Crashpad/
+rm -f ~/.config/google-chrome/Default/Last\ Session
+rm -f ~/.config/google-chrome/Default/Last\ Tabs
+rm -f ~/.config/google-chrome/Default/Current\ Session
+rm -f ~/.config/google-chrome/Default/Current\ Tabs
+
+# Fix exit_type to avoid restore prompt
+sed -i -E 's/"exit_type":"(Crashed|Abnormal)"/"exit_type":"Normal"/' ~/.config/google-chrome/Default/Preferences
+
+/etc/alternatives/google-chrome \
+  --disable-gpu --incognito --password-store=basic \
+  --force-dark-mode --enable-features=WebContentsForceDark --disable-translate \
+  --disable-software-rasterizer \
+  --disable-features=TranslateUI,PasswordImport,AutofillServerCommunication,MediaRouter,VizDisplayCompositor \
+  --disable-sync --no-first-run \
+  --disk-cache-size=1 --media-cache-size=1 --disable-application-cache \
+  --enable-logging --v=1 --log-level=0 --log-file=/tmp/chrome_debug.log \
+  --disable-session-crashed-bubble \
+  --no-default-browser-check "$url"

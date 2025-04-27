@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ -n "$DISPLAY" ] && xrandr >/dev/null 2>&1; then
+  #xrandr --newmode "1920x1080_60.00" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync
+  #xrandr --addmode Virtual-1 "1920x1080_60.00"
+  xrandr --output Virtual-1 --mode "1280x720"
+
+  # Change key binding of en_US and de_CH
+  setxkbmap -model pc105 -layout ch,us -variant de_nodeadkeys, -option grp:shifts_toggle
+fi

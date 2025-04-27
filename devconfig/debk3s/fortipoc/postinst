@@ -46,6 +46,9 @@ EOF
 
 sleep 5
 
+echo "# Password less SuDo"
+chown root:root /etc/sudoers.d /etc/sudoers.d/fortinet
+
 echo "# Show Ingress IP Address"
 kubectl get svc -n kube-system traefik
 

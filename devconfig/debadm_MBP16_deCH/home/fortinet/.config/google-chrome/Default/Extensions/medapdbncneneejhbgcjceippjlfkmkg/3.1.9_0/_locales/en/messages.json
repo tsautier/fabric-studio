@@ -1,0 +1,20 @@
+{
+   "command_toggle_centered": {
+      "message": "Toggle centered"
+   },
+   "command_toggle_refresh": {
+      "message": "Toggle refresh"
+   },
+   "command_toggle_side": {
+      "message": "Toggle side"
+   },
+   "command_toggle_theme": {
+      "message": "Toggle theme"
+   },
+   "ext_desc": {
+      "message": "The best way to preview Markdown in your browser."
+   },
+   "ext_name": {
+      "message": "Markdown Reader"
+   }
+}
