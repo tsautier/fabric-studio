@@ -27,3 +27,4 @@
 
  ▪ Retreive the Kubernetes Security Token for Namesapce toolbox to be used for the Kubernetes SDN Connector
     => kubectl get secret toolbox-sa-token -n toolbox -o jsonpath='{.data.token}' | base64 -d && echo
+
