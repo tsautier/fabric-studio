@@ -1,0 +1,39 @@
+   _____          _   _  ____       _         ____                                 _ _   _       _  __     _                          _            
+
+  |  ___|__  _ __| |_(_)/ ___| __ _| |_ ___  |  _ \ _ __ _____  ___   _  __      _(_) |_| |__   | |/ /   _| |__   ___ _ __ _ __   ___| |_ ___  ___ 
+  | |_ / _ \| '__| __| | |  _ / _` | __/ _ \ | |_) | '__/ _ \ \/ / | | | \ \ /\ / / | __| '_ \  | ' / | | | '_ \ / _ \ '__| '_ \ / _ \ __/ _ \/ __|
+  |  _| (_) | |  | |_| | |_| | (_| | ||  __/ |  __/| | | (_) >  <| |_| |  \ V  V /| | |_| | | | | . \ |_| | |_) |  __/ |  | | | |  __/ ||  __/\__ \
+  |_|  \___/|_|   \__|_|\____|\__,_|\__\___| |_|   |_|  \___/_/\_\\__, |   \_/\_/ |_|\__|_| |_| |_|\_\__,_|_.__/ \___|_|  |_| |_|\___|\__\___||___/
+                                                                  |___/                                                                            
+                                          ____  ____  _   _    ____                            _             
+                                         / ___||  _ \| \ | |  / ___|___  _ __  _ __   ___  ___| |_ ___  _ __ 
+                                         \___ \| | | |  \| | | |   / _ \| '_ \| '_ \ / _ \/ __| __/ _ \| '__|
+                                          ___) | |_| | |\  | | |__| (_) | | | | | | |  __/ (__| || (_) | |   
+                                         |____/|____/|_| \_|  \____\___/|_| |_|_| |_|\___|\___|\__\___/|_|   
+
+
+ ▪ Veriy Kubernetes Deployment
+   => kubectl get ns
+   => kubectl -n toolbox get pods,svc,ingress,secret
+
+ ▪ Test if application is reachable over the kubernetes ingress
+   => curl https://toolbox.apps-int.fabric-studio.fortidemo.ch --cacert /home/fortinet/cert/fortidemo/ca.crt
+
+ ▪ Test Internet access with and without proxy (disable not-proxy-web-traffic firewall rule on FortiGate)
+   => curl https://fortinet.com                                                 ## No proxy
+   => curl https://fortinet.com --proxy proxy.fabric-studio.fortidemo.ch:0080   ## Proxy set by CLI
+   => export HTTPS_PROXY=proxy.fabric-studio.fortidemo.ch:0080                  ## Proxy set by Env variable
+      export HTTP_PROXY=proxy.fabric-studio.fortidemo.ch:0080
+      curl https://fortinet.com
+
+ ▪ Retreive the Kubernetes Security Token for Namesapce toolbox to be used for the Kubernetes SDN Connector
+    => kubectl get secret toolbox-sa-token -n toolbox -o jsonpath='{.data.token}' | base64 -d && echo
+
+ ▪ Now test proxy access with the toolbox pod which is configured with proxy access
+   => kubectl -n toolbox exec -it $(kubectl -n toolbox get pod -l app=toolbox -o jsonpath='{.items[0].metadata.name}') -- /bin/sh
+      / # echo -e "HTTP_PROXY...: $HTTP_PROXY\nHTTPS_PROXY..: $HTTPS_PROXY\nNO_PROXY....: $NO_PROXY"
+      / # curl https://fortinet.com
+
+ ▪ Coonect into the container
+   => kubectl -n toolbox exec -it $(kubectl -n toolbox get pod -l app=toolbox -o jsonpath='{.items[0].metadata.name}') -- /bin/sh
+   => ifconfig eth0      ## To get the IP Address

@@ -1,0 +1,8 @@
+[fortiadcs]
+fortiadc ansible_host=192.168.1.1 ansible_user="admin" ansible_password="{{ fortiadc_password }}"
+         
+[fortiadcs:vars]
+ansible_network_os=fortinet.fortiadc.fadcos
+ansible_httpapi_use_ssl=yes
+ansible_httpapi_validate_certs=no
+ansible_httpapi_port=443

@@ -1,0 +1,3 @@
+FABRIC_NAME="FortiWeb - SNI Based Certificate Selection"
+FABRIC_ID=fortinet-sni-based-cert-selection
+FABRIC_DOC=
