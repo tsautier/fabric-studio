@@ -1,4 +1,0 @@
-export DISPLAY=:0
-xrandr --newmode "1728x1080_60.00" 157.50 1728 1824 2000 2272 1080 1083 1093 1120 -hsync +vsync
-xrandr --addmode Virtual-1 "1728x1080_60.00"
-xrandr --output Virtual-1 --mode "1728x1080_60.00"

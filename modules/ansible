@@ -1,0 +1,31 @@
+
+echo "=> Install Ansible"
+apt-add-repository --yes --update ppa:ansible/ansible > /tmp/ansible_repo.log 2>&1; ret=$?
+if [ $ret -ne 0 ]; then
+  echo "   ▪ Adding repository ppa:ansible/ansible failed"
+  echo "---------------------------------------------------------------------------------------"
+  cat /tmp/ansible_repo.log
+  echo "---------------------------------------------------------------------------------------"
+else
+  echo "   ▪ Adding repository ppa:ansible/ansible completed"
+fi
+
+apt update -qq > /dev/null 2>&1; ret=$?
+if [ $ret -ne 0 ]; then
+   echo "   ▪ Package update failed, check internet connection"
+else
+   echo "   ▪ Package update completed"
+fi
+
+for pkg in ansible; do
+  apt install -y -qq "$pkg" > /tmp/${pkg}.log 2>&1; ret=$?
+  if [ $ret -ne 0 ]; then
+    echo "   ▪ Package installation of $pkg failed"
+    echo "---------------------------------------------------------------------------------------"
+    cat /tmp/${pkg}.log
+    echo "---------------------------------------------------------------------------------------"
+  else
+    echo "   ▪ Package installation of $pkg compleded"
+  fi
+done
+

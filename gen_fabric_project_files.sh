@@ -44,13 +44,17 @@ for demo in $(ls -1 $FABRIC_HOME/demos | grep -v zip); do
       #BUILDDIR=/tmp/build_${device}_$$
       BUILDDIR=/tmp/fabric_studio_build_${device}
       DEVICE_CONFIG=$FABRIC_HOME/devconfig/${device}
+      DEVICE_INFO=$FABRIC_HOME/devconfig/.${device}.inf
       DEMO_DEVICE_CONFIG=$DEMOPATH/devconfig/${device}
       DEVICE_CONFIG_FILE=$STOREDIR/${demo}/${device}.tgz
+
+      [ -f $DEVICE_INFO ] && read MODULE_NAME < $DEVICE_INFO || MODULE_NAME=debbla_postinst
 
       if [ -f $DEVICE_CONFIG_FILE ]; then
         stt1=$(find "$DEVICE_CONFIG" -type f -newer "$DEVICE_CONFIG_FILE" | wc -l | awk '{ print $1 }')
         stt2=$(find "$DEMO_DEVICE_CONFIG" -type f -newer "$DEVICE_CONFIG_FILE" | wc -l | awk '{ print $1 }')
-        if [ $stt1 -eq 0 -a $stt2 -eq 0 ]; then
+        stt3=$(find ./modules -name $MODULE_NAME -type f -newer "$DEVICE_CONFIG_FILE" | wc -l | awk '{ print $1 }')
+        if [ $stt1 -eq 0 -a $stt2 -eq 0 -a $stt3 -eq 0 ]; then
           [ -d $STAGEDIR/config/1/DEBIAN ] && cp $DEVICE_CONFIG_FILE $STAGEDIR/config/1/DEBIAN
           printf " ▪ %-55s %-65s %-15s\n" "Generating Device config for $device" "files/$demo/${device}.tgz"    "no-change"
           continue
@@ -63,6 +67,7 @@ for demo in $(ls -1 $FABRIC_HOME/demos | grep -v zip); do
       # Execute fabric demo dedicated configuration script for that device
       [ -x $DEMO_DEVICE_CONFIG/addons.sh ] && source $DEMO_DEVICE_CONFIG/addons.sh
 
+#[ "$device" == "debk3s_flannel_SNAT" ] && echo "BUILDDIR:$BUILDDIR" && exit
       # pack the file
       tar czf $DEVICE_CONFIG_FILE --exclude='._*' --exclude='._.*' -C $BUILDDIR .
       [ -d $STAGEDIR/config/1/DEBIAN ] && cp $DEVICE_CONFIG_FILE $STAGEDIR/config/1/DEBIAN

@@ -1,0 +1,232 @@
+#!/bin/bash
+#===============================================================================
+# SCRIPT NAME:    modules/debcli_postinst
+# DESCRIPTION:    Additions
+# AUTHOR:         Sacha Dubois, Fortinet
+# CREATED:        2025-03-14
+# VERSION:        1.0
+#===============================================================================
+# CHANGE LOG: 
+# 2025-03-15 sdubois Initial version
+# 2025-05-07 sdubois Added dependancy file
+#===============================================================================
+
+export INSTALL_CHROME=0
+export INSTALL_MARKTEXT=0
+export INSTALL_ANSIBLE=0
+export KUBECTL_CLIENT=0
+
+echo "############################### Start fortipoc/postinst ###############################"
+
+echo "=> Update Installed Packages"
+apt update -qq > /dev/null 2>&1; ret=$?
+[ $ret -ne 0 ] && echo "   ▪ Package update failed, check internet connection" && exit 1
+
+echo "=> Installing Additional Packages"
+for pkg in libnss3-tools mysql-client curl software-properties-common bat python3 python3-pip net-tools jq; do
+  apt install -y -qq "$pkg" > /tmp/${pkg}.log 2>&1; ret=$?  
+  if [ $ret -ne 0 ]; then  
+    echo "   ▪ Package installation of $pkg failed"
+    echo "---------------------------------------------------------------------------------------"
+    cat /tmp/${pkg}.log
+    echo "---------------------------------------------------------------------------------------"
+  else
+    echo "   ▪ Package installation of $pkg compleded"
+  fi
+done
+
+#################################################################################################
+##################################### ANSIBLE INSTALLATION ######################################
+#################################################################################################
+if [ $INSTALL_ANSIBLE -eq 1 ]; then
+  echo "=> Install Ansible"
+  apt-add-repository --yes --update ppa:ansible/ansible > /tmp/ansible_repo.log 2>&1; ret=$?
+  if [ $ret -ne 0 ]; then
+    echo "   ▪ Adding repository ppa:ansible/ansible failed"
+    echo "---------------------------------------------------------------------------------------"
+    cat /tmp/ansible_repo.log
+    echo "---------------------------------------------------------------------------------------"
+  else
+    echo "   ▪ Adding repository ppa:ansible/ansible completed"
+  fi
+
+  apt update -qq > /dev/null 2>&1; ret=$?
+  if [ $ret -ne 0 ]; then
+     echo "   ▪ Package update failed, check internet connection"
+  else
+     echo "   ▪ Package update completed"
+  fi
+
+  for pkg in ansible; do
+    apt install -y -qq "$pkg" > /tmp/${pkg}.log 2>&1; ret=$?
+    if [ $ret -ne 0 ]; then
+      echo "   ▪ Package installation of $pkg failed"
+      echo "---------------------------------------------------------------------------------------"
+      cat /tmp/${pkg}.log
+      echo "---------------------------------------------------------------------------------------"
+    else
+      echo "   ▪ Package installation of $pkg compleded"
+    fi
+  done
+fi
+
+#################################################################################################
+#################################### MARKTEXT INSTALLATION ######################################
+#################################################################################################
+if [ $INSTALL_MARKTEXT -eq 1 ]; then
+  echo "=> Install MarkText"
+  wget -q https://github.com/marktext/marktext/releases/latest/download/marktext-amd64.deb > /tmp/marktext_repo.log 2>&1; ret=$?
+  if [ $ret -ne 0 ]; then
+    echo "   ▪ Downloading Debian Package dependancy (marktext-amd64.deb) from GitHub failed"
+    echo "---------------------------------------------------------------------------------------"
+    cat /tmp/marktext_repo.log
+    echo "---------------------------------------------------------------------------------------"
+  else
+    echo "   ▪ Downloading Debian Package dependancy (marktext-amd64.deb) from GitHub completed"
+  fi
+
+  dpkg -i marktext-amd64.deb > /tmp/marktext.log 2>&1; ret=$?
+  if [ $ret -ne 0 ]; then 
+    echo "   ▪ Package installation of $pkg failed"
+    echo "---------------------------------------------------------------------------------------"
+    cat /tmp/marktext.log
+    echo "---------------------------------------------------------------------------------------"
+  else
+    echo "   ▪ Package installation of $pkg compleded"
+  fi
+fi
+
+#################################################################################################
+##################################### KUBECTL INSTALLATION ######################################
+#################################################################################################
+if [ $KUBECTL_CLIENT -eq 1 ]; then
+  echo "=> Install Kubectl Client"
+  mkdir -p /home/fortinet/.kube && chown fortinet:fortinet /home/fortinet/.kube
+  KUBECTL_VERSION=$(curl -sL https://dl.k8s.io/release/stable.txt)
+  curl -LO "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl" > /dev/null 2>&1
+  if [ ! -f kubectl ]; then 
+    echo "   ▪ kubectl $KUBECTL_VERSION installation failed"
+  else
+    chmod +x kubectl
+    mv kubectl /usr/local/bin/
+    echo "   ▪ kubectl $KUBECTL_VERSION installation compleded"
+  fi
+fi
+
+echo "=> Installing Phyton Libraries" 
+for pkg in rich; do
+  pip3 install "$pkg" > /tmp/${pkg}.log 2>&1; ret=$?
+  if [ $ret -ne 0 ]; then
+    echo "   ▪ Installation of Phyton Library $pkg failed"
+    echo "---------------------------------------------------------------------------------------"
+    cat /tmp/${pkg}.log
+    echo "---------------------------------------------------------------------------------------"
+  else
+    echo "   ▪ Installation of Phyton Library $pkg completed"
+  fi
+done
+
+echo "=> Create Log Directory (/var/log/fortinet)"
+mkdir -p /var/log/fortinet && chown fortinet:fortinet /var/log/fortinet
+
+echo "=> Change Script Permission"
+chown fortinet:fortinet /home/fortinet/bin/res
+chown fortinet:fortinet /home/fortinet/bin/xkb
+chmod a+x /home/fortinet/bin/res /home/fortinet/bin/xkb
+
+echo "=> Disable App Armor"
+systemctl stop apparmor > /dev/null 2>&1
+systemctl disable apparmor > /dev/null 2>&1
+
+#################################################################################################
+################################### GOOGLE CROME INSTALLATION ###################################
+#################################################################################################
+if [ $INSTALL_CHROME -eq 1 ]; then 
+  echo "=> Install Chrome Browser"
+  wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb > /tmp/google-chrome-stable.log 2>&1; ret=$?
+  if [ $ret -ne 0 ]; then
+    echo "   ▪ Downloading Debian Package dependancy (google-chrome-stable_current_amd64.deb) from GitHub failed"
+    echo "---------------------------------------------------------------------------------------"
+    cat /tmp/google-chrome-stable.log
+    echo "---------------------------------------------------------------------------------------"
+  else
+    echo "   ▪ Downloading Debian Package dependancy (google-chrome-stable_current_amd64.deb) from GitHub completed"
+  fi
+  
+  dpkg -i /google-chrome-stable_current_amd64.deb > /dev/null 2>&1
+  apt-get install -f > /dev/null 2>&1
+  apt install -qq /google-chrome-stable_current_amd64.deb > /tmp/chrome.log 2>&1; ret=$?
+  if [ $ret -ne 0 ]; then
+    echo "   ▪ Package installation of google-chrome-stable_current_amd64 failed"
+    echo "---------------------------------------------------------------------------------------"
+    cat /tmp/chrome.log
+    echo "---------------------------------------------------------------------------------------"
+  else
+    echo "   ▪ Package installation of google-chrome-stable_current_amd64 compleded"
+  fi
+  
+  echo "   ▪ Configure chrome startup options"
+  sed -i 's|Exec=/usr/bin/google-chrome|Exec=/usr/bin/google-chrome --no-default-browser-check|' /usr/share/applications/google-chrome.desktop
+  update-desktop-database /home/fortinet/.local/share/applications
+  mv /usr/bin/google-chrome /usr/bin/google-chrome.old
+  mv  /usr/bin/google-chrome-orig /usr/bin/google-chrome
+  chmod a+xr /usr/bin/google-chrome
+
+  echo "   ▪ Set Chrome as the default browser"
+  xdg-settings set default-web-browser google-chrome.desktop
+fi
+
+
+echo "=> Set correct permision and ownership"
+[ -d /home/fortinet ] && chown -R fortinet:fortinet /home/fortinet
+
+echo "=> Configure Password-Less SuDo"
+chown root:root /etc/sudoers.d /etc/sudoers.d/fortinet
+chmod 440 /etc/sudoers.d/fortinet
+
+#################################################################################################
+################################## SETUP DESKTOP AND KEYBOARD ###################################
+#################################################################################################
+echo "=> Configure Desktop"
+echo "   ▪ Remove the xscreensaver" && apt remove xscreensaver -y > /dev/null 2>&1
+
+echo "   ▪ Disable unattended-upgrades" 
+systemctl stop unattended-upgrades > /dev/null 2>&1
+systemctl disable unattended-upgrades > /dev/null 2>&1
+apt remove --purge unattended-upgrades -y > /dev/null 2>&1
+rm -rf /usr/libexec/lubuntu-update-notifier
+
+echo "   ▪ Restart Desktop (sddm)" 
+systemctl restart sddm > /dev/null 2>&1 && sleep 30
+
+echo "   ▪ Configuring Keyboard Mapping"
+echo "setxkbmap -layout ch -model macbook79 -rules evdev" > /home/fortinet/.xinitrc
+echo "keycode 20 = minus underscore"    >  /home/fortinet/.Xmodmap
+echo "keycode 60 = less greater"        >> /home/fortinet/.Xmodmap
+echo "keycode 42 = g G at"              >> /home/fortinet/.Xmodmap
+
+#echo "=> Create App Load Generator"
+#xdg-mime default load-generator-handler.desktop x-scheme-handler/load-generator
+#xdg-mime default loadgen.desktop x-scheme-handler/loadgen
+#xdg-mime query default x-scheme-handler/load-generator
+
+su - fortinet -c "/home/fortinet/bin/res"
+su - fortinet -c "/home/fortinet/bin/xkb"
+
+echo "=> Create NSS DB"
+[ ! -d /home/fortinet/.pki/nssdb ] && mkdir -p /home/fortinet/.pki/nssdb
+echo "   ▪ Create NSSDB Password File"
+echo fortinet > /home/fortinet/.pki/pwfile
+
+[ ! -f /home/fortinet/.pki/nssdb/cert9.db ] && certutil -N -d sql:/home/fortinet/.pki/nssdb -f /home/fortinet/.pki/pwfile
+echo "   ▪ Register Fortinet CA Certificate"
+echo "     ---------------------------------------------------------------------------------------"
+certutil -d sql:/home/fortinet/.pki/nssdb -A -t "C,," -n "Fortidemo CA" -i  /home/fortinet/cert/fortidemo/ca.crt -f /home/fortinet/.pki/pwfile
+certutil -L -d sql:/home/fortinet/.pki/nssdb | sed -e 's/^/     /g' -e '/^    $/d' 
+echo "     ---------------------------------------------------------------------------------------"
+
+[ -d /home/fortinet/.pki ] && chown -R fortinet:fortinet /home/fortinet/.pki 
+[ -f /home/fortinet/certutil.log ] && chown -R fortinet:fortinet /home/fortinet/certutil.log
+
+echo "############################### Start fortipoc/postinst ###############################"
+
