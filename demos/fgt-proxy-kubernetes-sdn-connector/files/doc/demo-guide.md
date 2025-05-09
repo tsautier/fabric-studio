@@ -11,9 +11,8 @@ This demo showcases the following actions:
 - Create a Firewall Proxy rule for the toolbox application 
 - Test egress traffic over the proxy from inide the toolsbox docker container
 
-# Forti-Studio - Demo Setup Guide
-The following guide explains how the setup a VNC connection from you local machine to the fabric-studio clinet (debcli) and admin (debadm). By using
-VNC allows to have a better keyboard mapping and screen resolution and overal increased performance.
+## Forti-Studio - Demo Setup Guide
+The following guide explains how the setup a VNC connection from you local machine to the fabric-studio clinet (debcli) and admin (debadm). By using VNC allows to have a better keyboard mapping and screen resolution and overal increased performance.
 
 See [Fabric Studio Setup Guide](fabric-studio-setup-guide.md)
 
