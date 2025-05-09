@@ -2,6 +2,21 @@
 
 This demo illustrates the use of FortiGate Explicit Proxy in conjunction with the Kubernetes SDN Connector to dynamically retrieve Kubernetes (K8s) resource objects—including Namespaces, Services, and Containers. These resources are used to define granular Web Proxy firewall policies that enforce egress traffic control for applications running in Kubernetes pods across multiple Namespaces.
 
+![demo](images/demo.jpg)
+
+This demo showcases the following actions:
+- Configuring the Security Fabric Kubernetes SDN Connector
+- Create an address object for the toolbox application running in the toolbox kubernetes namesace
+- Verify the settings of the pre configured Explicit Proxy
+- Create a Firewall Proxy rule for the toolbox application 
+- Test egress traffic over the proxy from inide the toolsbox docker container
+
+# Forti-Studio - Demo Setup Guide
+The following guide explains how the setup a VNC connection from you local machine to the fabric-studio clinet (debcli) and admin (debadm). By using
+VNC allows to have a better keyboard mapping and screen resolution and overal increased performance.
+
+See [Fabric Studio Setup Guide](fabric-studio-setup-guide.md)
+
 ## Kubernetes SDN Connector
 FortiOS automatically updates dynamic and cluster IP addresses for Kubernetes (K8s) by using a K8s SDN connector, enabling FortiOS to manage K8s pods as global address objects, as with other connectors. This includes mapping the following attributes from K8s instances to dynamic address groups in FortiOS.
 
