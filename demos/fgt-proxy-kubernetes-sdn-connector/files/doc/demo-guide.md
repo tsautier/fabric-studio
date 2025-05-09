@@ -28,11 +28,19 @@ Navigate to the 'Security Fabric' on the Menubar at the left and chose the subme
 The security token can optained be either open terminal window in the debcli desktop or connect to the )debcli) instance in Fabric Studio with SSH. Enter the following command to retrief the security token. The output shown here is only an example and will not work for the SDN connector.
 
 ```
-fortinet@debk3s:~$ kubectl get secret toolbox-sa-token -n toolbox -o jsonpath='{.data.token}' | base64 -d && echo
+fortinet@debcli:~$ kubectl get secret toolbox-sa-token -n toolbox -o jsonpath='{.data.token}' | base64 -d && echo
 eyJhbGciOiJSUzI1NiIsImtpZCI6Imw3UV80dkIxMXUzN1hjQ05JbEF4bmdOOXgzREEyd2ZVSWp0M0RSdjh6bzgifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ0b29sYm94Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6InRvb2xib3gtc2EtdG9rZW4iLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoidG9vbGJveC1zYSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6ImExYTdkYTMzLTAyZTktNDE4OC05ZmIyLTQyNjMyOTIxOWU5OCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp0b29sYm94OnRvb2xib3gtc2EifQ.JOVVPwjSsawUeHH7FkgqGJvcn-acsiqudeNOzKe25Mg0HPFEhAK3801Zex_X1-M7UW_7eYnATpT_QD0iFo9Kr3ZA7qsThfEJZtoR-GNgGvONr5FZGKu-GuzDZiASj2hLWSn6ejSvkJEB6_g0w2D3CMZlo4qVplarirjNhBmv4Op1XWyACuM2D92axU9y2zYsxhLiwguTw6wewj_CZSMFLuzDdLtsHLDj8WBezGKbX_TSU4JRtCKA3q5dUJOIqI60LmjBql94LEjpkP-4MvH8m4NAsRQv7sTuQoXpepZXbK77kbxJc2kYc0evhRbNhLyRAdRKI_KRG0Mfb2wiJ93rrA
 ```
 
 ![fgtsdn2](images/fgtsdn2.jpg)
+
+Enter the token into the 'Securoty Token' field in the FortiGate administration interface and press 'ok'. Click top right of the 'k3s' box to refresh and the status icon should turn to 'up' shortly. Leaf the mouse on the 'k3s' box (without clicking to it) and the and a new box with 'View Connecor Objects' botton appears (see picture below). 
+
+![fgtsdn3](images/fgtsdn3.jpg)
+
+Press it and a new window appears showing all Kubernetes Objects found and the Service Account defined is giving you access to.
+
+![fgtsdn4](images/fgtsdn4.jpg)
 
 ### Diabling Kubernetes SourceNAT (SNAT)
 Most Kubernetes clusters are configured with Source NAT (SNAT) for outbound container traffic. As a result, all egress connections appear with the source IP address of the node hosting the originating pod. This prevents network administrators from creating firewall rules based on individual applications or pods.  Similarly, while the Kubernetes SDN Connector can resolve Kubernetes objects such as Namespaces and Pods, it cannot associate them with the actual IP addresses seen in network traffic due to SNAT.
