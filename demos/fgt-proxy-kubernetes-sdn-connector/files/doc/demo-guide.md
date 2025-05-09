@@ -1,10 +1,16 @@
-#  Demo Guide - FortiGate Proxy Kubernetes SDN Connector
+# Demo Guide - FortiGate Proxy with Kubernetes SDN Connector
 
+This demo illustrates the use of FortiGate Explicit Proxy in conjunction with the Kubernetes SDN Connector to dynamically retrieve Kubernetes (K8s) resource objects—including Namespaces, Services, and Containers. These resources are used to define granular Web Proxy firewall policies that enforce egress traffic control for applications running in Kubernetes pods across multiple Namespaces.
+
+## Kubernetes SDN Connector
 FortiOS automatically updates dynamic and cluster IP addresses for Kubernetes (K8s) by using a K8s SDN connector, enabling FortiOS to manage K8s pods as global address objects, as with other connectors. This includes mapping the following attributes from K8s instances to dynamic address groups in FortiOS.
 
-![R13S06](https://raw.githubusercontent.com/pivotal-sadubois/fabric-studio/main/demos/fgt-proxy-kubernetes-sdn-connector/files/doc/connector.png)
-gagag
 ![R13S06](images/connector.png)
+
+## Diabling Kubernetes SourceNAT (SNAT)
+Most Kubernetes clusters are configured with Source NAT (SNAT) for outbound container traffic. As a result, all egress connections appear with the source IP address of the node hosting the originating pod. This prevents network administrators from creating firewall rules based on individual applications or pods.
+
+Similarly, while the Kubernetes SDN Connector can resolve Kubernetes objects such as Namespaces and Pods, it cannot associate them with the actual IP addresses seen in network traffic due to SNAT.
 
 ## Configure the Kubernetes SDN Connector
 
