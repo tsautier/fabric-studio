@@ -18,7 +18,13 @@ The following guide explains how the setup a VNC connection from you local machi
 ### Condigure FortiGate Explicit Web Proxy
 Explicit web proxy can be configured on FortiGate for proxying HTTP and HTTPS traffic. Within this demo, we want do showcase that dockerized application running in kubernetes can be directed to pass egress traffic over a proxy (FortiGate) where the source application can be identified and denied or allowrd with the help of the Kubernetes SDN Connector. See [FortiGate Explicit Web Proxy](https://docs.fortinet.com/document/fortigate/7.6.2/administration-guide/300428/explicit-web-proxy)
 
-### Kubernetes SDN Connector
+### Diabling Kubernetes SourceNAT (SNAT) 
+Most Kubernetes clusters are configured with Source NAT (SNAT) for outbound container traffic. As a result, all egress connections appear with the source IP address of the node hosting the originating pod. This prevents network administrators from creating firewall rules based on individual applications or pods.  Similarly, while the Kubernetes SDN Connector can resolve Kubernetes objects such as Namespaces and Pods, it cannot associate them with the actual IP addresses seen in network traffic due to SNAT.
+
+![R01S09](images/R01S09.jpg)
+
+
+### Review the Kubernetes SDN Connector
 FortiOS automatically updates dynamic and cluster IP addresses for Kubernetes (K8s) by using a K8s SDN connector, enabling FortiOS to manage K8s pods as global address objects, as with other connectors. This includes mapping the following attributes from K8s instances to dynamic address groups in FortiOS.  See [Kubernetes (K8s) SDN connectors](https://docs.fortinet.com/document/fortigate/7.6.0/administration-guide/726316/kubernetes-k8s-sdn-connectors)
 
 To access the FortiGate Web Interface, navigate in Fabric Studio to the FortiGate appliance and select Access -> HTTPS. Login as user 'admin' and the Fabric Demo Passwotd.
