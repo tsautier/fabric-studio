@@ -47,3 +47,6 @@ This ensures that the client receives the correct certificate, allowing the hand
 ![layout](https://raw.githubusercontent.com/pivotal-sadubois/fabric-studio/main/demos/fortinet-sni-based-cert-selection/images/layout.png)
 
 
+
+
+
