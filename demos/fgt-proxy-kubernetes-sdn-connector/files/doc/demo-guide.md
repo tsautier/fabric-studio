@@ -11,10 +11,10 @@ This demo showcases the following actions:
 - Create a Firewall Proxy rule for the toolbox application 
 - Test egress traffic over the proxy from inide the toolsbox docker container
 
-## Forti-Studio - Demo Setup Guide
+## Fabric-Studio - Demo Preparation Guide
 The following guide explains how the setup a VNC connection from you local machine to the fabric-studio clinet (debcli) and admin (debadm). By using VNC allows to have a better keyboard mapping and screen resolution and overal increased performance.
 
-See [Fabric Studio Setup Guide](fabric-studio-setup-guide.md)
+See [Fabric Studio Setup Guide](fabric-studio-demo-setup-guide.md)
 
 ## Kubernetes SDN Connector
 FortiOS automatically updates dynamic and cluster IP addresses for Kubernetes (K8s) by using a K8s SDN connector, enabling FortiOS to manage K8s pods as global address objects, as with other connectors. This includes mapping the following attributes from K8s instances to dynamic address groups in FortiOS.
