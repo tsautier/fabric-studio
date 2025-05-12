@@ -1,8 +1,11 @@
-# Forti Studio - Demo Setup Guide
+# Fabric Studio - Demo Setup Guide
 The following guide explains how the setup a VNC connection from you local machine to the fabric-studio clinet (debcli) and admin (debadm). By using
 VNC allows to have a better keyboard mapping and screen resolution and overal increased performance.
 
-## Verify VNC Access Settings in Fabric Studio
+## VNC Configuration
+For this Fabric all Linux VM's are preconfigured with VNC access enabled and should be right away be available on your local workstation. However, the following commands help you to verify the configuration and to adjust it if neccesary.
+
+### Verify VNC Access Settings in Fabric Studio
 Open the CLI in the Fabric Studio and verify the VNC Access parametes for the 'Client' and 'Admin' debian systems.
 ```
 (fabric-studio) # model fabric vm access list 'FortiADC Deploy SLB with Ansible' 'Admin' --select type=VNC
@@ -24,7 +27,7 @@ console="vnc_public_allowed='yes' spice_public_allowed='yes' public_password='re
 ```
 Be aware that you need to redeploy your devices if you change the fabric access parameters. 
 
-##Verify VNC Access Settings on your workstation
+### Verify VNC Access Settings on your workstation
 If the Fabric Access Parameters for VNC are set correctly, the VNC ports should be available on your macbook. With the following command you can verify the available VNC ports. In the following example port 14001 and 14004 are available which are releated to your fabric deployment. In this scenario debcli (Debian Client) is available on 14001 and debadm Debian (Admin) is on 14004.
 ```
 macbook:~ $ for p in {14000..14005}; do nc -z portal.fabric-studio.fortidemo.ch $p; done
@@ -32,7 +35,7 @@ Connection to portal.fabric-studio.fortidemo.ch port 14001 [tcp/*] succeeded!
 Connection to portal.fabric-studio.fortidemo.ch port 14004 [tcp/*] succeeded!
 ```
 
-##Install TigerVNC
+### Install TigerVNC
 its highly recommended to installa TigerVNC (https://tigervnc.org/) on your MacBook as it brings the best keyboard mappings and compatiblity to apple devices. 
 
 ![tigervnc](images/tigervnc.jpg)
