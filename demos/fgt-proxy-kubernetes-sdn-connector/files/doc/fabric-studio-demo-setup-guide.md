@@ -2,6 +2,12 @@
 The following guide explains how the setup a VNC connection from you local machine to the fabric-studio clinet (debcli) and admin (debadm). By using
 VNC allows to have a better keyboard mapping and screen resolution and overal increased performance.
 
+## Debian Clients Display Setup
+There are currently two different configuraiton files available for debian clients fitting MacBook Pro 14" (debcli_MBP14_deCH) and 16" (debcli_MBP16_deCH) display resolutions. See the following guide that explaines how tp change them. 
+![config1](images/config1.jpg)
+
+![config2](images/config2.jpg)
+
 ## VNC Configuration
 For this Fabric all Linux VM's are preconfigured with VNC access enabled and should be right away be available on your local workstation. However, the following commands help you to verify the configuration and to adjust it if neccesary.
 
@@ -39,3 +45,5 @@ Connection to portal.fabric-studio.fortidemo.ch port 14004 [tcp/*] succeeded!
 its highly recommended to installa TigerVNC (https://tigervnc.org/) on your MacBook as it brings the best keyboard mappings and compatiblity to apple devices. 
 
 ![tigervnc](images/tigervnc.jpg)
+
+
