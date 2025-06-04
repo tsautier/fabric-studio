@@ -1,0 +1,3 @@
+ ▪ Ansible Galaxy
+    => ansible-galaxy collection list | grep fortinet.fortiadc 
+
