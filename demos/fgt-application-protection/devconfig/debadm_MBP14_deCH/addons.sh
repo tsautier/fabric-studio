@@ -11,7 +11,7 @@
 #===============================================================================
 
 # --- SOFTWARE INSTALLATION ---
-export KUBECTL_CLIENT=1
+export KUBECTL_CLIENT=0
 export INSTALL_CHROME=1
 export INSTALL_MARKTEXT=1
 export INSTALL_ANSIBLE=1
@@ -30,18 +30,18 @@ export APP_TOOLBOX_INGRESS=1
 
 # Generate Documentation link for Chrome Browser
 #echo "https://raw.githubusercontent.com/pivotal-sadubois/fabric-studio/main/demos/${demo}/README.md" > $BUILDDIR/url
-echo "file:///home/fortinet/html/index.html" > $BUILDDIR/url
+echo "file:///home/fortinet/html/debadm_index.html" > $BUILDDIR/url
 
 # Copy devcli postinstall template
 mkdir -p $BUILDDIR/fortipoc && cat $FABRIC_HOME/modules/debcli_postinst | sed \
   -e "s/INSTALL_CHROME=0/INSTALL_CHROME=$INSTALL_CHROME/g" \
   -e "s/INSTALL_MARKTEXT=0/INSTALL_MARKTEXT=$INSTALL_MARKTEXT/g" \
   -e "s/INSTALL_ANSIBLE=0/INSTALL_ANSIBLE=$INSTALL_ANSIBLE/g" \
-  -e "s/KUBECTL_CLIENT=0/KUBECTL_CLIENT=$KUBECTL_CLIENT/g" \                                                    
+  -e "s/KUBECTL_CLIENT=0/KUBECTL_CLIENT=$KUBECTL_CLIENT/g" \
   -e "s/DBEAVER_CE=0/DBEAVER_CE=$DBEAVER_CE/g"                                                                            >  $BUILDDIR/fortipoc/postinst
 
 # Copy Message of the Day
-[ -f $DEMOPATH/files/etc/motd ] && cp $DEMOPATH/files/etc/motd $BUILDDIR/etc/motd
+[ -f $DEMOPATH/files/etc/motd ] && mkdir -p $BUILDDIR/etc && cp $DEMOPATH/files/etc/motd $BUILDDIR/etc/motd
 
 if [ $KUBECTL_CLIENT -eq 1 ]; then
   echo " ▪ Veriy Kubernetes Deployment"                                                                                   >> $BUILDDIR/etc/motd
