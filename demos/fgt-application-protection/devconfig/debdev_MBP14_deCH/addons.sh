@@ -18,6 +18,7 @@ export INSTALL_ANSIBLE=0
 export DBEAVER_CE=1
 
 # --- APPLICATION SETTINGS ---
+export APP_DEMO_INGRESS=1
 export APP_ECHOSERVER_INGRESS=1
 export APP_EDB_INGRESS=0
 export APP_GLOBEX_INGRESS=0
@@ -27,6 +28,19 @@ export APP_TOOLBOX_INGRESS=1
 
 # Copy Certificate fikes
 [ -d $BUILDDIR/home/fortinet ] && cp -r $FABRIC_HOME/cert $BUILDDIR/home/fortinet
+[ -d $BUILDDIR/home/fortinet ] && cp $FABRIC_HOME/devsource/functions $BUILDDIR/home/fortinet
+
+# Copy Scripts
+[ $APP_DEMO_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-demo-ingress-fadc-nodeport-guided.sh  $BUILDDIR/home/fortinet/bin
+[ $APP_DEMO_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-demo-ingress-fadc-clusterip-guided.sh $BUILDDIR/home/fortinet/bin
+[ $APP_DEMO_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-demo-ingress-fadc-nodeport.sh         $BUILDDIR/home/fortinet/bin
+[ $APP_ECHOSERVER_INGRESS -eq 1 ] && cp $FABRIC_HOME/devsource/k3s/deploy-echoserver-ingress-traefik.sh         $BUILDDIR/home/fortinet/bin
+[ $APP_ECHOSERVER_INGRESS -eq 1 ] && cp $FABRIC_HOME/devsource/k3s/deploy-echoserver-ingress-fadc-nodeport.sh   $BUILDDIR/home/fortinet/bin
+[ $APP_EDB_INGRESS -eq 1 ]        && cp $FABRIC_HOME/devsource/k3s/deploy-edb-ingress.sh                        $BUILDDIR/home/fortinet/bin
+[ $APP_GLOBEX_INGRESS -eq 1 ]     && cp $FABRIC_HOME/devsource/k3s/deploy-globex-ingress.sh                     $BUILDDIR/home/fortinet/bin
+[ $APP_APEX_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-apex-ingress.sh                       $BUILDDIR/home/fortinet/bin
+[ $APP_ACME_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-acme-ingress.sh                       $BUILDDIR/home/fortinet/bin
+[ $APP_TOOLBOX_INGRESS -eq 1 ]    && cp $FABRIC_HOME/devsource/k3s/deploy-toolbox-ingress.sh                    $BUILDDIR/home/fortinet/bin
 
 # Generate Documentation link for Chrome Browser
 #echo "https://raw.githubusercontent.com/pivotal-sadubois/fabric-studio/main/demos/${demo}/README.md" > $BUILDDIR/url
