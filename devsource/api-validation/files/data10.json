@@ -1,0 +1,6 @@
+{
+  "firstName": "' OR '1'='1' /*",
+  "lastName": "Wildcard",
+  "email": "wildcard@sql.com"
+}
+

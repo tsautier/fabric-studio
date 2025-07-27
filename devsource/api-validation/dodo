@@ -1,0 +1,61 @@
+export EDB_APIKEY_USER="a3ZEqiT3KzAPiupVt0mwKx0fQaLL000b9t8L9THf"
+export EDB_APIKEY_ADMIN="VfqRm2TWyMri82HaMO20r2nrjtG1wLykUNg57HvP"
+
+
+fst="sacha"
+lst="dubois"
+eml="sss@example.com"
+
+curl -X GET https://edb.apps.fortidemo.net/api/employees?limit=2 \
+             -H "Content-Type: application/json"   \
+             -H "Accept: application/json" 2>/dev/null | sed 's/,}/}/' | jq -r
+
+echo "=> Insert"
+
+     curl -X POST https://edb.apps.fortidemo.net/api/employee \
+             -H "Content-Type: application/json"   \
+             -H "Accept: application/json" \
+             -d "{ \
+                   \"firstName\":\"sacha\", \
+                   \"lastName\":\"dubois\", \
+                   \"email\":\"sss@example.com\" \
+                 }" \
+             2>/dev/null | sed 's/,}/}/' | jq -r
+
+exit
+
+     curl -X POST https://edb.apps.fortidemo.net/api/employee \
+             -H "Content-Type: application/json"   \
+             -H "Accept: application/json" \
+             -d '{ \
+                   "firstName":"sacha", \
+                   "lastName":"dubois", \
+                   "email":"sss@example.com" \
+                 }' \
+             2>/dev/null | sed 's/,}/}/' | jq -r
+
+exit
+
+     curl -X POST https://edb.apps.fortidemo.net/api/employee \
+             -H "Content-Type: application/json"   \
+             -H "Accept: application/json" \
+             -d "{\"firstName\":\"sacha59871\",\"lastName\":\"dubois3331\",\"email\":\"sacha59871.Dubois5987@example.com\"}" \
+             2>/dev/null | sed 's/,}/}/' | jq -r
+
+exit
+     curl -X POST https://edb.apps.fortidemo.net/api/employee \
+             -H "api_key: $EDB_APIKEY_ADMIN=" \
+             -H "Content-Type: application/json"   \
+             -H "Accept: application/json" \
+             -d "{\"firstName\":\"sacha5987\",\"lastName\":\"dubois333\",\"email\":\"sacha5987.Dubois5987@example.com\"}" \
+             2>/dev/null | sed 's/,}/}/' | jq -r
+
+
+exit
+
+     curl -X POST https://edb.apps.fortidemo.net/api/employee \
+             -H "Content-Type: application/json"   \
+             -H "Accept: application/json" \
+             -d "{\"firstName\":\"sacha5987\",\"lastName\":\"dubois333\",\"email\":\"sacha5987.Dubois5987@example.com\"}" \
+             2>/dev/null | sed 's/,}/}/' | jq -r
+

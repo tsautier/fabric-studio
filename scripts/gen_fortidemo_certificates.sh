@@ -65,7 +65,7 @@ echo "Generate CA Signing Config"
 echo "- $CERTDIR/ca_signing.cnf"
 
 ################################################################################
-################ CREATE *.apps-int.fabric-studio.fortidemo.ch ##################
+###################### CREATE *.apps-int.fortidemo.net #########################
 ################################################################################
 CERTNAM=k3s-apps-internal
 
@@ -87,7 +87,7 @@ ST = Zurich
 L  = Zurich
 O  = Fabric-Studio
 OU = IT
-CN = *.apps-int.fabric-studio.fortidemo.ch
+CN = *.apps-int.fortidemo.net
 
 [ v3_req ]
 keyUsage = critical, digitalSignature, keyEncipherment
@@ -95,8 +95,8 @@ extendedKeyUsage = serverAuth
 subjectAltName = @alt_names
 
 [ alt_names ]
-DNS.1 = *.apps-int.fabric-studio.fortidemo.ch
-DNS.2 = apps-int.fabric-studio.fortidemo.ch
+DNS.1 = *.apps-int.fortidemo.net
+DNS.2 = apps-int.fortidemo.net
 EOF
 
 # generate the CSR
@@ -107,12 +107,201 @@ openssl x509 -req -in $CERTDIR/${CERTNAM}.csr -CA $CERTDIR/ca.crt -CAkey $CERTDI
     -CAcreateserial -out $CERTDIR/${CERTNAM}.crt -days 3650 -sha256 -extfile $CERTDIR/${CERTNAM}.cnf -extensions v3_req > /dev/null 2>&1
 
 echo
-echo "Certificates Generated for Domain (*.apps-int.fabric-studio.fortidemo.ch):"
+echo "Certificates Generated for Domain (*.apps-int.fortidemo.net):"
 echo " - $CERTDIR/${CERTNAM}.crt"
 echo " - $CERTDIR/${CERTNAM}.key"
 
 ################################################################################
-################## CREATE *.apps.fabric-studio.fortidemo.ch ####################
+###################### CREATE echoserver.apps-adc.fortidemo.net #########################
+################################################################################
+CERTNAM=k3s-apps-adc-echoserver
+
+# Create a Private Key for the Server
+openssl genpkey -algorithm RSA -out $CERTDIR/${CERTNAM}.key -pkeyopt rsa_keygen_bits:2048 > /dev/null 2>&1
+
+# Create a configuration file (server_cert.cnf) to include the Subject Alternative Name (SAN):
+cat > $CERTDIR/${CERTNAM}.cnf <<EOF
+[ req ]
+default_bits       = 2048
+prompt            = no
+default_md        = sha256
+distinguished_name = req_distinguished_name
+req_extensions     = v3_req
+
+[ req_distinguished_name ]
+C  = CH
+ST = Zurich
+L  = Zurich
+O  = Fabric-Studio
+OU = IT
+CN = echoserver.apps-adc.fortidemo.net
+
+[ v3_req ]
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = echoserver.apps-adc.fortidemo.net
+DNS.2 = echoserver.apps-adc.fortidemo.net
+EOF
+
+# generate the CSR
+openssl req -new -key $CERTDIR/${CERTNAM}.key -out $CERTDIR/${CERTNAM}.csr -config $CERTDIR/${CERTNAM}.cnf
+
+# Sign the certificate:
+openssl x509 -req -in $CERTDIR/${CERTNAM}.csr -CA $CERTDIR/ca.crt -CAkey $CERTDIR/ca.key \
+    -CAcreateserial -out $CERTDIR/${CERTNAM}.crt -days 3650 -sha256 -extfile $CERTDIR/${CERTNAM}.cnf -extensions v3_req > /dev/null 2>&1
+
+echo
+echo "Certificates Generated for Domain (echosrver.apps-adc.fortidemo.net):"
+echo " - $CERTDIR/${CERTNAM}.crt"
+echo " - $CERTDIR/${CERTNAM}.key"
+
+################################################################################
+###################### CREATE toolbox.apps-adc.fortidemo.net #########################
+################################################################################
+CERTNAM=k3s-apps-adc-toolbox
+
+# Create a Private Key for the Server
+openssl genpkey -algorithm RSA -out $CERTDIR/${CERTNAM}.key -pkeyopt rsa_keygen_bits:2048 > /dev/null 2>&1
+
+# Create a configuration file (server_cert.cnf) to include the Subject Alternative Name (SAN):
+cat > $CERTDIR/${CERTNAM}.cnf <<EOF
+[ req ]
+default_bits       = 2048
+prompt            = no
+default_md        = sha256
+distinguished_name = req_distinguished_name
+req_extensions     = v3_req
+
+[ req_distinguished_name ]
+C  = CH
+ST = Zurich
+L  = Zurich
+O  = Fabric-Studio
+OU = IT
+CN = toolbox.apps-adc.fortidemo.net
+
+[ v3_req ]
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = toolbox.apps-adc.fortidemo.net
+DNS.2 = toolbox.apps-adc.fortidemo.net
+EOF
+
+# generate the CSR
+openssl req -new -key $CERTDIR/${CERTNAM}.key -out $CERTDIR/${CERTNAM}.csr -config $CERTDIR/${CERTNAM}.cnf
+
+# Sign the certificate:
+openssl x509 -req -in $CERTDIR/${CERTNAM}.csr -CA $CERTDIR/ca.crt -CAkey $CERTDIR/ca.key \
+    -CAcreateserial -out $CERTDIR/${CERTNAM}.crt -days 3650 -sha256 -extfile $CERTDIR/${CERTNAM}.cnf -extensions v3_req > /dev/null 2>&1
+
+echo
+echo "Certificates Generated for Domain (toolbox.apps-adc.fortidemo.net):"
+echo " - $CERTDIR/${CERTNAM}.crt"
+echo " - $CERTDIR/${CERTNAM}.key"
+
+################################################################################
+###################### CREATE fadcdemo.apps-adc.fortidemo.net #########################
+################################################################################
+CERTNAM=k3s-apps-adc-fadcdemo
+
+# Create a Private Key for the Server
+openssl genpkey -algorithm RSA -out $CERTDIR/${CERTNAM}.key -pkeyopt rsa_keygen_bits:2048 > /dev/null 2>&1
+
+# Create a configuration file (server_cert.cnf) to include the Subject Alternative Name (SAN):
+cat > $CERTDIR/${CERTNAM}.cnf <<EOF
+[ req ]
+default_bits       = 2048
+prompt            = no
+default_md        = sha256
+distinguished_name = req_distinguished_name
+req_extensions     = v3_req
+
+[ req_distinguished_name ]
+C  = CH
+ST = Zurich
+L  = Zurich
+O  = Fabric-Studio
+OU = IT
+CN = fadcdemo.apps-adc.fortidemo.net
+
+[ v3_req ]
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = fadcdemo.apps-adc.fortidemo.net
+DNS.2 = fadcdemo.apps-adc.fortidemo.net
+EOF
+
+# generate the CSR
+openssl req -new -key $CERTDIR/${CERTNAM}.key -out $CERTDIR/${CERTNAM}.csr -config $CERTDIR/${CERTNAM}.cnf
+
+# Sign the certificate:
+openssl x509 -req -in $CERTDIR/${CERTNAM}.csr -CA $CERTDIR/ca.crt -CAkey $CERTDIR/ca.key \
+    -CAcreateserial -out $CERTDIR/${CERTNAM}.crt -days 3650 -sha256 -extfile $CERTDIR/${CERTNAM}.cnf -extensions v3_req > /dev/null 2>&1
+
+echo
+echo "Certificates Generated for Domain (fadcdemo.apps-adc.fortidemo.net):"
+echo " - $CERTDIR/${CERTNAM}.crt"
+echo " - $CERTDIR/${CERTNAM}.key"
+
+################################################################################
+###################### CREATE edb.apps-adc.fortidemo.net #########################
+################################################################################
+CERTNAM=k3s-apps-adc-edb
+
+# Create a Private Key for the Server
+openssl genpkey -algorithm RSA -out $CERTDIR/${CERTNAM}.key -pkeyopt rsa_keygen_bits:2048 > /dev/null 2>&1
+
+# Create a configuration file (server_cert.cnf) to include the Subject Alternative Name (SAN):
+cat > $CERTDIR/${CERTNAM}.cnf <<EOF
+[ req ]
+default_bits       = 2048
+prompt            = no
+default_md        = sha256
+distinguished_name = req_distinguished_name
+req_extensions     = v3_req
+
+[ req_distinguished_name ]
+C  = CH
+ST = Zurich
+L  = Zurich
+O  = Fabric-Studio
+OU = IT
+CN = edb.apps-adc.fortidemo.net
+
+[ v3_req ]
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = edb.apps-adc.fortidemo.net
+DNS.2 = edb.apps-adc.fortidemo.net
+EOF
+
+# generate the CSR
+openssl req -new -key $CERTDIR/${CERTNAM}.key -out $CERTDIR/${CERTNAM}.csr -config $CERTDIR/${CERTNAM}.cnf
+
+# Sign the certificate:
+openssl x509 -req -in $CERTDIR/${CERTNAM}.csr -CA $CERTDIR/ca.crt -CAkey $CERTDIR/ca.key \
+    -CAcreateserial -out $CERTDIR/${CERTNAM}.crt -days 3650 -sha256 -extfile $CERTDIR/${CERTNAM}.cnf -extensions v3_req > /dev/null 2>&1
+
+echo
+echo "Certificates Generated for Domain (edb.apps-adc.fortidemo.net):"
+echo " - $CERTDIR/${CERTNAM}.crt"
+echo " - $CERTDIR/${CERTNAM}.key"
+
+
+################################################################################
+########3############### CREATE *.apps.fortidemo.net #########3#################
 ################################################################################
 CERTNAM=k3s-apps-external
 
@@ -134,7 +323,7 @@ ST = Zurich
 L  = Zurich
 O  = Fabric-Studio
 OU = IT
-CN = *.apps-int.fabric-studio.fortidemo.ch
+CN = *.apps.fortidemo.net
 
 [ v3_req ]
 keyUsage = critical, digitalSignature, keyEncipherment
@@ -142,8 +331,8 @@ extendedKeyUsage = serverAuth
 subjectAltName = @alt_names
 
 [ alt_names ]
-DNS.1 = *.apps.fabric-studio.fortidemo.ch
-DNS.2 = apps.fabric-studio.fortidemo.ch
+DNS.1 = *.apps.fortidemo.net
+DNS.2 = apps.fortidemo.net
 EOF
 
 # generate the CSR
@@ -154,12 +343,12 @@ openssl x509 -req -in $CERTDIR/${CERTNAM}.csr -CA $CERTDIR/ca.crt -CAkey $CERTDI
     -CAcreateserial -out $CERTDIR/${CERTNAM}.crt -days 3650 -sha256 -extfile $CERTDIR/${CERTNAM}.cnf -extensions v3_req > /dev/null 2>&1
 
 echo
-echo "Certificates Generated for Domain (*.apps.fabric-studio.fortidemo.ch):"
+echo "Certificates Generated for Domain (*.apps.fortidemo.net):"
 echo " - $CERTDIR/${CERTNAM}.crt"
 echo " - $CERTDIR/${CERTNAM}.key"
 
 ################################################################################
-################## CREATE fortigate.fabric-studio.fortidemo.ch #################
+######################## CREATE fortigate.fortidemo.net ########################
 ################################################################################
 CERTNAM=fortigate
 
@@ -181,7 +370,7 @@ ST = Zurich
 L  = Zurich       
 O  = Fabric-Studio
 OU = IT
-CN = fortigate.fabric-studio.fortidemo.ch
+CN = fortigate.fortidemo.net
 
 [ v3_req ]
 keyUsage = critical, digitalSignature, keyEncipherment
@@ -189,8 +378,9 @@ extendedKeyUsage = serverAuth
 subjectAltName = @alt_names
 
 [ alt_names ]           
-DNS.1 = fortigate.fabric-studio.fortidemo.ch
-DNS.2 = proxy.fabric-studio.fortidemo.ch
+DNS.1 = fortigate.fortidemo.net
+DNS.2 = proxy.fortidemo.net
+DNS.2 = portal.fortidemo.net
 EOF
 
 # generate the CSR
@@ -201,7 +391,7 @@ openssl x509 -req -in $CERTDIR/${CERTNAM}.csr -CA $CERTDIR/ca.crt -CAkey $CERTDI
     -CAcreateserial -out $CERTDIR/${CERTNAM}.crt -days 3650 -sha256 -extfile $CERTDIR/${CERTNAM}.cnf -extensions v3_req > /dev/null 2>&1
 
 echo
-echo "Certificates Generated for Domain (fortigate.fabric-studio.fortidemo.ch):"
+echo "Certificates Generated for Domain (fortigate.fortidemo.net):"
 echo " - $CERTDIR/${CERTNAM}.crt"
 echo " - $CERTDIR/${CERTNAM}.key"
 

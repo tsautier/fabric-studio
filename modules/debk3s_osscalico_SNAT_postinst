@@ -21,29 +21,36 @@ export APP_ACME_INGRESS=0
 export APP_TOOLBOX_INGRESS=0
 export PROXY_DEFAULT_ROUTER=0
 
-echo "############################### Start fortipoc/postinst ###############################"
+echo "############# Start fortipoc/postinst (debk3s_osscalico_SNAT_postinst) ################"
 
 echo "=> Update Installed Packages"
 apt update -qq > /dev/null 2>&1; ret=$?
 [ $ret -ne 0 ] && echo "   ▪ Package update failed, check internet connection" && exit 1
 
 echo "=> Installing Additional Packages"
-for pkg in curl jq traceroute net-tools; do
-  apt install -y -qq "$pkg" > /tmp/${pkg}.log 2>&1; ret=$?
-  if [ $ret -ne 0 ]; then
-    echo "   ▪ Package installation of $pkg failed"
-    echo "---------------------------------------------------------------------------------------"
-    cat /tmp/${pkg}.log
-    echo "---------------------------------------------------------------------------------------"
-  else
-    echo "   ▪ Package installation of $pkg compleded"
-  fi
-done
+apt install curl net-tools traceroute jq -y -qq  > /dev/null 2>&1
+
+#for pkg in mysql-client net-tools curl traceroute; do
+#  dpkg -s "$pkg" &>/dev/null; ret=$?
+#  if [ $ret -ne 0 ]; then
+#    apt install -y -qq "$pkg" > /tmp/${pkg}.log 2>&1; ret=$?
+#    if [ $ret -ne 0 ]; then
+#      echo "   ▪ Package installation of $pkg failed"
+#      echo "---------------------------------------------------------------------------------------"
+#      cat /tmp/${pkg}.log
+#      echo "---------------------------------------------------------------------------------------"
+#    else
+#      echo "   ▪ Package installation of $pkg compleded"
+#    fi
+#  else
+#    echo "   ▪ Package $pkg is already installed"
+#  fi
+#done
 
 echo "=> Installing Helm"
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash > /dev/null 2>&1
 
-echo "=> Installing K3S Kubernetes"
+echo "=> Installing K3S Kubernetes debk3s_osscalico_SNAT_postinst"
 # https://docs.tigera.io/calico/latest/getting-started/kubernetes/k3s/quickstart
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="--tls-san 10.1.1.200 --flannel-backend=none --cluster-cidr=192.168.0.0/16 --disable-network-policy --disable=traefik" sh -
 sleep 10
@@ -124,3 +131,7 @@ fi
 
 # Changw Ownership and Permissions
 chown -R fortinet:fortinet /home/fortinet/cert /home/fortinet/fortidemoCA.crt
+
+echo "############### END fortipoc/postinst (debk3s_osscalico_SNAT_postinst) ################"
+
+

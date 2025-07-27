@@ -17,11 +17,11 @@ export APP_APEX_DOCKER=1
 export APP_ACME_DOCKER=1
 
 # Copy Scripts
-[ $APP_ECHOSERVER_DOCKER -eq 1 ] && cp $FABRIC_HOME/k3s/deploy-echoserver-docker.sh $BUILDDIR/home/fortinet/bin
-[ $APP_EDB_DOCKER -eq 1 ]        && cp $FABRIC_HOME/k3s/deploy-edb-docker.sh        $BUILDDIR/home/fortinet/bin
-[ $APP_GLOBEX_DOCKER -eq 1 ]     && cp $FABRIC_HOME/k3s/deploy-globex-docker.sh     $BUILDDIR/home/fortinet/bin
-[ $APP_APEX_DOCKER -eq 1 ]       && cp $FABRIC_HOME/k3s/deploy-apex-docker.sh       $BUILDDIR/home/fortinet/bin
-[ $APP_ACME_DOCKER -eq 1 ]       && cp $FABRIC_HOME/k3s/deploy-acme-docker.sh       $BUILDDIR/home/fortinet/bin
+[ $APP_ECHOSERVER_DOCKER -eq 1 ] && cp $FABRIC_HOME/devsource/k3s/deploy-echoserver-docker.sh $BUILDDIR/home/fortinet/bin
+[ $APP_EDB_DOCKER -eq 1 ]        && cp $FABRIC_HOME/devsource/k3s/deploy-edb-docker.sh        $BUILDDIR/home/fortinet/bin
+[ $APP_GLOBEX_DOCKER -eq 1 ]     && cp $FABRIC_HOME/devsource/k3s/deploy-globex-docker.sh     $BUILDDIR/home/fortinet/bin
+[ $APP_APEX_DOCKER -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-apex-docker.sh       $BUILDDIR/home/fortinet/bin
+[ $APP_ACME_DOCKER -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-acme-docker.sh       $BUILDDIR/home/fortinet/bin
 
 # Copy Certificate fikes
 [ -d $BUILDDIR/home/fortinet ] && cp -r $FABRIC_HOME/cert $BUILDDIR/home/fortinet

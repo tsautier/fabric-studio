@@ -22,12 +22,12 @@ export PROXY_DEFAULT_ROUTER=1
 [ -d $BUILDDIR/home/fortinet ] && cp -r $FABRIC_HOME/cert $BUILDDIR/home/fortinet
 
 # Copy Scripts
-[ $APP_ECHOSERVER_INGRESS -eq 1 ] && cp $FABRIC_HOME/k3s/deploy-echoserver-ingress.sh $BUILDDIR/home/fortinet/bin
-[ $APP_EDB_INGRESS -eq 1 ]        && cp $FABRIC_HOME/k3s/deploy-edb-ingress.sh        $BUILDDIR/home/fortinet/bin
-[ $APP_GLOBEX_INGRESS -eq 1 ]     && cp $FABRIC_HOME/k3s/deploy-globex-ingress.sh     $BUILDDIR/home/fortinet/bin
-[ $APP_APEX_INGRESS -eq 1 ]       && cp $FABRIC_HOME/k3s/deploy-apex-ingress.sh       $BUILDDIR/home/fortinet/bin
-[ $APP_ACME_INGRESS -eq 1 ]       && cp $FABRIC_HOME/k3s/deploy-acme-ingress.sh       $BUILDDIR/home/fortinet/bin
-[ $APP_TOOLBOX_INGRESS -eq 1 ]    && cp $FABRIC_HOME/k3s/deploy-toolbox-ingress.sh    $BUILDDIR/home/fortinet/bin
+[ $APP_ECHOSERVER_INGRESS -eq 1 ] && cp $FABRIC_HOME/devsource/k3s/deploy-echoserver-ingress.sh $BUILDDIR/home/fortinet/bin
+[ $APP_EDB_INGRESS -eq 1 ]        && cp $FABRIC_HOME/devsource/k3s/deploy-edb-ingress.sh        $BUILDDIR/home/fortinet/bin
+[ $APP_GLOBEX_INGRESS -eq 1 ]     && cp $FABRIC_HOME/devsource/k3s/deploy-globex-ingress.sh     $BUILDDIR/home/fortinet/bin
+[ $APP_APEX_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-apex-ingress.sh       $BUILDDIR/home/fortinet/bin
+[ $APP_ACME_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-acme-ingress.sh       $BUILDDIR/home/fortinet/bin
+[ $APP_TOOLBOX_INGRESS -eq 1 ]    && cp $FABRIC_HOME/devsource/k3s/deploy-toolbox-ingress.sh    $BUILDDIR/home/fortinet/bin
 
 # Copy Message of the Day
 [ -f $DEMOPATH/files/etc/motd ] && cp $DEMOPATH/files/etc/motd $BUILDDIR/etc/motd

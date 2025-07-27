@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" meta name="google" content="notranslate">
+    <title>FortiGate Explicit Proxy with Kubernetes SDN Connector</title>
+        <style>
+        body {
+            background-color: #FFFFFF; /* White background */
+            color: #1A1A1A; /* Dark foreground text */
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.2;
+            padding: 20px;
+        }
+
+        h2 {
+            font-weight: 600;
+            color: #000000; /* Dark heading */
+        }
+
+        a {
+            color: #003366; /* Darker link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        img {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #F5F5F5; /* Light grey for code blocks */
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #2A2A2A; /* Dark text inside code */
+        }
+    </style>
+</head>
+<body>
+    <h2>Content Routing with SNI Based Certificate Selection</h2>
+    <p>
+        The SNI Based Certificate Selection describes a scenario where multiple DNS domains are mapped to the same virtual IP of the FortiWeb.
+        The TCP Hello packet and Server Name Indication (SNI) are used to select the correct SSL/TLS certificate for each domain.
+    </p>
+
+    <img src="images/R13S06.jpg" alt="SNI Routing Diagram" style="width: 100%;" />
+
+    <p>
+        In this demo, we have three company websites — <strong>www.aspex.com</strong>, <strong>www.acme.com</strong>, and <strong>www.globex.com</strong> —
+        hosted on the same web server. All three domain names resolve to the same IP address and are protected by individual SSL/TLS certificates.
+    </p>
+
+    <ul>
+        <li><a href="https://www.globex.io" target="_blank">Globex Inc. (https://www.globex.io)</a></li>
+        <li><a href="https://www.apex.net" target="_blank">APEX Inc. (https://www.apex.net)</a></li>
+        <li><a href="https://www.acme.io" target="_blank">ACME Inc. (https://www.acme.io)</a></li>
+    </ul>
+</body>
+</html>

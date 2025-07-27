@@ -14,8 +14,5 @@ The following demos showcases some of the functionality of the FortiADC Applicat
 ##Application Protection and Secrurity with FortiWeb
 The following demos showcases some of the functionality of the FortiWeb Web application Firewall
 - [Content Routing with SNI Based Certificate Selection](demo-kubernetes-sdn-connector.md)
-- [Application Portal with the Agentless Application Gateway (AAG)](demo-kubernetes-sdn-connector.md)
-- [Dynamic Address objects with Kubernetes SDN Connector](demo-kubernetes-sdn-connector.md)
-- [Deploy a Server Load-Balancer (SLB) with Ansible](demo-kubernetes-sdn-connector.md)
-- [Using FortiADC as an Ingress Controller for Kubernetes](demo-kubernetes-sdn-connector.md)
+- [OpenAPI 3.x Schema Validation](demo-kubernetes-sdn-connector.md)
 

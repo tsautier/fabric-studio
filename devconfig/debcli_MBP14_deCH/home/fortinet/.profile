@@ -25,3 +25,6 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# certificate bundle for curl
+export CURL_CA_BUNDLE=/etc/ssl/certs/fortidemo-bundle.crt

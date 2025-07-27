@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<item id="projectExplorer">
+		<column name="Name" visible="true" order="0" width="132"/>
+		<column name="DataSource" visible="true" order="1" width="100"/>
+	</item>
+	<item id="ssh_hosts">
+		<column name="Order" visible="true" order="0" width="100"/>
+		<column name="Host" visible="true" order="1" width="100"/>
+		<column name="User" visible="true" order="2" width="100"/>
+		<column name="Authentication" visible="true" order="3" width="100"/>
+	</item>
+</items>

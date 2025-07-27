@@ -1,0 +1,63 @@
+#!/bin/bash
+#===============================================================================
+# SCRIPT NAME:    debwsx/fortipoc/postinst
+# DESCRIPTION:    Additions
+# AUTHOR:         Sacha Dubois, Fortinet
+# CREATED:        2025-03-14
+# VERSION:        1.0
+#===============================================================================
+# CHANGE LOG:
+# 2025-03-15 sdubois Initial version
+#===============================================================================
+export APP_ECHOSERVER_DOCKER=0
+export APP_EDB_DOCKER=0
+export APP_GLOBEX_DOCKER=0
+export APP_APEX_DOCKER=0
+export APP_ACME_DOCKER=0
+
+echo "######################### Start fortipoc/postinst (debwsX)) ###########################"
+
+echo "=> Update Installed Packages"
+apt update -qq > /dev/null 2>&1; ret=$?
+[ $ret -ne 0 ] && echo "   ▪ Package update failed, check internet connection" && exit 1
+
+e cho "=> Installing Additional Packages"
+apt install curl net-tools traceroute jq -y -qq  > /dev/null 2>&1
+
+#for pkg in curl jq traceroute net-tools; do
+#  dpkg -s "$pkg" &>/dev/null; ret=$?
+#  if [ $ret -ne 0 ]; then
+#    apt install -y -qq "$pkg" > /tmp/${pkg}.log 2>&1; ret=$?
+#    if [ $ret -ne 0 ]; then
+#      echo "   ▪ Package installation of $pkg failed"
+#      echo "---------------------------------------------------------------------------------------"
+#      cat /tmp/${pkg}.log
+#      echo "---------------------------------------------------------------------------------------"
+#    else
+#      echo "   ▪ Package installation of $pkg compleded"
+#    fi
+#  else
+#    echo "   ▪ Package $pkg is already installed"
+#  fi
+#done
+
+# Create Log Firectory
+mkdir -p /var/log/fortinet && chown fortinet:fortinet /var/log/fortinet
+
+# Set correct permision and ownership
+[ -d /home/fortinet ] && chown -R fortinet:fortinet /home/fortinet
+
+echo "=> Configure Password-Less SuDo"
+chown root:root /etc/sudoers.d /etc/sudoers.d/fortinet
+chmod 440 /etc/sudoers.d/fortinet
+
+sleep 60
+
+echo "=> Deploy Docker Applications"
+[ $APP_EDB_DOCKER -eq 1 ] &&  echo "   ▪ Deploy \$HOME/bin/deploy-edb-docker.sh" && su - fortinet -c "/home/fortinet/bin/deploy-edb-docker.sh"
+[ $APP_ECHOSERVER_DOCKER -eq 1 ] && echo "   ▪ Deploy \$HOME/bin/deploy-echoserver-docker.sh" && su - fortinet -c "/home/fortinet/bin/deploy-echoserver-docker.sh"
+[ $APP_GLOBEX_DOCKER -eq 1 ] && echo "   ▪ Deploy \$HOME/bin/deploy-globex-docker.sh" && su - fortinet -c "/home/fortinet/bin/deploy-globex-docker.sh"
+[ $APP_APEX_DOCKER -eq 1 ] && echo "   ▪ Deploy \$HOME/bin/deploy-apec-docker.sh" && su - fortinet -c "/home/fortinet/bin/deploy-apex-docker.sh"
+[ $APP_ACME_DOCKER -eq 1 ] && echo "   ▪ Deploy \$HOME/bin/deploy-acme-docker.sh" && su - fortinet -c "/home/fortinet/bin/deploy-acme-docker.sh"
+
+echo "########################## End fortipoc/postinst (debwsX)) ############################"

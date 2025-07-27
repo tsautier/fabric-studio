@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Run Script
+Exec=konsole --hold --geometry 1062x624+365-100 -e bash -c 'script="%u"; script="${script#runscript:}"; bash "$script"'
+Type=Application
+MimeType=x-scheme-handler/runscript;

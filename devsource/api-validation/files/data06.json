@@ -1,0 +1,5 @@
+{
+  "firstName": "'; EXEC xp_cmdshell('dir'); --",
+  "lastName": "Command",
+  "email": "cmd@inject.com"
+}

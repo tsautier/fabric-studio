@@ -1,0 +1,5 @@
+{
+  "firstName": "<svg/onload=alert('XSS')>",
+  "lastName": "Script",
+  "email": "svg@xss.com"
+}

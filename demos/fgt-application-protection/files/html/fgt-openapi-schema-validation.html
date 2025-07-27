@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" meta name="google" content="notranslate">
+    <title>OpenAPI Schema Validation with Machine Learning</title>
+        <style>
+        body {
+            background-color: #FFFFFF; /* White background */
+            color: #1A1A1A; /* Dark foreground text */
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.2;
+            padding: 20px;
+        }
+
+        h2 {
+            font-weight: 600;
+            color: #000000; /* Dark heading */
+        }
+
+        a {
+            color: #003366; /* Darker link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        img {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #F5F5F5; /* Light grey for code blocks */
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #2A2A2A; /* Dark text inside code */
+        }
+    </style>
+</head>
+<body>
+    <h2>OpenAPI Schema Validation with Machine Learning</h2>
+    <p>
+        FortiWeb’s OpenAPI validation feature allows you to upload an OpenAPI description file (in YAML or JSON format) that defines your API’s structure, endpoints, and data types.
+    </p>
+
+    <img src="images/OpenAPI.jpg" alt="SNI Routing Diagram" style="width: 100%;" />
+
+    <p>
+       The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to RESTful APIs, which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, you can understand and interact with the remote service with a minimal amount of implementation logic.
+    </p>
+    
+        <pre><code>
+curl -X GET https://edb.apps.fortidemo.net/api/employees?limit=2   \
+     -H "Content-Type: application/json"  \
+     -H "Accept: application/json" 2>/dev/null | jq -r 
+[
+  {
+    "id": 1,
+    "firstName": "Matthew",
+    "lastName": "Aguilar",
+    "email": "isampson@example.com"
+  },
+  {
+    "id": 2,
+    "firstName": "Breanna",
+    "lastName": "Aguirre",
+    "email": "sabrina30@example.org"
+  }
+]
+        </code></pre>
+
+         <a href="https://edb.apps.fortidemo.net/api/employees?limit=2" target="_blank">HTTP Query Parameter (https://$SERVER/api/employees?limit=2)</a>
+    
+    <pre><code>
+# Example API Call   
+curl -X GET "https://edb.apps.fortidemo.net/api/employees?limit=a"   \
+    -H "Content-Type: application/json"   \
+    -H "Accept: application/json" 2>/dev/null | sed 's/,}/}/' | jq -r
+{
+  "page_title": "Web Page Blocked!",
+  "display_message": "The page cannot be displayed. Please contact the administrator for additional information.",
+  "client_IP": "10.2.1.127",
+  "URL": "edb.apps-int.fortidemo.net/api/employees",
+  "attack_ID": "20000038",
+  "message_ID": "000000009976"
+}
+</code></pre>
+    
+             <a href="https://edb.apps.fortidemo.net/api/employees?limit=a" target="_blank">HTTP Query Parameter (https://$SERVER/api/employees?limit=a)</a>
+
+</body>
+</html>

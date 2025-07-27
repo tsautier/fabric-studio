@@ -1,0 +1,5 @@
+{
+  "firstName": "<script>alert('XSS')</script>",
+  "lastName": "Smith",
+  "email": "test@example.com"
+}

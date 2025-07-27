@@ -1,0 +1,59 @@
+2025-06-06 17:56:33.539 - DBeaver 25.1.0.202506011722 is starting
+2025-06-06 17:56:33.542 - OS: Linux 5.15.0-43-generic (amd64)
+2025-06-06 17:56:33.542 - Java version: 21.0.5 by Eclipse Adoptium (64bit)
+2025-06-06 17:56:33.543 - Install path: '/snap/dbeaver-ce/379/usr/share/dbeaver-ce'
+2025-06-06 17:56:33.543 - Instance path: 'file:/home/fortinet/snap/dbeaver-ce/379/.local/share/DBeaverData/workspace6/'
+2025-06-06 17:56:33.548 - Memory available 114Mb/1024Mb
+2025-06-06 17:56:33.553 - Create display
+2025-06-06 17:56:34.305 - Initialize desktop platform...
+2025-06-06 17:56:35.587 - BounceCastle bundle found. Use JCE provider BC
+> Start Core File Systems [org.eclipse.core.filesystem 1.11.100.v20241022-0806]
+> Start Core Resource Management [org.eclipse.core.resources 3.22.100.v20250206-1238]
+> Start Team Support Core [org.eclipse.team.core 3.10.600.v20250120-0641]
+> Start DBeaver UI Navigator [org.jkiss.dbeaver.ui.navigator 1.0.156.202506011722]
+2025-06-06 17:56:38.086 - Initialize base platform...
+2025-06-06 17:56:38.197 - Platform initialized (3892ms)
+2025-06-06 17:56:38.368 - Starting instance server at http://localhost:34321
+2025-06-06 17:56:38.772 - Run workbench
+> Start Eclipse e4 Workbench SWT [org.eclipse.e4.ui.workbench.swt 0.17.700.v20250123-0706]
+> Start Eclipse Application Services [org.eclipse.e4.core.services 2.5.100.v20250131-1039]
+> Start Eclipse UI Application Services [org.eclipse.e4.ui.services 1.6.500.v20250123-0754]
+> Start Eclipse e4 Progress View [org.eclipse.e4.ui.progress 0.4.700.v20241015-1729]
+> Start Eclipse Bindings Support [org.eclipse.e4.ui.bindings 0.14.500.v20241015-1729]
+> Start Eclipse e4 core commands [org.eclipse.e4.core.commands 1.1.500.v20241015-1729]
+> Start EMF XML/XMI Persistence [org.eclipse.emf.ecore.xmi 2.38.0.v20240721-0634]
+> Start Eclipse CSS SWT Theme Support [org.eclipse.e4.ui.css.swt.theme 0.14.500.v20250213-1508]
+> Start Eclipse e4 Workbench Add-ons [org.eclipse.e4.ui.workbench.addons.swt 1.5.600.v20241107-2150]
+> Start Eclipse e4 Workbench SWT Renderer [org.eclipse.e4.ui.workbench.renderers.swt 0.16.700.v20250212-1224]
+> Start Eclipse Dependency Injection Extensions [org.eclipse.e4.core.di.extensions 0.18.300.v20240413-1529]
+> Start Eclipse CSS SWT Support [org.eclipse.e4.ui.css.swt 0.15.500.v20241219-0802]
+> Start Eclipse SDK Themes [org.eclipse.ui.themes 1.2.2700.v20250122-1423]
+> Start Default Text Editor [org.eclipse.ui.editors 3.19.100.v20250205-1448]
+> Start Text Editor Framework [org.eclipse.ui.workbench.texteditor 3.19.100.v20250206-1224]
+> Start Equinox Java Authentication and Authorization Service (JAAS) [org.eclipse.equinox.security 1.4.500.v20250129-1350]
+> Start Internet Connection Management UI [org.eclipse.ui.net 1.5.400.v20240413-1529]
+> Start Internet Connection Management [org.eclipse.core.net 1.5.600.v20250124-0919]
+2025-06-06 17:56:47.473 - Configure workbench window
+> Start DBeaver SQL Model [org.jkiss.dbeaver.model.sql 1.0.146.202506011722]
+2025-06-06 17:56:48.046 - Total database drivers: 123 (123)
+> Start Help System Core [org.eclipse.help 3.10.400.v20240415-0528]
+2025-06-06 17:56:48.647 - Create actions
+2025-06-06 17:56:48.728 - Disable Eclipse action set 'org.eclipse.ui.edit.text.actionSet.annotationNavigation'
+2025-06-06 17:56:48.729 - Disable Eclipse action set 'org.eclipse.ui.WorkingSetActionSet'
+2025-06-06 17:56:48.730 - Disable Eclipse action set 'org.eclipse.ui.actionSet.openFiles'
+2025-06-06 17:56:48.730 - Create workbench actions
+2025-06-06 17:56:56.048 - Initialize workbench window
+2025-06-06 17:56:56.113 - Finish initialization
+> Start DBeaver UI Editors - Data [org.jkiss.dbeaver.ui.editors.data 1.0.156.202506011722]
+> Start DBeaver UI Editors - SQL [org.jkiss.dbeaver.ui.editors.sql 1.0.156.202506011722]
+> Start GEF Classic Draw2d [org.eclipse.draw2d 3.19.0.202502242203]
+> Start GEF Classic GEF (MVC) [org.eclipse.gef 3.21.0.202502242203]
+> Start DBeaver ERD UI [org.jkiss.dbeaver.erd.ui 3.0.116.202506011722]
+> Start DBeaver ERD Model [org.jkiss.dbeaver.erd.model 1.0.116.202506011722]
+> Start DBeaver Dashboard UI [org.jkiss.dbeaver.ui.dashboard 1.0.153.202506011722]
+> Start DBeaver Sample Database [org.jkiss.dbeaver.ui.config.sample 1.0.193.202506011722]
+2025-06-06 17:57:19.144 - Open [https://dbeaver.io/product/version.xml]
+2025-06-06 17:57:38.884 - Dispose navigator model
+2025-06-06 17:57:40.438 - DBeaver is stopping
+2025-06-06 17:57:40.457 - Stop instance server
+2025-06-06 17:57:41.480 - DBeaver shutdown completed

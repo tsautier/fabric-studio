@@ -1,0 +1,5 @@
+{
+  "firstName": "<a href='javascript:alert(\"XSS\")'>Click me</a>",
+  "lastName": "Clickjack",
+  "email": "click@jack.com"
+}

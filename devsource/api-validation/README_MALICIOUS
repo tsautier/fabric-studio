@@ -1,0 +1,61 @@
+Attack Types Covered:
+
+✅ XSS (Cross-Site Scripting)
+✅ SQL Injection
+✅ Command Injection
+✅ Clickjacking
+✅ Authentication Bypass
+
+
+[
+  {
+    "firstName": "<script>alert('XSS')</script>",
+    "lastName": "Smith",
+    "email": "test@example.com"
+  },
+  {
+    "firstName": "' OR '1'='1",
+    "lastName": "Hacker",
+    "email": "hacker@example.com"
+  },
+  {
+    "firstName": "Robert'); DROP TABLE users;--",
+    "lastName": "Little Bobby Tables",
+    "email": "drop@sqlinject.com"
+  },
+  {
+    "firstName": "admin' --",
+    "lastName": "Bypass",
+    "email": "bypass@example.com"
+  },
+  {
+    "firstName": "<img src=x onerror=alert('XSS')>",
+    "lastName": "Inject",
+    "email": "xss@attack.com"
+  },
+  {
+    "firstName": "'; EXEC xp_cmdshell('dir'); --",
+    "lastName": "Command",
+    "email": "cmd@inject.com"
+  },
+  {
+    "firstName": "<svg/onload=alert('XSS')>",
+    "lastName": "Script",
+    "email": "svg@xss.com"
+  },
+  {
+    "firstName": "' UNION SELECT username, password FROM users --",
+    "lastName": "UnionHack",
+    "email": "union@inject.com"
+  },
+  {
+    "firstName": "<a href='javascript:alert(\"XSS\")'>Click me</a>",
+    "lastName": "Clickjack",
+    "email": "click@jack.com"
+  },
+  {
+    "firstName": "' OR '1'='1' /*",
+    "lastName": "Wildcard",
+    "email": "wildcard@sql.com"
+  }
+]

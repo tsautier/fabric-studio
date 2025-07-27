@@ -10,24 +10,33 @@
 # 2025-03-15 sdubois Initial version
 #===============================================================================
 
+export PROXY_DEFAULT_ROUTER=1
+
+# --- APPLICATION SETTINGS ---
+export APP_DEMO_INGRESS=1
 export APP_ECHOSERVER_INGRESS=1
 export APP_EDB_INGRESS=1
-export APP_GLOBEX_INGRESS=1
-export APP_APEX_INGRESS=1
-export APP_ACME_INGRESS=1
-export APP_TOOLBOX_INGRESS=1
-export PROXY_DEFAULT_ROUTER=1
+export APP_GLOBEX_INGRESS=0
+export APP_APEX_INGRESS=0
+export APP_ACME_INGRESS=0
+export APP_TOOLBOX_INGRESS=1 
 
 # Copy Certificate files
 [ -d $BUILDDIR/home/fortinet ] && cp -r $FABRIC_HOME/cert $BUILDDIR/home/fortinet
+mkdir -p $BUILDDIR/home
+
+echo "APP_ECHOSERVER_INGRESS:$APP_ECHOSERVER_INGRESS" 1>&2
 
 # Copy Scripts
-[ $APP_ECHOSERVER_INGRESS -eq 1 ] && cp $FABRIC_HOME/k3s/deploy-echoserver-ingress.sh $BUILDDIR/home/fortinet/bin
-[ $APP_EDB_INGRESS -eq 1 ]        && cp $FABRIC_HOME/k3s/deploy-edb-ingress.sh        $BUILDDIR/home/fortinet/bin
-[ $APP_GLOBEX_INGRESS -eq 1 ]     && cp $FABRIC_HOME/k3s/deploy-globex-ingress.sh     $BUILDDIR/home/fortinet/bin
-[ $APP_APEX_INGRESS -eq 1 ]       && cp $FABRIC_HOME/k3s/deploy-apex-ingress.sh       $BUILDDIR/home/fortinet/bin
-[ $APP_ACME_INGRESS -eq 1 ]       && cp $FABRIC_HOME/k3s/deploy-acme-ingress.sh       $BUILDDIR/home/fortinet/bin
-[ $APP_TOOLBOX_INGRESS -eq 1 ]    && cp $FABRIC_HOME/k3s/deploy-toolbox-ingress.sh    $BUILDDIR/home/fortinet/bin
+[ $APP_DEMO_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-demo-ingress-fadc-nodeport-guided.sh $BUILDDIR/home/fortinet/bin
+[ $APP_DEMO_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-demo-ingress-fadc-nodeport.sh        $BUILDDIR/home/fortinet/bin
+[ $APP_ECHOSERVER_INGRESS -eq 1 ] && cp $FABRIC_HOME/devsource/k3s/deploy-echoserver-ingress-traefik.sh        $BUILDDIR/home/fortinet/bin
+[ $APP_ECHOSERVER_INGRESS -eq 1 ] && cp $FABRIC_HOME/devsource/k3s/deploy-echoserver-ingress-fadc-nodeport.sh  $BUILDDIR/home/fortinet/bin
+[ $APP_EDB_INGRESS -eq 1 ]        && cp $FABRIC_HOME/devsource/k3s/deploy-edb-ingress.sh                       $BUILDDIR/home/fortinet/bin
+[ $APP_GLOBEX_INGRESS -eq 1 ]     && cp $FABRIC_HOME/devsource/k3s/deploy-globex-ingress.sh                    $BUILDDIR/home/fortinet/bin
+[ $APP_APEX_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-apex-ingress.sh                      $BUILDDIR/home/fortinet/bin
+[ $APP_ACME_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-acme-ingress.sh                      $BUILDDIR/home/fortinet/bin
+[ $APP_TOOLBOX_INGRESS -eq 1 ]    && cp $FABRIC_HOME/devsource/k3s/deploy-toolbox-ingress.sh                   $BUILDDIR/home/fortinet/bin
 
 # Copy Message of the Day
 [ -f $DEMOPATH/files/etc/motd ] && cp $DEMOPATH/files/etc/motd $BUILDDIR/etc/motd
@@ -50,6 +59,10 @@ if [ $APP_ECHOSERVER_INGRESS -eq 1 -o $APP_EDB_INGRESS -eq 1 -o $APP_TOOLBOX_ING
   [ $APP_ACME_INGRESS -eq 1 ]       && echo "   => curl https://acme.apps-int.fortidemo.net $CACERT"                      >> $BUILDDIR/etc/motd
   [ $APP_TOOLBOX_INGRESS -eq 1 ]    && echo "   => curl https://toolbox.apps-int.fortidemo.net $CACERT"                   >> $BUILDDIR/etc/motd
   echo ""                                                                                                                 >> $BUILDDIR/etc/motd
+  echo " ▪ Test if application is reachable over the kubernetes FortiADC ingress"                                         >> $BUILDDIR/etc/motd
+  [ $APP_ECHOSERVER_INGRESS -eq 1 ] && echo "   => curl https://echoserver.apps-adc.fortidemo.net $CACERT"                >> $BUILDDIR/etc/motd
+  [ $APP_EDB_INGRESS -eq 1 ]        && echo "   => curl https://edb.apps-adc.fortidemo.net $CACERT"                       >> $BUILDDIR/etc/motd
+  [ $APP_TOOLBOX_INGRESS -eq 1 ]    && echo "   => curl https://toolbox.apps-adc.fortidemo.net $CACERT"                   >> $BUILDDIR/etc/motd
 fi
 
 [ -f $DEMOPATH/files/etc/motd_k3s ] && cat $DEMOPATH/files/etc/motd_k3s >> $BUILDDIR/etc/motd

@@ -1,0 +1,5 @@
+{
+  "firstName": "' UNION SELECT username, password FROM users --",
+  "lastName": "UnionHack",
+  "email": "union@inject.com"
+}

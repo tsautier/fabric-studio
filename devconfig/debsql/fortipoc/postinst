@@ -1,24 +1,62 @@
 #!/bin/bash
+#===============================================================================
+# SCRIPT NAME:    modules/debsql_postinst
+# DESCRIPTION:    Additions
+# AUTHOR:         Sacha Dubois, Fortinet
+# CREATED:        2025-03-14
+# VERSION:        1.0
+#===============================================================================
+# CHANGE LOG:
+# 2025-03-15 sdubois Initial version
+# 2025-05-07 sdubois Added dependancy file
+#===============================================================================
 
-echo "# Install Packages"
-apt update
-apt install mysql-client net-tools curl -y
+echo "=> Update Installed Packages"
+apt update -qq > /dev/null 2>&1; ret=$?
+[ $ret -ne 0 ] && echo "   ▪ Package update failed, check internet connection" && exit 1
+
+echo "=> Installing Additional Packages"
+apt install mysql-client curl net-tools jq -y -qq  > /dev/null 2>&1
+#for pkg in mysql-client net-tools curl; do
+#  dpkg -s "$pkg" &>/dev/null; ret=$? 
+#  if [ $ret -ne 0 ]; then
+#    apt install -y -qq "$pkg" > /tmp/${pkg}.log 2>&1; ret=$?
+#    if [ $ret -ne 0 ]; then
+#      echo "   ▪ Package installation of $pkg failed"
+#      echo "---------------------------------------------------------------------------------------"
+#      cat /tmp/${pkg}.log
+#      echo "---------------------------------------------------------------------------------------"
+#    else
+#      echo "   ▪ Package installation of $pkg compleded"
+#    fi
+#  else
+#    echo "   ▪ Package $pkg is already installed"
+#  fi
+#done
 
 # Set MySQL root password
 MYSQL_ROOT_PASSWORD="fortinet"
 ADMIN_PASSWORD="fortinet"
 
-# Install MySQL
-apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server
+echo "=> Install MySQL"
+pkg=mysql-server
+DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server > /tmp/${pkg}.log 2>&1; ret=$?
+if [ $ret -ne 0 ]; then
+  echo "   ▪ Package installation of $pkg failed"
+  echo "---------------------------------------------------------------------------------------"
+  cat /tmp/${pkg}.log
+  echo "---------------------------------------------------------------------------------------"
+else
+  echo "   ▪ Package installation of $pkg compleded"
+fi
 
-# Configure MySQL
+echo "   ▪ Configure MySQL"
 sed -i 's/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
-# Set root password
+echo "   ▪ Set root password"
 mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '${MYSQL_ROOT_PASSWORD}';"
 
-# Create admin user
+echo "   ▪ Create admin user"
 mysql -u root -p"${MYSQL_ROOT_PASSWORD}" <<EOF
 CREATE USER 'admin'@'%' IDENTIFIED BY '${ADMIN_PASSWORD}';
 GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
@@ -29,7 +67,7 @@ EOF
 # ufw allow 3306/tcp
 # ufw reload
 
-# Restart MySQL
+echo "   ▪ Restart MySQL"
 systemctl restart mysql
 
 echo "MySQL installation and configuration complete"

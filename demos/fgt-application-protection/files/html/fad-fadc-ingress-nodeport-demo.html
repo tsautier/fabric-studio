@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" meta name="google" content="notranslate">
+    <title>Deploy a NodePort based Ingress Controller for two Applicaitons</title>
+        <style>
+        body {
+            background-color: #FFFFFF; /* White background */
+            color: #1A1A1A; /* Dark foreground text */
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.2;
+            padding: 20px;
+        }
+
+        h2 {
+            font-weight: 600;
+            color: #000000; /* Dark heading */
+        }
+
+        a {
+            color: #003366; /* Darker link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        img {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #F5F5F5; /* Light grey for code blocks */
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #2A2A2A; /* Dark text inside code */
+        }
+    </style>
+</head>
+<body>
+    <h2>Deploy a NodePort based Ingress Controller for two Applicaitons</h2>
+    <p>
+        The following is an example of a simple-fanout Ingress implementation. In this example, the client can access service1 with the URL https://fadcdemo.apps-adc.fortidemo.net/info and access service2 with the
+URL https://fadcdemo.apps-adc.fortidemo.net/hello.
+        
+    <img src="images/R7S03.jpg" alt="SNI Routing Diagram" style="width: 100%;" />
+
+    <p>
+        Kubernetes Service (sise) defines a logical set of Pods with the label run=sise. Sise is a simple HTTP web server.
+Service (nginx-demo) defines a logical set of Pods with the label run=nginx-demo. Nginx is also a simple HTTP web server.
+Services are deployed under the namespace default.    </p>
+    <h2>FortiADC Ingress with NodePort and ClusterIP Demo</h2>
+    <a href="runscript:/home/fortinet/bin/deploy-demo-ingress-fadc-nodeport-guided.sh">▶ Run Script: deploy-demo-ingress-fadc-nodeport-guided.sh</a>
+    <a href="runscript:/home/fortinet/bin/deploy-demo-ingress-fadc-clusterip-guided.sh">▶ Run Script: deploy-demo-ingress-fadc-clusterip-guided.sh</a>
+    
+    <h4>Verify Ingress Service Paths</h4>
+    <a href="https://fadcdemo.apps-adc.fortidemo.net/info">>▶ https://fadcdemo.apps-adc.fortidemo.net/info</a><br>
+    <a href="https://fadcdemo.apps-adc.fortidemo.net/hello">>▶ https://fadcdemo.apps-adc.fortidemo.net/hello</a>
+</body>
+</html>

@@ -1,5 +1,3 @@
-2025/03/22-21:45:40.423 2043 Recovering log #19
-2025/03/22-21:45:40.423 2043 Level-0 table #21: started
-2025/03/22-21:45:40.431 2043 Level-0 table #21: 4627 bytes OK
-2025/03/22-21:45:40.450 2043 Delete type=0 #19
-2025/03/22-21:45:40.450 2043 Delete type=3 #17
+2025/06/08-18:26:54.463 dff Reusing MANIFEST /home/fortinet/.config/google-chrome/Default/shared_proto_db/MANIFEST-000001
+2025/06/08-18:26:54.464 dff Recovering log #3
+2025/06/08-18:26:54.481 dff Reusing old log /home/fortinet/.config/google-chrome/Default/shared_proto_db/000003.log 

@@ -1,3 +1,6 @@
 postinstall
 .DS_Store
 cert
+*.tgz
+*.zip
+firmware

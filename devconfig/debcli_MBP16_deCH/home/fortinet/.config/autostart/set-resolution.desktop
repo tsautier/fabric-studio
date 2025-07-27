@@ -1,6 +1,8 @@
 [Desktop Entry]
 Type=Application
-Exec=/home/fortinet/bin/res
+Exec=/home/fortinet/bin/res_mbp16
 Hidden=false
+NoDisplay=false
 X-GNOME-Autostart-enabled=true
-Name=Set Custom Resolution
+X-KDE-autostart-after=panel
+Name=Fix Display Resolution

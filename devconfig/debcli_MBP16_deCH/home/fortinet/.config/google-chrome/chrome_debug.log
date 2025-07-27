@@ -1,0 +1,888 @@
+[3576:3576:0608/182647.120111:VERBOSE1:chrome/common/media/cdm_registration.cc:232] Choosing hinted Widevine 4.10.2891.0 from /opt/google/chrome/WidevineCdm/_platform_specific/linux_x64/libwidevinecdm.so
+[1:1:0608/182647.120118:VERBOSE1:chrome/common/media/cdm_registration.cc:232] Choosing hinted Widevine 4.10.2891.0 from /opt/google/chrome/WidevineCdm/_platform_specific/linux_x64/libwidevinecdm.so
+[3576:3576:0608/182647.154031:INFO:third_party/webrtc/system_wrappers/source/cpu_info.cc:56] Available number of cores: 2
+[1:1:0608/182647.154064:INFO:third_party/webrtc/system_wrappers/source/cpu_info.cc:56] Available number of cores: 2
+[3576:3576:0608/182647.168794:VERBOSE1:content/zygote/zygote_main_linux.cc:201] ZygoteMain: initializing 0 fork delegates
+[1:1:0608/182647.171040:VERBOSE1:content/zygote/zygote_main_linux.cc:201] ZygoteMain: initializing 0 fork delegates
+[3619:3619:0608/182651.876133:VERBOSE1:media/gpu/vaapi/vaapi_wrapper.cc:1573] GetHandle(): Either VADisplayStateSingleton::PreSandboxInitialization() hasn't been called or that method failed to find a suitable render node
+[3619:3619:0608/182651.883867:WARNING:ui/gfx/linux/gpu_memory_buffer_support_x11.cc:49] dri3 extension not supported.
+[3623:1:0608/182652.367395:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3619:3619:0608/182652.769044:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: gpu-process.
+[3619:3619:0608/182652.777991:VERBOSE1:components/viz/service/main/viz_main_impl.cc:85] VizNullHypothesis is disabled (not a warning)
+[3644:1:0608/182653.754650:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3643:1:0608/182653.747830:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3644:1:0608/182656.426375:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044d980
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEB_PAGE
+[3644:1:0608/182656.427641:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[3644:1:0608/182656.428643:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[3673:1:0608/182716.342521:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3643:1:0608/182716.623375:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044d980
+  URL:                    
+  context_type:           WEBUI
+  effective extension id: (none)
+  effective context type: WEBUI
+[3643:1:0608/182716.625803:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[3643:1:0608/182716.631035:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[3643:1:0608/182717.199147:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/cr.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.202106:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/util.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.219424:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_ripple/cr_ripple_mixin.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.231237:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.233417:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.233560:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_toggle/cr_toggle.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.233756:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_toggle/cr_toggle.html.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.316908:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/icons.html.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.332452:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/cr_icon.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.333933:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_tooltip/cr_tooltip.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.334574:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.334780:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/policy/cr_tooltip_icon.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.335418:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/policy/cr_tooltip_icon.html.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.341453:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.341688:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/promise_resolver.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.343258:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.344271:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_ripple/cr_ripple.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.344426:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.370559:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.371220:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_shared_vars.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.384556:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.447330:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/cr_iconset.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.447695:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/static_types.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.463178:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.463618:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.463754:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/cr_icon.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.463934:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/iconset_map.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.466805:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/event_tracker.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.467038:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.467174:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_tooltip/cr_tooltip.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.467300:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_tooltip/cr_tooltip.html.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.543595:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.546869:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_shared_style_lit.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.547015:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_shared_vars.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.549625:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.551549:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.551695:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/event_tracker.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.551989:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.552249:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_ripple/cr_ripple.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.644357:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.644607:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.644805:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/iconset_map.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.644948:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/cr_iconset.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.645098:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/cr_iconset.html.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.645759:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.646332:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.646486:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_hidden_style_lit.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.647061:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.648131:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.648281:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_hidden_style_lit.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.648824:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.649765:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.649982:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_shared_vars.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.650123:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_hidden_style_lit.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.650339:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icons_lit.css.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182717.650871:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182718.354066:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182718.361951:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182718.363652:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3643:1:0608/182718.365373:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[3682:1:0608/182727.902027:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3695:1:0608/182755.111784:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3702:1:0608/182755.631240:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3708:1:0608/182756.318598:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3714:1:0608/182757.474988:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3720:1:0608/182758.703176:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3727:1:0608/182801.363990:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3735:1:0608/182803.823470:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3743:1:0608/182804.281541:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3750:1:0608/182806.960997:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3756:1:0608/182809.681062:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3763:1:0608/182812.695021:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3769:1:0608/182816.247985:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3775:1:0608/182820.649981:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3783:1:0608/182824.873416:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3789:1:0608/182824.933895:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3798:1:0608/182829.586632:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3806:1:0608/182834.540390:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3812:1:0608/182839.819529:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3818:1:0608/182842.355899:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3826:1:0608/182845.033146:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3832:1:0608/182845.104087:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3838:1:0608/182845.601128:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3818:1:0608/182845.633004:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044dd50
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEB_PAGE
+[3818:1:0608/182845.636506:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[3818:1:0608/182845.641447:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[3643:1:0608/182845.699440:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 0
+[3643:1:0608/182845.715047:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[3643:1:0608/182845.715351:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[3848:1:0608/182850.592710:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3854:1:0608/182853.247625:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3870:3870:0608/182953.245751:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[3870:3870:0608/182953.314802:ERROR:services/on_device_model/ml/gpu_blocklist.cc:120] Unable to get gpu adapter
+[3818:1:0608/183103.752854:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 0
+[3818:1:0608/183103.799206:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044dd50
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEB_PAGE
+[3818:1:0608/183103.799817:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[3818:1:0608/183103.802623:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[3818:1:0608/183103.823908:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[3818:1:0608/183103.824334:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[3913:1:0608/183104.974779:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3924:1:0608/183127.075974:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3933:1:0608/183347.466023:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3950:1:0608/183658.806790:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3963:1:0608/184409.024498:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3981:1:0608/185619.248233:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3996:1:0608/190737.847235:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3818:1:0608/190948.088288:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 0
+[3818:1:0608/190948.196871:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044dd50
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEB_PAGE
+[3818:1:0608/190948.207893:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[3818:1:0608/190948.220595:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[3818:1:0608/190948.242387:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[3818:1:0608/190948.243033:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4005:1:0608/190949.343576:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4016:1:0608/191204.189970:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4025:1:0608/191444.726089:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4039:1:0608/191756.312805:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4047:1:0608/191827.670930:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3818:1:0608/192006.595315:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 0
+[3818:1:0608/192006.672341:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044dd50
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEB_PAGE
+[3818:1:0608/192006.673041:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[3818:1:0608/192006.675134:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[3818:1:0608/192006.693551:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[3818:1:0608/192006.693938:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4061:1:0608/192007.854710:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4084:1:0608/192042.313810:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4095:1:0608/192247.697011:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4103:1:0608/192352.732282:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4112:1:0608/192754.153241:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3818:1:0608/193004.647922:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 0
+[3818:1:0608/193004.754328:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044dd50
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEB_PAGE
+[3818:1:0608/193004.763542:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[3818:1:0608/193004.770556:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[3818:1:0608/193004.814929:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[3818:1:0608/193004.821432:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4136:1:0608/193504.842502:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4146:1:0608/194714.679803:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4164:1:0608/200124.116842:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4146:1:0608/200124.428405:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044d980
+  URL:                    
+  context_type:           WEBUI
+  effective extension id: (none)
+  effective context type: WEBUI
+[4146:1:0608/200124.436401:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4146:1:0608/200124.441607:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[4146:1:0608/200124.575233:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/cr.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.598616:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/util.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.799766:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_ripple/cr_ripple_mixin.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.800115:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.800274:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.800405:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_toggle/cr_toggle.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.800647:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_toggle/cr_toggle.html.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.801507:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/icons.html.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.801650:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/cr_icon.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.801779:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_tooltip/cr_tooltip.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.801906:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.802033:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/policy/cr_tooltip_icon.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.802263:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/policy/cr_tooltip_icon.html.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.820224:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.820512:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/promise_resolver.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.821589:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.859532:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_ripple/cr_ripple.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.863386:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.902424:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.902683:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_shared_vars.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.903458:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.904912:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/cr_iconset.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.905104:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/static_types.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.906078:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.906343:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.906691:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/cr_icon.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.907255:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/iconset_map.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.909124:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/event_tracker.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.909345:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.909646:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_tooltip/cr_tooltip.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.910289:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_tooltip/cr_tooltip.html.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.928289:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.928777:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_shared_style_lit.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.928946:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_shared_vars.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.930887:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.979239:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.979992:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/event_tracker.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.980746:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.981941:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_ripple/cr_ripple.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.983382:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.983544:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.983672:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/iconset_map.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.983797:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/cr_iconset.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.983924:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icon/cr_iconset.html.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.984570:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.985214:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.985373:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_hidden_style_lit.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.986384:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.989794:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.990093:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_hidden_style_lit.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.991249:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.991413:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_shared_vars.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.992711:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_hidden_style_lit.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.992841:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_elements/cr_icons_lit.css.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200124.994321:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200125.014891:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200125.097781:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200125.102949:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200125.103850:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4146:1:0608/200125.104802:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4177:1:0608/200159.021885:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4146:1:0608/200159.365004:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 0
+[3818:1:0608/200159.369181:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c00556260
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEB_PAGE
+[3818:1:0608/200159.370560:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[3818:1:0608/200159.372055:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 2
+[4146:1:0608/200159.375950:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4146:1:0608/200159.376173:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4186:1:0608/200205.822951:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[3818:1:0608/200206.201340:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 1
+[3818:1:0608/200206.216171:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[3818:1:0608/200206.216954:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4177:1:0608/200206.264803:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044dd50
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEB_PAGE
+[4177:1:0608/200206.269845:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4177:1:0608/200206.271299:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[4177:1:0608/201530.868250:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 0
+[4177:1:0608/201531.001905:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044dd50
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEB_PAGE
+[4177:1:0608/201531.002876:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4177:1:0608/201531.004380:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[4177:1:0608/201531.011962:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4177:1:0608/201531.012272:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4177:1:0608/201536.123055:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 0
+[4177:1:0608/201536.215133:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044dd50
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEB_PAGE
+[4177:1:0608/201536.215958:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4177:1:0608/201536.216959:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[4177:1:0608/201536.224272:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4177:1:0608/201536.224573:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4226:1:0608/201655.042972:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4227:1:0608/201655.044479:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4227:1:0608/201655.862503:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044d980
+  URL:                    
+  context_type:           WEBUI
+  effective extension id: (none)
+  effective context type: WEBUI
+[4227:1:0608/201655.864577:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4227:1:0608/201655.871471:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[4227:1:0608/201656.811724:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c005250a8
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEBUI
+[4227:1:0608/201656.821102:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4227:1:0608/201656.821527:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 2
+[4227:1:0608/201656.881604:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/shared.rollup.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201656.923816:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201656.923979:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201656.924434:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_components/searchbox/searchbox.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201656.924703:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201656.924938:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201656.925087:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/cr.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201656.925212:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201656.925533:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/new_tab_page.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201656.925760:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201656.926131:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_components/color_change_listener/color_change_listener.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.330387:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.527345:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.527689:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.527820:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.527945:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.528095:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.528220:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.528374:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/new_tab_page.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.624208:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.624719:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_components/searchbox/omnibox.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.625042:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/string16.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.625306:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.625559:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/ui/gfx/geometry/mojom/geometry.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.625813:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.627053:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.627328:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-converters.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.627516:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time_converters.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.628442:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.628602:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/promise_resolver.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.634836:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.639924:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.640243:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/ntp_microsoft_auth_shared_ui.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.640376:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_components/most_visited/most_visited.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.640507:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/skia/public/mojom/skcolor.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.640677:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.642308:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.665025:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.671958:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.672203:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/big_buffer.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.673597:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.674980:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.676097:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.681806:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.684643:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.684979:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/text_direction.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.685122:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/skia/public/mojom/skcolor.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.685260:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.686936:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.692103:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201657.693957:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4243:1:0608/201658.867822:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4227:1:0608/201658.888395:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/shared.rollup.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201658.888936:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201658.889072:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201658.889210:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201658.889399:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/ntp_microsoft_auth_shared_ui.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201658.889570:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/microsoft_auth.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201658.889697:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/google_calendar.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201658.889821:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/outlook_calendar.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201658.889948:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/file_suggestion.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201658.890070:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/drive_suggestion.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201658.998246:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/microsoft_files.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.055023:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/most_relevant_tab_resumption.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.057355:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/url_visit_types.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.057510:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/text_direction.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.057642:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_components/most_visited/most_visited.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.057770:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_components/page_image_service/page_image_service.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.057920:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.058346:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/new_tab_page.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.058476:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.058601:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4226:1:0608/201659.090539:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044e5f0
+  URL:                    
+  context_type:           WEBUI_UNTRUSTED
+  effective extension id: (none)
+  effective context type: WEBUI_UNTRUSTED
+[4226:1:0608/201659.092634:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4226:1:0608/201659.099849:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[4227:1:0608/201659.224301:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.236054:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.236269:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/calendar_data.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.248618:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.248874:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/calendar_data.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.263768:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.264008:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.266829:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.267105:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/file_suggestion.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.268352:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.268520:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/file_suggestion.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.270284:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.270475:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/url_visit_types.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.271931:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.272986:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.273499:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.274346:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.274869:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.276007:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.276157:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201659.276291:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.465670:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c008ad0e8
+  URL:                    
+  context_type:           WEBUI
+  effective extension id: (none)
+  effective context type: WEBUI
+[4227:1:0608/201714.471110:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4227:1:0608/201714.493063:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 3
+[4227:1:0608/201714.700621:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0093f1d8
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEBUI
+[4227:1:0608/201714.706739:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4227:1:0608/201714.711869:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 4
+[4227:1:0608/201714.806475:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/shared.rollup.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.807604:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.807839:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.808090:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_components/searchbox/searchbox.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.808362:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.808570:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.808749:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/cr.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.808930:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.809185:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/new_tab_page.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.809360:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.809527:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_components/color_change_listener/color_change_listener.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.921724:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.922594:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.923149:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.923562:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.923699:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.923931:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.924258:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/new_tab_page.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.926060:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.933738:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.939556:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_components/searchbox/omnibox.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.939864:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/string16.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.940103:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.940573:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/ui/gfx/geometry/mojom/geometry.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201714.941607:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.007839:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.010660:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-converters.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.011032:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time_converters.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.011853:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.014443:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/promise_resolver.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.070610:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.072526:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.072792:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/ntp_microsoft_auth_shared_ui.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.073001:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_components/most_visited/most_visited.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.073530:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/skia/public/mojom/skcolor.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.074861:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.075679:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.127861:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.129501:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.138969:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/big_buffer.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.142916:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.144414:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.147399:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.158476:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.162714:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.170663:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/text_direction.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.171291:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/skia/public/mojom/skcolor.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.171643:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.173697:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.205608:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.210609:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.785992:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/shared.rollup.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.790583:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.791372:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.791506:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.791634:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/ntp_microsoft_auth_shared_ui.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.791760:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/microsoft_auth.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.791883:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/google_calendar.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.792006:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/outlook_calendar.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.793193:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/file_suggestion.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.793325:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/drive_suggestion.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.793451:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/microsoft_files.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.793596:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/most_relevant_tab_resumption.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.793722:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/url_visit_types.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.793849:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/text_direction.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.793992:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_components/most_visited/most_visited.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.794120:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/cr_components/page_image_service/page_image_service.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.797309:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.798416:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/new_tab_page.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.798561:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.798709:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.907127:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.907946:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/calendar_data.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.909252:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.911113:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.911325:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/calendar_data.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.912412:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.912604:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.916085:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.916315:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/file_suggestion.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.917495:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.917659:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/file_suggestion.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.945089:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.945580:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://new-tab-page/url_visit_types.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.946581:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.946996:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.947143:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.961457:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.963662:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.970449:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.970984:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/mojom/base/time.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4227:1:0608/201715.971300:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/url/mojom/url.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4226:1:0608/201716.070925:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c005ae370
+  URL:                    
+  context_type:           WEBUI_UNTRUSTED
+  effective extension id: (none)
+  effective context type: WEBUI_UNTRUSTED
+[4226:1:0608/201716.073831:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4226:1:0608/201716.099331:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 2
+[4226:1:0608/201723.449378:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 1
+[4227:1:0608/201723.456934:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 3
+[4227:1:0608/201723.474004:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4227:1:0608/201723.480195:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4226:1:0608/201723.517112:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4226:1:0608/201723.517652:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4227:1:0608/201723.545493:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 2
+[4227:1:0608/201723.550576:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4227:1:0608/201723.550835:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4278:1:0608/201737.481810:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: utility.
+[4285:1:0608/201745.023664:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4293:1:0608/201745.624337:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4227:1:0608/201745.705327:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 1
+[4226:1:0608/201745.718850:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 0
+[4227:1:0608/201745.722518:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 0
+[4226:1:0608/201745.729861:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4227:1:0608/201745.729589:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4226:1:0608/201745.730114:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4227:1:0608/201745.730343:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4227:1:0608/201745.735288:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4227:1:0608/201745.735536:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4285:1:0608/201745.742744:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044dd50
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEB_PAGE
+[4285:1:0608/201745.747092:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4285:1:0608/201745.748049:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[4302:1:0608/201755.847515:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4285:1:0608/201756.005288:VERBOSE1:extensions/renderer/dispatcher.cc:746] Num tracked contexts: 0
+[4285:1:0608/201756.022328:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4285:1:0608/201756.022974:VERBOSE1:extensions/renderer/script_context.cc:163] Destroyed context for extension
+  extension id: 
+  effective extension id: 
+[4293:1:0608/201756.078826:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044dd50
+  URL:                    
+  context_type:           WEB_PAGE
+  effective extension id: (none)
+  effective context type: WEB_PAGE
+[4293:1:0608/201756.100030:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4293:1:0608/201756.109857:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[4302:1:0608/202948.381559:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044d980
+  URL:                    
+  context_type:           WEBUI
+  effective extension id: (none)
+  effective context type: WEBUI
+[4302:1:0608/202948.384060:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4302:1:0608/202948.387695:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[4302:1:0608/202948.641193:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.646905:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://tab-search.top-chrome/shared.rollup.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.647509:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://tab-search.top-chrome/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.650588:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.650826:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/cr.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.651008:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.666303:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.675467:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://tab-search.top-chrome/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.675743:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.675872:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.675997:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.677369:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.678442:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4302:1:0608/202948.678648:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/promise_resolver.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/202950.178517:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4325:1:0608/203025.621432:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044d980
+  URL:                    
+  context_type:           WEBUI
+  effective extension id: (none)
+  effective context type: WEBUI
+[4325:1:0608/203025.622963:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4325:1:0608/203025.624382:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[4325:1:0608/203025.681534:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.682307:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://tab-search.top-chrome/shared.rollup.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.682584:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://tab-search.top-chrome/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.682932:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.683159:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/cr.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.683370:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.697984:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.699455:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.700739:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.700972:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/promise_resolver.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.716171:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://tab-search.top-chrome/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.716579:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.716784:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4325:1:0608/203025.716983:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203027.617167:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4350:1:0608/203649.027662:VERBOSE1:sandbox/policy/linux/sandbox_linux.cc:88] Activated seccomp-bpf sandbox for process type: renderer.
+[4336:1:0608/203649.480385:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  0x18c0044d980
+  URL:                    
+  context_type:           WEBUI
+  effective extension id: (none)
+  effective context type: WEBUI
+[4336:1:0608/203649.487663:VERBOSE1:extensions/renderer/script_context.cc:150] Created context:
+  extension id:           (none)
+  frame:                  (nil)
+  URL:                    
+  context_type:           UNSPECIFIED
+  effective extension id: (none)
+  effective context type: UNSPECIFIED
+[4336:1:0608/203649.492549:VERBOSE1:extensions/renderer/dispatcher.cc:566] Num tracked contexts: 1
+[4336:1:0608/203649.753180:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://settings/shared.rollup.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203649.753609:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203649.753749:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/cr.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203649.753901:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203649.754067:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203649.754343:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://settings/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203649.754512:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203649.785690:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203649.785978:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/promise_resolver.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203649.831970:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/assert.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203650.076888:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203650.078314:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203650.078674:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/cr.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203650.078938:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203650.079161:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://settings/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203650.079442:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203650.103606:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203652.311365:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://settings/shared.rollup.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203652.316780:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203652.317147:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://settings/strings.m.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203652.317386:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/load_time_data.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203652.317649:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/lit/v3_0/lit.rollup.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203652.317869:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/js/cr.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203652.318092:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203652.318413:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/skia/public/mojom/skcolor.mojom-webui.js\" skips prefix match because of non-special URL scheme"
+[4336:1:0608/203652.626577:VERBOSE1:third_party/blink/renderer/core/script/modulator_impl_base.cc:139] "Import Map: \"chrome://resources/mojo/mojo/public/js/bindings.js\" skips prefix match because of non-special URL scheme"

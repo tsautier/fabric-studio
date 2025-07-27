@@ -1,0 +1,88 @@
+# kubectl apply -f security.yaml
+# https://docs.tigera.io/calico-cloud/network-policy/policy-firewalls/fortinet-integration/firewall-integration
+
+kubectl create namespace tigera-firewall-controller
+
+cat > tigera-network-policy.yaml <<EOF
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: default.production-microservice1
+spec:
+  selector: "app == 'toolbox'"
+  types:
+    - Egress
+  egress:
+    - action: Allow
+EOF
+kubectl apply -f tigera-network-policy.yaml 
+
+cat > tigera-firewall-config.yaml <<EOF
+# Configuration of Tigera Firewall Controller
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: tigera-firewall-controller-configs
+  namespace: tigera-firewall-controller
+data:
+  # FortiGate device information
+  tigera.firewall.fortigate: |
+    - name: prod-east1
+      ip: 10.1.1.1
+      apikey:
+        secretKeyRef:
+          name: fortigate
+          key: 9pwsythxqqgsk3qg0N9sgb3G3s50N6
+  tigera.firewall.fortimgr: |
+    - name: fortimgr
+      ip: 10.1.1.2
+      username: tigera
+      adom: root
+      password:
+        secretKeyRef:
+          name: fortimgr
+          key: F0rt!net
+EOF
+
+kubectl apply -f tigera-firewall-config.yaml
+
+#kubectl create secret generic fortigate \
+#-n tigera-firewall-controller \
+#--from-literal=apikey-fortigate="9pwsythxqqgsk3qg0N9sgb3G3s50N6"
+
+#kubectl create secret generic fortimgr \
+#-n tigera-firewall-controller \
+#--from-literal=pwd-fortimgr='F0rt!net'
+
+kubectl -n tigera-firewall-controller create configmap  tigera-firewall-controller \
+--from-literal=tigera.firewall.policy.selector="projectcalico.org/tier == 'default'" \
+--from-literal=tigera.firewall.addressSelection="pod"
+
+cat > pullsecret.json <<EOF
+{
+  "auths": {
+    "quay.io": {
+      "auth": "dGlnZXJhK3RpZ2VyYV9pbnRlcm5hbDpZTU41MEs1QUxTRjhLMUJGV0cxVDBISUhCU0NSWDBBTjkyTzJINUFFQVVTQzZBNlZBNkpFQU1ETlVaNFVWQzRJ",
+      "email": ""
+    }
+  }
+}
+EOF
+
+kubectl create secret generic tigera-pull-secret \
+--from-file=.dockerconfigjson=./pullsecret.json \
+--type=kubernetes.io/dockerconfigjson -n tigera-firewall-controller
+
+
+kubectl apply -f https://downloads.tigera.io/ee/v3.21.0-1.0/manifests/fortinet.yaml
+
+
+
+
+
+
+
+
+
+
+

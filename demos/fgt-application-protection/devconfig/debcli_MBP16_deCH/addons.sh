@@ -18,6 +18,7 @@ export INSTALL_ANSIBLE=0
 export DBEAVER_CE=0
 
 # --- APPLICATION SETTINGS ---
+export APP_DEMO_INGRESS=1
 export APP_ECHOSERVER_INGRESS=1
 export APP_EDB_INGRESS=0
 export APP_GLOBEX_INGRESS=0
@@ -26,7 +27,19 @@ export APP_ACME_INGRESS=0
 export APP_TOOLBOX_INGRESS=1
 
 # Copy Certificate fikes
-[ -d $BUILDDIR/home/fortinet ] && cp -r $FABRIC_HOME/cert $BUILDDIR/home/fortinet
+[ -d $BUILDDIR/home/fortinet ] && cp -r $FABRIC_HOME/cert $BUILDDIR/home/fortinet && mkdir -p $BUILDDIR/home/fortinet/bin
+[ -d $BUILDDIR/home/fortinet ] && cp $FABRIC_HOME/devsource/functions $BUILDDIR/home/fortinet
+
+# Copy Scripts
+[ $APP_DEMO_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-demo-ingress-fadc-nodeport-guided.sh $BUILDDIR/home/fortinet/bin
+[ $APP_DEMO_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-demo-ingress-fadc-nodeport.sh        $BUILDDIR/home/fortinet/bin
+[ $APP_ECHOSERVER_INGRESS -eq 1 ] && cp $FABRIC_HOME/devsource/k3s/deploy-echoserver-ingress-traefik.sh        $BUILDDIR/home/fortinet/bin
+[ $APP_ECHOSERVER_INGRESS -eq 1 ] && cp $FABRIC_HOME/devsource/k3s/deploy-echoserver-ingress-fadc-nodeport.sh  $BUILDDIR/home/fortinet/bin
+[ $APP_EDB_INGRESS -eq 1 ]        && cp $FABRIC_HOME/devsource/k3s/deploy-edb-ingress.sh                       $BUILDDIR/home/fortinet/bin
+[ $APP_GLOBEX_INGRESS -eq 1 ]     && cp $FABRIC_HOME/devsource/k3s/deploy-globex-ingress.sh                    $BUILDDIR/home/fortinet/bin
+[ $APP_APEX_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-apex-ingress.sh                      $BUILDDIR/home/fortinet/bin
+[ $APP_ACME_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-acme-ingress.sh                      $BUILDDIR/home/fortinet/bin
+[ $APP_TOOLBOX_INGRESS -eq 1 ]    && cp $FABRIC_HOME/devsource/k3s/deploy-toolbox-ingress.sh                   $BUILDDIR/home/fortinet/bin
 
 # Generate Documentation link for Chrome Browser
 #echo "https://raw.githubusercontent.com/pivotal-sadubois/fabric-studio/main/demos/${demo}/README.md" > $BUILDDIR/url
@@ -34,6 +47,9 @@ echo "file:///home/fortinet/html/debcli_index.html" > $BUILDDIR/url
 
 # Copy API Validation Scripts
 cp -r ${FABRIC_HOME}/devsource/api-validation $BUILDDIR/home/fortinet
+
+# Copy Google Chrome Scripts
+[ "$INSTALL_CHROME" -eq 1 ] && cp -r ${FABRIC_HOME}/devsource/google $BUILDDIR/
 
 # Copy devcli postinstall template
 mkdir -p $BUILDDIR/fortipoc && cat $FABRIC_HOME/modules/debcli_postinst | sed \
@@ -74,3 +90,4 @@ fi
 [ $INSTALL_MARKTEXT -eq 1 ] && cp -r $DEMOPATH/files/doc                   $BUILDDIR/home/fortinet
 [ $INSTALL_CHROME -eq 1 ]   && cp -r $DEMOPATH/files/html                  $BUILDDIR/home/fortinet
 [ $INSTALL_ANSIBLE -eq 1 ]  && cp -r $DEMOPATH/files/ansible               $BUILDDIR/home/fortinet
+

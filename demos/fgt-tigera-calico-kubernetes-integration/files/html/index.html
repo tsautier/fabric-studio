@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>FortiGate Explicit Proxy with Kubernetes SDN Connector</title>
+    <style>
+        body {
+            background-color: #2A2A2A;
+            color: #CCCCCC;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        a {
+            color: #AAAAAA;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>FortiGate - Explicit Proxy with Kubernetes SDN Connector</h1>
+
+    <h2>Direct Link to the K3s Backend Services (ingress)</h2>
+    The following links are bypassing the FortiWeb Virtual IP address and direcly connect to ingress controller of the k3s
+    kubernetes cluster. 
+    <ul>
+        <li><a href="https://echoserver.apps-int.fabric-studio.fortidemo.ch" target="_blank">Connection Test (echoserver) (https://echoserver.apps-int.fabric-studio.fortidemo.ch)</a></li>
+        <li><a href="https://toolbox.apps-int.fabric-studio.fortidemo.ch" target="_blank">Connection Test (toolbox) (https://toolbox.apps-int.fabric-studio.fortidemo.ch)</a></li>
+    </ul>
+
+    <h2>Generate Load</h2>
+        <li><a href="load-generator://execute">Execute Script</a></li>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "firstName": "<img src=x onerror=alert('XSS')>",
+  "lastName": "Inject",
+  "email": "xss@attack.com"
+}

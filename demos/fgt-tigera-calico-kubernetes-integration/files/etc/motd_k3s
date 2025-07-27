@@ -1,0 +1,20 @@
+ ▪ Test Internet access with and without proxy (disable not-proxy-web-traffic firewall rule on FortiGate)
+   => curl https://fortinet.com                                                 ## No proxy
+   => curl https://fortinet.com --proxy proxy.fabric-studio.fortidemo.ch:0080   ## Proxy set by CLI
+   => export HTTPS_PROXY=proxy.fabric-studio.fortidemo.ch:0080                  ## Proxy set by Env variable
+      export HTTP_PROXY=proxy.fabric-studio.fortidemo.ch:0080
+      curl https://fortinet.com
+
+ ▪ Retreive the Kubernetes Security Token for Namesapce toolbox to be used for the Kubernetes SDN Connector
+    => kubectl get secret toolbox-sa-token -n toolbox -o jsonpath='{.data.token}' | base64 -d && echo
+
+▪ Retrieve the IP Address of the Toolbox
+   => podip=$(kubectl -n toolbox get pod $(kubectl -n toolbox get pod -l app=toolbox -o jsonpath='{.items[0].metadata.name}') -o jsonpath='{.status.podIP}')
+   => ping $podip
+   => traceroute $podip
+
+ ▪ Now test proxy access with the toolbox pod which is configured with proxy access
+   => kubectl -n toolbox exec -it $(kubectl -n toolbox get pod -l app=toolbox -o jsonpath='{.items[0].metadata.name}') -- /bin/sh
+      / # echo -e "HTTP_PROXY...: $HTTP_PROXY\nHTTPS_PROXY..: $HTTPS_PROXY\nNO_PROXY....: $NO_PROXY"
+      / # curl https://fortinet.com
+

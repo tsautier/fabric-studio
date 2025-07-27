@@ -11,6 +11,14 @@
 # 2025-05-07 sdubois Added dependancy file
 #===============================================================================
 
+export APP_ECHOSERVER_INGRESS=0
+export APP_EDB_INGRESS=0
+export APP_GLOBEX_INGRESS=0
+export APP_APEX_INGRESS=0
+export APP_ACME_INGRESS=0
+export APP_TOOLBOX_INGRESS=0
+export PROXY_DEFAULT_ROUTER=0
+
 echo "############################### Start fortipoc/postinst ###############################"
 
 echo "=> Update Installed Packages"
@@ -40,8 +48,8 @@ mkdir -p /home/fortinet/.kube
 cat /etc/rancher/k3s/k3s.yaml | sed 's/127.0.0.1/10.1.1.200/g' > /home/fortinet/.kube/config
 chown -R fortinet:fortinet /home/fortinet
 
-echo "   ▪ Install mettallb (DeepSeek)"
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+echo "   ▪ Install mettallb"
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml > /dev/null 2>&1
 sleep 30
 kubectl wait --namespace metallb-system --for=condition=ready pod --selector=app=metallb --timeout=90s
 
@@ -71,10 +79,32 @@ sleep 5
 echo "=> Password less SuDo"
 chown root:root /etc/sudoers.d /etc/sudoers.d/fortinet
 
-echo "=> Show Ingress IP Address"
-kubectl get svc -n kube-system traefik
+echo "=> Kubernetes Configuration"
+ipa=$(kubectl get svc -n kube-system traefik -o json | jq -r '.status.loadBalancer.ingress[].ip') 
+echo "   ▪ IP Address of the Ingress Controller (traefik): $ipa"
+
+[ $APP_ECHOSERVER_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-echoserver-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (echoserver) deployed"
+[ $APP_EDB_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-edb-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (edb) deployed"
+[ $APP_GLOBEX_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-globex-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (globex) deployed"
+[ $APP_APEX_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-apex-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (apex) deployed"
+[ $APP_ACME_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-acme-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (acme) deployed"
+[ $APP_TOOLBOX_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-toolbox-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (toolbox) deployed"
+
+if [ "$PROXY_DEFAULT_ROUTER" -eq 1 ]; then
+  echo "   ▪ Change default router to 10.1.1.1 on interface ens3"
+  ip route del default > /dev/null 2>&1
+  ip route add default via 10.1.1.1 dev ens3 > /dev/null 2>&1
+fi
 
 # Changw Ownership and Permissions
 chown -R fortinet:fortinet /home/fortinet/cert /home/fortinet/fortidemoCA.crt
 
 echo "############################### End fortipoc/postinst ###############################"
+
+
+
+
+
+
+
+

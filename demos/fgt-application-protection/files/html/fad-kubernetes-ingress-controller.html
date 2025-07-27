@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" meta name="google" content="notranslate">
+    <title>Using FortiADC as an Ingress Controller for Kubernetes</title>
+        <style>
+        body {
+            background-color: #FFFFFF; /* White background */
+            color: #1A1A1A; /* Dark foreground text */
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.2;
+            padding: 20px;
+        }
+
+        h2 {
+            font-weight: 600;
+            color: #000000; /* Dark heading */
+        }
+
+        a {
+            color: #003366; /* Darker link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        img {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #F5F5F5; /* Light grey for code blocks */
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #2A2A2A; /* Dark text inside code */
+        }
+    </style>
+</head>
+<body>
+    <h2>Using FortiADC as an Ingress Controller for Kubernetes</h2>
+    <p>Ingress is a Kubernetes object that manages the external access to services in a Kubernetes cluster (typically
+HTTP/HTTPS). Ingress may provide load-balancing, SSL termination and name-based virtual hosting.
+FortiADC Ingress Controller combines the capabilities of an Ingress resource with the Ingress-managed load-balancer,
+FortiADC.</p>
+
+    <img src="images/R7S02.jpg" alt="SNI Routing Diagram" style="width: 100%;" />
+
+    <p>
+       FortiADC, as the Ingress-managed load-balancer, not only provides flexibility in load-balancing, but also guarantees
+more security with features such as the Web Application Firewall (WAF), Antivirus Scanning, and Denial of Service
+(DoS) prevention to protect the web server resources in the Kubernetes cluster.
+    </p>
+
+    <h2>FortiADC Ingres Demos:</h2>
+    The Following demos showcase the deployment of different Kubernetes Ingress scenarios
+
+    <ul>
+        <li><a href="fad-fadc-ingress-nodeport-demo.html">Deploy a NodePort based Ingress Controller for two Applicaitons</a></li>
+    </ul>
+    
+</body>
+</html>

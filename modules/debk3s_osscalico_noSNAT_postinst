@@ -21,34 +21,41 @@ export APP_ACME_INGRESS=0
 export APP_TOOLBOX_INGRESS=0
 export PROXY_DEFAULT_ROUTER=0
 
-echo "############################### Start fortipoc/postinst ###############################"
+echo "############# Start fortipoc/postinst (debk3s_osscalico_noSNAT_postinst) ##############"
 
 echo "=> Update Installed Packages"
 apt update -qq > /dev/null 2>&1; ret=$?
 [ $ret -ne 0 ] && echo "   ▪ Package update failed, check internet connection" && exit 1
 
 echo "=> Installing Additional Packages"
-for pkg in curl jq traceroute net-tools; do
-  apt install -y -qq "$pkg" > /tmp/${pkg}.log 2>&1; ret=$?
-  if [ $ret -ne 0 ]; then
-    echo "   ▪ Package installation of $pkg failed"
-    echo "---------------------------------------------------------------------------------------"
-    cat /tmp/${pkg}.log
-    echo "---------------------------------------------------------------------------------------"
-  else
-    echo "   ▪ Package installation of $pkg compleded"
-  fi
-done
+apt install curl net-tools traceroute jq -y -qq  > /dev/null 2>&1
+
+#for pkg in mysql-client net-tools curl traceroute; do
+#  dpkg -s "$pkg" &>/dev/null; ret=$?  
+#  if [ $ret -ne 0 ]; then
+#    apt install -y -qq "$pkg" > /tmp/${pkg}.log 2>&1; ret=$?
+#    if [ $ret -ne 0 ]; then
+#      echo "   ▪ Package installation of $pkg failed"
+#      echo "---------------------------------------------------------------------------------------"
+#      cat /tmp/${pkg}.log
+#      echo "---------------------------------------------------------------------------------------"
+#    else
+#      echo "   ▪ Package installation of $pkg compleded"
+#    fi
+#  else
+#    echo "   ▪ Package $pkg is already installed"
+#  fi
+#done
 
 echo "=> Installing Helm"
-curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash > /dev/null 2>&1
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 2>/dev/null | bash > /dev/null 2>&1
 
-echo "=> Installing K3S Kubernetes"
+echo "=> Installing K3S Kubernetes (debk3s_osscalico_noSNAT_postinst)"
 # https://docs.tigera.io/calico/latest/getting-started/kubernetes/k3s/quickstart
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="--tls-san 10.1.1.200 --flannel-backend=none --cluster-cidr=192.168.0.0/16 --disable-network-policy --disable=traefik" sh -
 sleep 10
 
-echo "# Install Calico and patch 'natOutgoing: true' to 'natOutgoing: false' in IP-Pool: default-ipv4-ippoolit
+echo "# Install Calico and patch 'natOutgoing: true' to 'natOutgoing: false' in IP-Pool: default-ipv4-ippoolit"
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.0/manifests/calico.yaml
 kubectl wait --for=condition=Ready pods --all --all-namespaces --timeout=500s
 
@@ -111,18 +118,42 @@ echo "=> Kubernetes Configuration"
 ipa=$(kubectl get svc -n kube-system traefik -o json | jq -r '.status.loadBalancer.ingress[].ip')
 echo "   ▪ IP Address of the Ingress Controller (traefik): $ipa"
 
-[ $APP_ECHOSERVER_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-echoserver-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (echoserver) deployed"
-[ $APP_EDB_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-edb-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (edb) deployed"
-[ $APP_GLOBEX_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-globex-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (globex) deployed"
-[ $APP_APEX_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-apex-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (apex) deployed"
-[ $APP_ACME_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-acme-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (acme) deployed"
-[ $APP_TOOLBOX_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-toolbox-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (toolbox) deployed"
-
 if [ "$PROXY_DEFAULT_ROUTER" -eq 1 ]; then
   echo "   ▪ Change default router to 10.1.1.1 on interface ens3"
   ip route del default > /dev/null 2>&1
   ip route add default via 10.1.1.1 dev ens3 > /dev/null 2>&1
 fi
 
-# Changw Ownership and Permissions
+echo "=> Install FortiADC Ingress"
+echo "   ▪ Add Helm repo https://fortinet.github.io/fortiadc-ingress"
+helm repo add fortiadc-ingress-controller https://fortinet.github.io/fortiadc-ingress/ > /dev/null 2>&1
+helm repo update > /dev/null 2>&1
+
+echo "   ▪ Install FortiADC Ingress controller in namespace (fortiadc-ingress)"
+helm install adc-ingress --namespace fortiadc-ingress \
+--set controller.ingressClassResource.default=false \
+--create-namespace --wait fortiadc-ingress-controller/fadc-k8s-ctrl > /dev/null 2>&1
+
+echo "   ▪ Create Secret with FortiADC Access Parameters"
+kubectl create secret generic fad-login -n fortiadc-ingress \
+--from-literal=username=admin --from-literal=password='F0rt!net' > /dev/null 2>&1
+
+sleep 20
+
+if [ $APP_ECHOSERVER_INGRESS -eq 1 ]; then 
+  su - fortinet -c "/home/fortinet/bin/deploy-echoserver-ingress-traefik.sh > /dev/null 2>&1"
+  su - fortinet -c "/home/fortinet/bin/deploy-echoserver-ingress-fadc-nodeport.sh > /dev/null 2>&1"
+  echo "   ▪ Application (echoserver) deployed"
+fi
+
+[ $APP_EDB_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-edb-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (edb) deployed"
+[ $APP_GLOBEX_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-globex-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (globex) deployed"
+[ $APP_APEX_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-apex-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (apex) deployed"
+[ $APP_ACME_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-acme-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (acme) deployed"
+[ $APP_TOOLBOX_INGRESS -eq 1 ] && su - fortinet -c "/home/fortinet/bin/deploy-toolbox-ingress.sh > /dev/null 2>&1" && echo "   ▪ Application (toolbox) deployed"
+
+echo "=> Changw Ownership and Permissions"
 chown -R fortinet:fortinet /home/fortinet/cert /home/fortinet/fortidemoCA.crt
+
+echo "############### End fortipoc/postinst (debk3s_osscalico_noSNAT_postinst) ##############"
+

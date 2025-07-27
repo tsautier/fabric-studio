@@ -1,0 +1,5 @@
+{
+  "firstName": "' OR '1'='1",
+  "lastName": "Hacker",
+  "email": "hacker@example.com"
+}

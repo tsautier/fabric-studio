@@ -1,0 +1,6 @@
+
+
+
+source pythondev/bin/activate
+python3 users.py  
+

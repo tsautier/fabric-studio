@@ -4,4 +4,6 @@ Name=MarkText Demo Guide
 Exec=marktext --disable-gpu /home/fortinet/doc/demo-guide.md
 Comment=Launch MarkText with demo guide on startup
 X-GNOME-Autostart-enabled=true
+X-KDE-autostart-after=panel
+X-KDE-StartupNotify=false
 Terminal=false

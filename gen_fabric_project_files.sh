@@ -14,7 +14,8 @@
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P 2>/dev/null || pwd -P)
 [ $(basename $SCRIPT_DIR) == "fabric-studio" ] && FABRIC_HOME=$SCRIPT_DIR || FABRIC_HOME=$(dirname $SCRIPT_DIR)
 
-REMOTE_REPO=1
+REMOTE_USER=sdubois
+REMOTE_REPO=0
 SSH_OPTIONS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 SERVER="10.7.80.20"
 BASE_DIR="/srv/fsrepo/html/prod"
@@ -31,8 +32,12 @@ subhead () {
 
 # Generate devconfig files
 for demo in $(ls -1 $FABRIC_HOME/demos | grep -v zip); do
-#[ "fad-ansible-deploy-slb" != "$demo" ] && continue
-[ "fgt-kubernetes-sdn-connector" != "$demo" ] && continue
+  [ "fabric-studio-development-template" == "$demo" ] && continue
+  #[ "fgt-tigera-calico-kubernetes-integration" == "$demo" ] && continue
+  [ "fgt-sni-based-cert-selection" == "$demo" ] && continue
+  [ "fad-ansible-deploy-slb" == "$demo" ] && continue
+  [ "fgt-kubernetes-sdn-connector" == "$demo" ] && continue
+
   DEMOPATH="${FABRIC_HOME}/demos/${demo}"
   STOREDIR="${FABRIC_HOME}/files"
   STAGEDIR=/tmp/fabric_studio_stage
@@ -62,6 +67,9 @@ for demo in $(ls -1 $FABRIC_HOME/demos | grep -v zip); do
         stt1=$(find "$DEVICE_CONFIG" -type f -newer "$DEVICE_CONFIG_FILE" | wc -l | awk '{ print $1 }')
         stt2=$(find "$DEMO_DEVICE_CONFIG" -type f -newer "$DEVICE_CONFIG_FILE" | wc -l | awk '{ print $1 }')
         stt3=$(find ./modules -name $MODULE_NAME -type f -newer "$DEVICE_CONFIG_FILE" | wc -l | awk '{ print $1 }')
+stt1=1
+stt2=1
+stt3=1
         if [ $stt1 -eq 0 -a $stt2 -eq 0 -a $stt3 -eq 0 ]; then
           [ -d $STAGEDIR/config/1/DEBIAN ] && cp $DEVICE_CONFIG_FILE $STAGEDIR/config/1/DEBIAN
           printf " ▪ %-55s %-75s %-15s\n" "Generating Device config for $device" "files/$demo/${device}.tgz"    "no-change"
@@ -73,13 +81,23 @@ for demo in $(ls -1 $FABRIC_HOME/demos | grep -v zip); do
       cp -r $DEVICE_CONFIG/* $BUILDDIR
 
       # Execute fabric demo dedicated configuration script for that device
+#echo "XXX $DEMO_DEVICE_CONFIG/addons.sh"
       [ -x $DEMO_DEVICE_CONFIG/addons.sh ] && source $DEMO_DEVICE_CONFIG/addons.sh
+#echo "XXX END"
+
+      # copy apt and snap files
+#      mkdir -p ${BUILDDIR}/var/cache/apt/archives ${BUILDDIR}/snap
+#      cp ${FABRIC_HOME}/files/apt/*.deb  ${BUILDDIR}/var/cache/apt/archives
+#      cp ${FABRIC_HOME}/files/snap/* ${BUILDDIR}/snap
 
       # pack the file
       tar czf $DEVICE_CONFIG_FILE --exclude='._*' --exclude='._.*' -C $BUILDDIR .
       [ -d $STAGEDIR/config/1/DEBIAN ] && cp $DEVICE_CONFIG_FILE $STAGEDIR/config/1/DEBIAN
 
-      printf " ▪ %-55s %-75s %-15s\n" "Generating Device config for $device" "files/$demo/${device}.tgz"    "generated"
+      # cleanup
+      rm -rf $BUILDDIR
+
+      printf " ▪ %-60s %-85s %-15s\n" "Generating Device config for $device" "files/$demo/${device}.tgz"    "generated"
       generated=1
     done
   fi
@@ -89,9 +107,9 @@ for demo in $(ls -1 $FABRIC_HOME/demos | grep -v zip); do
     [ -f $STOREDIR/${demo}.zip ] && rm $STOREDIR/${demo}.zip
     (cd "$STAGEDIR" && zip -rq "$STOREDIR/${demo}.zip" .)
 
-    printf " ▪ %-55s %-75s %-15s\n" "Fabric Archive ($demo)" "files/${demo}.zip"    "created"
+    printf " ▪ %-60s %-85s %-15s\n" "Fabric Archive ($demo)" "files/${demo}.zip"    "created"
   else
-    printf " ▪ %-55s %-75s %-15s\n" "Fabric Archive ($demo)" "files/${demo}.zip"    "no-change"
+    printf " ▪ %-60s %-85s %-15s\n" "Fabric Archive ($demo)" "files/${demo}.zip"    "no-change"
   fi
 
   if [ $REMOTE_REPO -eq 1 ]; then 
@@ -106,17 +124,17 @@ for demo in $(ls -1 $FABRIC_HOME/demos | grep -v zip); do
     if [ $cksum_loc -ne $cksum_rmt ]; then 
       scp $FABRIC_HOME/files/${demo}.zip ${REMOTE_USER}@${SERVER}:${BASE_DIR}/templates/${REMOTE_USER}_${demo}.zip > /tmp/fprepo.log 2>&1; ret=$?
       if [ $ret -eq 0 ]; then 
-        printf " ▪ %-55s %-75s %-15s\n" "Uploading Fabric Archive to Repo Server ($SERVER)" "files/${demo}.zip"    "completed"
+        printf " ▪ %-60s %-85s %-15s\n" "Uploading Fabric Archive to Repo Server ($SERVER)" "files/${demo}.zip"    "completed"
         ssh $SSH_OPTIONS {REMOTE_USER}@${SERVER} "/opt/ftnt/bin/fprepo refresh ${BASE_DIR}" > /tmp/fprepo.log 2>&1; ret=$?
         if [ $ret -eq 0 ]; then 
-          printf " ▪ %-55s %-75s %-15s\n" "Updating Repo Server Repository" "$BASE_DIR/Release"    "completed"
+          printf " ▪ %-60s %-85s %-15s\n" "Updating Repo Server Repository" "$BASE_DIR/Release"    "completed"
           cat /tmp/fprepo.log
         else
-          printf " ▪ %-55s %-75s %-15s\n" "Updating Repo Server Repository" "$BASE_DIR/Release"    "failed"
+          printf " ▪ %-60s %-85s %-15s\n" "Updating Repo Server Repository" "$BASE_DIR/Release"    "failed"
           cat /tmp/fprepo.log
         fi
       else
-        printf " ▪ %-55s %-75s %-15s\n" "Uploading Fabric Archive to Repo Server ($SERVER)" "files/${demo}.zip"    "failed"
+        printf " ▪ %-60s %-85s %-15s\n" "Uploading Fabric Archive to Repo Server ($SERVER)" "files/${demo}.zip"    "failed"
         cat /tmp/fprepo.log
       fi
     fi

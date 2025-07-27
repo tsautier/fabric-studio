@@ -1,0 +1,3 @@
+#!/bin/bash
+
+certutil -A -n "My CA" -t "CT,C,C" -d sql:/home/fortinet/.mozilla/firefox/*.default-release -i /home/fortinet/fortidemoCA.crt
