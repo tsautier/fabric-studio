@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=MarkText Demo Guide
-Exec=marktext --disable-gpu /home/fortinet/doc/demo-guide.md
-Comment=Launch MarkText with demo guide on startup
-X-GNOME-Autostart-enabled=true
-Terminal=false
