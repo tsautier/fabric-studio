@@ -1,10 +1,13 @@
 FROM alpine:latest
 
-COPY index.html /www/index.html
-COPY FortidemoCA.crt /
+# Install Python 3
+RUN apk add --no-cache python3
 
-# Add Curl
-RUN apk add --no-cache curl busybox-extras
+# Copy the slow HTTP server script
+COPY slowserver.py /slowserver.py
 
-EXPOSE 80
-CMD ["sh", "-c", "httpd -f -p 8080 -h /www"]
+# Expose port 8080
+EXPOSE 8080
+
+# Run the Python server
+CMD ["python3", "/slowserver.py"]

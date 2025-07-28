@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" meta name="google" content="notranslate">
+    <title>Deploy a Server Load-Balancer (SLB) with Ansible</title>
+        <style>
+        body {
+            background-color: #FFFFFF; /* White background */
+            color: #1A1A1A; /* Dark foreground text */
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.2;
+            padding: 20px;
+        }
+
+        h2 {
+            font-weight: 600;
+            color: #000000; /* Dark heading */
+        }
+
+        a {
+            color: #003366; /* Darker link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        img {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #F5F5F5; /* Light grey for code blocks */
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #2A2A2A; /* Dark text inside code */
+        }
+    </style>
+</head>
+<body>
+    <h2>Deploy a Server Load-Balancer (SLB) with Ansible</h2>
+    <p>The following is an example of how complexx taks such the deployment of a Server Load Balancer with Realservice Pool, Real Servers, Certificates and Healthceks can be automated with Ansible Playbooks.
+    <img src="images/ansible.jpg" alt="Ansible Diagram" style="width: 100%;" />
+
+    <p>The Ansible Modules are made OpenSource by Fortinet and are available on <a href="https://galaxy.ansible.com/ui/repo/published/fortinet/fortiadc">Ansible Galaxy</a>  and the Ansible Galaxy FortiADC Collection Documentation can be found on <a href="https://fndn.fortinet.net/index.php?/cloud/ansible/&doc=fortiadc&dir=">Fortinet Developer Network</a> </p>
+    <h2>FortiADC Deploy Server Load Balancer Demo</h2>
+    <a href="runscript:/home/fortinet/ansible/deploy_fad_employeedb.sh">▶ Run Script: deploy_fad_employeedb.sh</a><br>
+    
+    <h4>Verify Ingress Service Paths</h4>
+    <a href="https://fadcdemo.apps-adc.fortidemo.net/info">▶ https://fadcdemo.apps-adc.fortidemo.net/info</a><br>
+    <a href="https://fadcdemo.apps-adc.fortidemo.net/hello">▶ https://fadcdemo.apps-adc.fortidemo.net/hello</a>
+</body>
+</html>
+

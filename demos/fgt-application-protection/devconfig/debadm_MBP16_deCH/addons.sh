@@ -11,7 +11,7 @@
 #===============================================================================
 
 # --- SOFTWARE INSTALLATION ---
-export KUBECTL_CLIENT=0
+export KUBECTL_CLIENT=1
 export INSTALL_CHROME=1
 export INSTALL_MARKTEXT=1
 export INSTALL_ANSIBLE=1
@@ -31,6 +31,9 @@ export APP_TOOLBOX_INGRESS=1
 # Generate Documentation link for Chrome Browser
 #echo "https://raw.githubusercontent.com/pivotal-sadubois/fabric-studio/main/demos/${demo}/README.md" > $BUILDDIR/url
 echo "file:///home/fortinet/html/debadm_index.html" > $BUILDDIR/url
+
+# Copy Google Chrome Scripts
+[ "$INSTALL_CHROME" -eq 1 ] && cp -r ${FABRIC_HOME}/devsource/google $BUILDDIR/
 
 # Copy devcli postinstall template
 mkdir -p $BUILDDIR/fortipoc && cat $FABRIC_HOME/modules/debcli_postinst | sed \

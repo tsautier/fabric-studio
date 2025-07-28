@@ -20,10 +20,10 @@ export DBEAVER_CE=0
 # --- APPLICATION SETTINGS ---
 export APP_DEMO_INGRESS=1
 export APP_ECHOSERVER_INGRESS=1
-export APP_EDB_INGRESS=0
-export APP_GLOBEX_INGRESS=0
-export APP_APEX_INGRESS=0
-export APP_ACME_INGRESS=0
+export APP_EDB_INGRESS=1
+export APP_GLOBEX_INGRESS=1
+export APP_APEX_INGRESS=1
+export APP_ACME_INGRESS=1
 export APP_TOOLBOX_INGRESS=1
 
 # Copy Certificate fikes
@@ -75,12 +75,12 @@ if [ $APP_ECHOSERVER_INGRESS -eq 1 -o $APP_EDB_INGRESS -eq 1 -o $APP_TOOLBOX_ING
 
   echo " ▪ Test if application is reachable over the kubernetes ingress"                                                  >> $BUILDDIR/etc/motd
   CACERT="--cacert /home/fortinet/cert/fortidemo/ca.crt"
-  [ $APP_ECHOSERVER_INGRESS -eq 1 ] && echo "   => curl https://echoserver.apps-int.fabric-studio.fortidemo.ch $CACERT"   >> $BUILDDIR/etc/motd
-  [ $APP_EDB_INGRESS -eq 1 ]        && echo "   => curl https://edb.apps-int.fabric-studio.fortidemo.ch $CACERT"          >> $BUILDDIR/etc/motd
-  [ $APP_GLOBEX_INGRESS -eq 1 ]     && echo "   => curl https://globex.apps-int.fabric-studio.fortidemo.ch $CACERT"       >> $BUILDDIR/etc/motd
-  [ $APP_APEX_INGRESS -eq 1 ]       && echo "   => curl https://apex.apps-int.fabric-studio.fortidemo.ch $CACERT"         >> $BUILDDIR/etc/motd
-  [ $APP_ACME_INGRESS -eq 1 ]       && echo "   => curl https://acme.apps-int.fabric-studio.fortidemo.ch $CACERT"         >> $BUILDDIR/etc/motd
-  [ $APP_TOOLBOX_INGRESS -eq 1 ]    && echo "   => curl https://toolbox.apps-int.fabric-studio.fortidemo.ch $CACERT"      >> $BUILDDIR/etc/motd
+  [ $APP_ECHOSERVER_INGRESS -eq 1 ] && echo "   => curl https://echoserver.apps.fortidemo.net"                            >> $BUILDDIR/etc/motd
+  [ $APP_TOOLBOX_INGRESS -eq 1 ]    && echo "   => curl https://toolbox.apps.fortidemo.net"                               >> $BUILDDIR/etc/motd
+  [ $APP_EDB_INGRESS -eq 1 ]        && echo "   => curl https://edb.apps.fortidemo.net"                                   >> $BUILDDIR/etc/motd
+  [ $APP_GLOBEX_INGRESS -eq 1 ]     && echo "   => curl https://www.globex.io | lynx -dump -stdin"                        >> $BUILDDIR/etc/motd
+  [ $APP_APEX_INGRESS -eq 1 ]       && echo "   => curl https://www.apex.net | lynx -dump -stdin"                         >> $BUILDDIR/etc/motd
+  [ $APP_ACME_INGRESS -eq 1 ]       && echo "   => curl https://www.acme.io | lynx -dump -stdin"                          >> $BUILDDIR/etc/motd
   echo ""                                                                                                                 >> $BUILDDIR/etc/motd
 fi
 

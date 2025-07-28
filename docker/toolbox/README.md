@@ -2,8 +2,11 @@
 docker ps -a --filter ancestor=toolbox --format "{{.ID}}" | xargs -r docker stop
 docker ps -a --filter ancestor=toolbox --format "{{.ID}}" | xargs -r docker rm
 
-# Neu bauen
-docker build -t toolbox .
+export BUILD_VERSION=1.1.0
+docker build -f Dockerfile -t toolbox:$BUILD_VERSION .
+docker tag toolbox:$BUILD_VERSION sadubois/toolbox:$BUILD_VERSION
+docker push sadubois/toolbox:$BUILD_VERSION
 
 # Neu starten
 docker run -d -p 8080:8080 toolbox
+
