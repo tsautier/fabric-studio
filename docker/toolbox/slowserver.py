@@ -1,4 +1,4 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import time
 
 class SlowHandler(BaseHTTPRequestHandler):
@@ -9,6 +9,7 @@ class SlowHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(b'Hello from toolbox!\n')
 
-httpd = HTTPServer(('0.0.0.0', 8080), SlowHandler)
-print("Serving on port 8080...")
+# Replace HTTPServer with ThreadingHTTPServer
+httpd = ThreadingHTTPServer(('0.0.0.0', 8080), SlowHandler)
+print("Serving threaded on port 8080...")
 httpd.serve_forever()

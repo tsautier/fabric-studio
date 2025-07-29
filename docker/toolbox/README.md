@@ -2,7 +2,7 @@
 docker ps -a --filter ancestor=toolbox --format "{{.ID}}" | xargs -r docker stop
 docker ps -a --filter ancestor=toolbox --format "{{.ID}}" | xargs -r docker rm
 
-export BUILD_VERSION=1.1.0
+export BUILD_VERSION=1.2.0
 docker build -f Dockerfile -t toolbox:$BUILD_VERSION .
 docker tag toolbox:$BUILD_VERSION sadubois/toolbox:$BUILD_VERSION
 docker push sadubois/toolbox:$BUILD_VERSION
