@@ -5,7 +5,7 @@
   connection: httpapi
   gather_facts: false
   vars_files:
-    - /tmp/vault.yml  # Load encrypted variables
+    - /tmp/vault.yaml  # Load encrypted variables
          
   tasks:
     - name: Manage real server pool member

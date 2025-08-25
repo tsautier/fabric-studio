@@ -1,6 +1,6 @@
 #!/bin/bash
 # ============================================================================================
-# File: ........: deploy_fortiadc_employeedb
+# File: ........: fad_delete_slb_employeedb.sh
 # Demo Package .: fortiadc-slb-employdb-ansible
 # Language .....: bash
 # Author .......: Sacha Dubois, VMware
@@ -10,36 +10,24 @@
 # ============================================================================================
 # https://postgres-kubernetes.docs.pivotal.io/1-1/update-instances.html
 
+# Resolve the script's directory, handling symlinks if possible
+DEMOPATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P 2>/dev/null || pwd -P)
+
 export APPNAME="employeedb"
 export APPPORT="8080"
 export TDH_DEMO_DIR="fortiadc-slb-employdb-ansible"
-export TDHHOME=$(echo -e "$(pwd)\n$(dirname $0)" | grep "tanzu-demo-hub" | head -1 | sed "s+\(^.*tanzu-demo-hub\).*+\1+g")
-export TDHDEMO=$TDHHOME/demos/$TDH_DEMO_DIR
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export NAMESPACE=${APPNAME}
-export VS_IP_ADDRESS=10.0.101.52
-export EMPLOYEEDB_DOCKER_IMAGE=sadubois/employeedb:1.1.0
-export LOCK_FILE_1=$HOME/.tdh/deploy_fortiadc_employeedb.lock
-export LOCK_FILE_2=$HOME/.tdh/deploy_fortiadc_employeedb-ssl.lock
-
-# --- SETTING FOR TDH-TOOLS ---
-export NATIVE=0                ## NATIVE=1 r(un on local host), NATIVE=0 (run within docker)
-export START_COMMAND="$*"
-export CMD_EXEC=$(basename $0)
-export CMD_ARGS=$*
+export VS_IP_ADDRESS=10.1.1.115
 export TMPDIR=/tmp
 
-if [ ! -f $LOCK_FILE_2 ]; then 
-  echo "ERROR: The deployment (deploy_fortiadc_employeedb-ssl) is not active, nothing to cleanup"
-  exit
-fi
+[ -f /home/fortinet/ansible/functions ] && source  /home/fortinet/ansible/functions
 
-[ -f $HOME/.tanzu-demo-hub.cfg ] && . $HOME/.tanzu-demo-hub.cfg
-[ -f $TDHHOME/functions ] && . $TDHHOME/functions
-[ -f $HOME/PythonDev/bin/activate ] && source $HOME/PythonDev/bin/activate
-
-# --- VERIFY COMMAND LINE ARGUMENTS ---
-checkCLIarguments $*
+getObject() {
+  local NAMESPACE="$1"
+  local OBJ="$2"
+  local KEY="$3"
+  kubectl -n $NAMESPACE get $OBJ -o jsonpath="{.items[?(@.metadata.name==\"$KEY\")].metadata.name}" | grep -q "$KEY"
+}
 
 # Created by /usr/local/bin/figlet
 clear
@@ -62,23 +50,31 @@ echo '          ----------------------------------------------------------------
 echo '                                                                                      '
 
 prtHead "To delete the configuaration we need to create a removal Playbook to cleanup the configuration"
-execCat "$TMPDIR/fortiadc-lb-delete-ssl.yml"
+execCat "$TMPDIR/fortiadc-lb-delete.yaml"
 
 prtHead "Delete the Server Load Balancer with the Ansible Playbook"
-echo -e "     => ansible-playbook /tmp/fortiadc-lb-delete-ssl.yml \\"
-echo -e "          -i /tmp/inventory --extra-vars \"@/tmp/fortiadc-lb-vars-${APPNAME}.yml\" \\"
+echo -e "     => ansible-playbook /tmp/fortiadc-lb-delete.yaml \\"
+echo -e "          -i /tmp/inventory --extra-vars \"@/tmp/fortiadc-lb-vars-${APPNAME}.yaml\" \\"
 echo -e "          --vault-password-file $HOME/.ansible/vault_password\c\b"; read x
 messageLineIntendDemos
 
-ansible-playbook /tmp/fortiadc-lb-delete.yml \
-  -i /tmp/inventory --extra-vars "@/tmp/fortiadc-lb-vars-${APPNAME}.yml" \
-  --vault-password-file $HOME/.ansible/vault_password | python3 scripts/indent_output.py; ret=$?
+ansible-playbook /tmp/fortiadc-lb-delete.yaml \
+  -i /tmp/inventory --extra-vars "@/tmp/fortiadc-lb-vars-${APPNAME}.yaml" \
+  --vault-password-file $HOME/.ansible/vault_password | python3 $DEMOPATH/scripts/indent_output.py; ret=$?
 
-if [ $ret -ne 0 ]; then 
+prtHead "Deleting kubernetes deployment of $APPNAME"
+for n in 01 02 03; do
+  kubectl -n $NAMESPACE delete svc ${APPNAME}-$n > /dev/null 2>&1
+  kubectl -n $NAMESPACE delete deployment ${APPNAME}-$n > /dev/null 2>&1
+  kubectl wait --for=delete pod -l app=${APPNAME}-$n -n $NAMESPACE --timeout=300s > /dev/null 2>&1
+done
+kubectl delete ns $NAMESPACE > /dev/null 2>&1
+
+if [ $ret -ne 0 ]; then
   echo "ERROR: The ansible playbook failed to remove the deployment, please fix the error and start over"
   exit
 else
-  rm $LOCK_FILE_2
+  rm -f $LOCK_FILE_1
 fi
 
 messageLineIntendDemos
