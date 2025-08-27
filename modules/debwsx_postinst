@@ -22,7 +22,7 @@ apt update -qq > /dev/null 2>&1; ret=$?
 [ $ret -ne 0 ] && echo "   ▪ Package update failed, check internet connection" && exit 1
 
 e cho "=> Installing Additional Packages"
-apt install curl net-tools traceroute jq -y -qq  > /dev/null 2>&1
+apt install iftop bmon tmux nginx curl net-tools traceroute jq -y -qq  > /dev/null 2>&1
 
 #for pkg in curl jq traceroute net-tools; do
 #  dpkg -s "$pkg" &>/dev/null; ret=$?
@@ -50,6 +50,19 @@ mkdir -p /var/log/fortinet && chown fortinet:fortinet /var/log/fortinet
 echo "=> Configure Password-Less SuDo"
 chown root:root /etc/sudoers.d /etc/sudoers.d/fortinet
 chmod 440 /etc/sudoers.d/fortinet
+
+echo "=> Set up local Web Server (nginx)"
+echo "   ▪ Package $pkg is already installed"
+[ -h /etc/nginx/sites-enabled/default ] && rm -f /etc/nginx/sites-enabled/default && ln -s /etc/nginx/sites-available/ws-nginx /etc/nginx/sites-enabled/default
+mkdir -p /etc/nginx/ssl
+cp /home/fortinet/cert/fortidemo/ca.crt /etc/nginx/ssl
+cp /home/fortinet/cert/fortidemo/k3s-apps-external.crt /etc/nginx/ssl
+cp /home/fortinet/cert/fortidemo/k3s-apps-external.key /etc/nginx/ssl
+chmod 600 /etc/nginx/ssl/k3s-apps-external.key
+systemctl reload nginx
+
+cp /home/fortinet/cert/fortidemo/ca.crt /usr/local/share/ca-certificates/fortidemo.crt
+update-ca-certificates 
 
 sleep 60
 

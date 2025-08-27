@@ -1,7 +1,6 @@
-
 Featuring Demos: 
  ▪ Deploy a Server Load-Balancer (SLB) with Ansible
-   => $HOME/ansible/deploy_fad_employeedb.sh
+   => $HOME/ansible/fad_deploy_slb_employeedb.sh
 
  ▪ Ansible Galaxy
     => ansible-galaxy collection list | grep fortinet.fortiadc 

@@ -23,6 +23,9 @@ export APP_ACME_DOCKER=1
 [ $APP_APEX_DOCKER -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-apex-docker.sh       $BUILDDIR/home/fortinet/bin
 [ $APP_ACME_DOCKER -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-acme-docker.sh       $BUILDDIR/home/fortinet/bin
 
+# Copy Monitoring Scripts 
+[ -f $FABRIC_HOME/devsource/monitoring/tcp_state_monitor.py ] && cp $FABRIC_HOME/devsource/monitoring/tcp_state_monitor.py $BUILDDIR/home/fortinet/bin
+
 # Copy Certificate fikes
 [ -d $BUILDDIR/home/fortinet ] && cp -r $FABRIC_HOME/cert $BUILDDIR/home/fortinet
 
@@ -40,11 +43,6 @@ cat $FABRIC_HOME/modules/debwsx_postinst | sed \
 # Add Application testing to motd
 if [ $APP_ECHOSERVER_DOCKER -eq 1 -o $APP_EDB_DOCKER -eq 1 -o \
      $APP_GLOBEX_DOCKER -eq 1 -o $APP_APEX_DOCKER -eq 1 -o $APP_ACME_DOCKER -eq 1 ]; then
-
-  echo " ▪ Veriy Kubernetes Deployment"                                                                                   >> $BUILDDIR/etc/motd
-  echo "   => kubectl get ns"                                                                                             >> $BUILDDIR/etc/motd
-  echo "   => kubectl -n toolbox get pods,svc,ingress,secret"                                                             >> $BUILDDIR/etc/motd
-  echo ""                                                                                                                 >> $BUILDDIR/etc/motd
 
   echo " ▪ Test if application is reachable over the kubernetes ingress"                                                  >> $BUILDDIR/etc/motd
   CACERT="--cacert /home/fortinet/cert/fortidemo/ca.crt"

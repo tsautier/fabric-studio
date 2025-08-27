@@ -15,6 +15,7 @@ export KUBECTL_CLIENT=1
 export INSTALL_CHROME=1
 export INSTALL_MARKTEXT=1
 export INSTALL_ANSIBLE=1
+export INSTALL_TERRAFORM=1
 export DBEAVER_CE=1
 
 # --- APPLICATION SETTINGS ---
@@ -40,6 +41,7 @@ mkdir -p $BUILDDIR/fortipoc && cat $FABRIC_HOME/modules/debcli_postinst | sed \
   -e "s/INSTALL_CHROME=0/INSTALL_CHROME=$INSTALL_CHROME/g" \
   -e "s/INSTALL_MARKTEXT=0/INSTALL_MARKTEXT=$INSTALL_MARKTEXT/g" \
   -e "s/INSTALL_ANSIBLE=0/INSTALL_ANSIBLE=$INSTALL_ANSIBLE/g" \
+  -e "s/INSTALL_TERRAFORM=0/INSTALL_TERRAFORM=$INSTALL_TERRAFORM/g" \
   -e "s/KUBECTL_CLIENT=0/KUBECTL_CLIENT=$KUBECTL_CLIENT/g" \
   -e "s/DBEAVER_CE=0/DBEAVER_CE=$DBEAVER_CE/g"                                                                            >  $BUILDDIR/fortipoc/postinst
 
@@ -68,12 +70,13 @@ if [ $APP_ECHOSERVER_INGRESS -eq 1 -o $APP_EDB_INGRESS -eq 1 -o $APP_TOOLBOX_ING
   echo ""                                                                                                                 >> $BUILDDIR/etc/motd
 fi
 
-[ -f $DEMOPATH/files/etc/motd_dev ] && cat $DEMOPATH/files/etc/motd_dev >> $BUILDDIR/etc/motd
+[ -f $DEMOPATH/files/etc/motd_adm ] && cat $DEMOPATH/files/etc/motd_adm >> $BUILDDIR/etc/motd
 
 # Copy Demo Guide and HTML
 [ $INSTALL_MARKTEXT -eq 1 ] && cp -r $DEMOPATH/files/doc                   $BUILDDIR/home/fortinet
 [ $INSTALL_CHROME -eq 1 ]   && cp -r $DEMOPATH/files/html                  $BUILDDIR/home/fortinet
-[ $INSTALL_ANSIBLE -eq 1 ]  && cp -r $DEMOPATH/files/ansible               $BUILDDIR/home/fortinet
+[ $INSTALL_ANSIBLE -eq 1 ]  && cp -r $FABRIC_HOME/devsource/ansible        $BUILDDIR/home/fortinet
+[ $INSTALL_TERRAFORM -eq 1 ]  && cp -r $FABRIC_HOME/devsource/terraform    $BUILDDIR/home/fortinet
 
 # Generate Documentation link for Chrome Browser
 #echo "file:///home/fortinet/html/index.html" > $BUILDDIR/url

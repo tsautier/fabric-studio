@@ -20,7 +20,7 @@ cp -r $DEMOPATH/files/etc                   $BUILDDIR
 echo "file:///home/fortinet/html/index.html" > $BUILDDIR/url
  
 # Copy Demo Guide and HTML
-cp -r $DEMOPATH/files/ansible               $BUILDDIR/home/fortinet
+cp -r $FABRIC_HOME/devsource/ansible        $BUILDDIR/home/fortinet
 cp -r $DEMOPATH/files/html                  $BUILDDIR/home/fortinet
 
 echo -e "# install FortiADC Ansible Modules"                                              >> $BUILDDIR/fortipoc/postinst

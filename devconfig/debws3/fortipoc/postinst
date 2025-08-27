@@ -13,7 +13,7 @@
 echo ""
 echo "Update Packages"
 apt update
-apt install curl jq -y
+apt install tmux nginx iftop nethogs bmon conntrack curl jq -y
 
 # Create Log Firectory
 mkdir -p /var/log/fortinet && chown fortinet:fortinet /var/log/fortinet

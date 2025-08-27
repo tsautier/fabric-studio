@@ -220,23 +220,17 @@ execCat "$TMPDIR/vault.yaml"
 
 prtHead "Create an Inventory file for the target hosts and credentials"
 prtText "We are using the encrypted 'fortiadc_password' we have just created in the /tmp/vault.yaml"
-cp $DEMOPATH/playbook/inventory /tmp
+cat <<EOF > /tmp/inventory
+[fortiadcs]
+fortiadc ansible_host=10.2.1.3 ansible_user="admin" ansible_password="{{ fortiadc_password }}"
+         
+[fortiadcs:vars]
+ansible_network_os=fortinet.fortiadc.fadcos
+ansible_httpapi_use_ssl=yes
+ansible_httpapi_validate_certs=no
+ansible_httpapi_port=443
+EOF
 execCat "$TMPDIR/inventory"
-
-#prtHead "Let's create the Playbook the creates the Virtual Server, Real Server Pools and Members"
-#cp $DEMOPATH/playbook/fortiadc-lb-config.yaml /tmp
-#cp $DEMOPATH/playbook/fortiadc-lb-delete.yaml /tmp
-#execCat "$TMPDIR/fortiadc-lb-config.yaml"
-#
-#prtHead "Configure the Server Load Balancer with the Ansible Playbook"
-#echo -e "     => ansible-playbook /tmp/fortiadc-lb-config.yaml \\"
-#o -e "          -i /tmp/inventory --extra-vars \"@/tmp/fortiadc-lb-vars-${APPNAME}.yaml\" \\"
-#echo -e "          --vault-password-file $HOME/.ansible/vault_password\c\b"; read x
-#messageLineIntendDemos
-#
-#ansible-playbook /tmp/fortiadc-lb-config.yaml \
-#  -i /tmp/inventory --extra-vars "@/tmp/fortiadc-lb-vars-${APPNAME}.yaml" \
-# --vault-password-file $HOME/.ansible/vault_password | python3 $DEMOPATH/scripts/indent_output.py
 
 # Extract notBefore and notAfter dates
 not_before=$(openssl x509 -in $EMPLOYEEDB_CERTIFICATE -noout -dates | grep 'notBefore=' | cut -d'=' -f2)

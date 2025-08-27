@@ -25,8 +25,6 @@ export APP_TOOLBOX_INGRESS=1
 [ -d $BUILDDIR/home/fortinet ] && cp -r $FABRIC_HOME/cert $BUILDDIR/home/fortinet
 mkdir -p $BUILDDIR/home
 
-echo "APP_ECHOSERVER_INGRESS:$APP_ECHOSERVER_INGRESS" 1>&2
-
 # Copy Scripts
 [ $APP_DEMO_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-demo-ingress-fadc-nodeport-guided.sh $BUILDDIR/home/fortinet/bin
 [ $APP_DEMO_INGRESS -eq 1 ]       && cp $FABRIC_HOME/devsource/k3s/deploy-demo-ingress-fadc-nodeport.sh        $BUILDDIR/home/fortinet/bin

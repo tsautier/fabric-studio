@@ -15,7 +15,7 @@
 NAMESPACE=toolbox
 APPNAME=toolbox
 APPDESC="ToolsBox Demo"
-DOCKER_IMAGE=sadubois/toolbox:latest
+DOCKER_IMAGE=sadubois/toolbox:1.1.0
 CONTAINER_PORT=8080
 EXPOSE_PORT=8080
 SERVICE_TYPE=ClusterIP

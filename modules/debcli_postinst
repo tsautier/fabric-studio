@@ -11,9 +11,11 @@
 # 2025-05-07 sdubois Added dependancy file
 #===============================================================================
 
+export INSTALL_GOLANG=0
 export INSTALL_CHROME=0
 export INSTALL_MARKTEXT=0
 export INSTALL_ANSIBLE=0
+export INSTALL_TERRAFORM=0
 export KUBECTL_CLIENT=0
 export DBEAVER_CE=0
 export WIRESHARK=0
@@ -29,11 +31,12 @@ apt update -qq > /dev/null 2>&1; ret=$?
 [ $ret -ne 0 ] && echo "   ▪ Package update failed, check internet connection" && exit 1
 
 echo "=> Installing Additional Packages"
-apt install lynx -y -qq  > /dev/null 2>&1
+apt install hping3 lynx -y -qq  > /dev/null 2>&1
 #apt install libnss3-tools mysql-client curl software-properties-common bat python3-pip net-tools jq traceroute wireshark -y -qq  > /dev/null 2>&1
 pip3 install --trusted-host pypi.org --trusted-host files.pythonhosted.org Faker  > /dev/null 2>&1
+pip3 install scapy > /dev/null 2>&1
 
-for pkg in libnss3-tools mysql-client curl software-properties-common bat python3 python3-pip net-tools jq traceroute wireshark; do
+for pkg in libnss3-tools mysql-client curl software-properties-common bat python3 python3-pip net-tools jq traceroute wireshark gnupg; do
   dpkg -s "$pkg" >/dev/null 2>&1; ret=$?
   if [ $ret -ne 0 ]; then
     apt install -y -qq "$pkg" > /tmp/${pkg}.log 2>&1; ret=$?
@@ -53,6 +56,15 @@ done
 #################################################################################################
 ######################################## MYSQL_WORKBENCH ########################################
 #################################################################################################
+if [ $INSTALL_GOLANG -eq 1 ]; then
+  wget https://go.dev/dl/go1.24.5.linux-amd64.tar.gz
+  rm -rf /usr/local/go
+  tar -C /usr/local -xzf go1.24.5.linux-amd64.tar.gz > /dev/null 2>&1
+fi 
+
+#################################################################################################
+######################################## MYSQL_WORKBENCH ########################################
+#################################################################################################
 if [ $DBEAVER_CE -eq 1 ]; then
   echo "=> Installing dbeaver-ce"
   if ! snap list dbeaver-ce >/dev/null 2>&1; then
@@ -68,6 +80,19 @@ if [ $DBEAVER_CE -eq 1 ]; then
   else
     echo "   ▪ dbeaver-ce is already installed"
   fi
+fi
+
+#################################################################################################
+##################################### ANSIBLE INSTALLATION ######################################
+#################################################################################################
+if [ $INSTALL_TERRAFORM -eq 1 ]; then
+  echo "=> Install Terraform"
+  
+  curl -fsSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
+  apt-get update >/dev/null 2>&1
+
+  apt-get install terraform >/dev/null 2>&1
 fi
 
 #################################################################################################
@@ -287,6 +312,8 @@ certutil -d sql:/home/fortinet/.pki/nssdb -A -t "C,," -n "APEX CA" -i  /home/for
 certutil -d sql:/home/fortinet/.pki/nssdb -A -t "C,," -n "ACME CA" -i  /home/fortinet/cert/acme/ca.crt -f /home/fortinet/.pki/pwfile
 certutil -L -d sql:/home/fortinet/.pki/nssdb | sed -e 's/^/     /g' -e '/^    $/d' 
 echo "     ---------------------------------------------------------------------------------------"
+cp /home/fortinet/cert/fortidemo/ca.crt /usr/local/share/ca-certificates/fortidemo.crt
+update-ca-certificates
 
 echo "   ▪ Create a Fortidemo Certificate Bundle (/etc/ssl/certs/fortidemo-bundle.crt)"
 cat /home/fortinet/cert/fortidemo/ca.crt /home/fortinet/cert/globex/ca.crt /home/fortinet/cert/apex/ca.crt /home/fortinet/cert/acme/ca.crt > /etc/ssl/certs/fortidemo-bundle.crt
@@ -294,8 +321,12 @@ cat /home/fortinet/cert/fortidemo/ca.crt /home/fortinet/cert/globex/ca.crt /home
 [ -d /home/fortinet/.pki ] && chown -R fortinet:fortinet /home/fortinet/.pki 
 [ -f /home/fortinet/certutil.log ] && chown -R fortinet:fortinet /home/fortinet/certutil.log
 
-#echo "   ▪ Set Screen Resolution (again)"
-#su - fortinet -c "/home/fortinet/bin/res"
+echo "   ▪ Cleanup temporary files"
+find /home/fortinet -name "._*" -exec rm "{}" \;
+find /home/fortinet -name .DS_Store -exec rm "{}" \;
+
+echo "   ▪ Set Wallpaper"
+[ -f /home/fortinet/bin/wp2 ] && su - fortinet -c "/home/fortinet/bin/wp2"
 
 echo "############################### Start fortipoc/postinst ###############################"
 
