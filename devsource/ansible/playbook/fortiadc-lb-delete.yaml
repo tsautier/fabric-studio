@@ -12,7 +12,29 @@
       fadcos_virtual_server:
         action: delete
         name: "{{ virtual_server_name }}"
-      
+ 
+    - name: Manage Client SSL Profile {{ client_ssl_profile }}
+      fadcos_client_ssl_profile:
+        action: del
+        name: "{{ client_ssl_profile }}"
+  
+    - name: Manage Local Certificate Group Members
+      fadcos_local_cert_group:
+        action: del_member
+        local_cert: employeedb-ssl
+        name: "{{ local_cert_group }}"
+   
+    - name: Manage Local Certificate Group
+      fadcos_local_cert_group:
+        action: del_group
+        name: "{{ local_cert_group }}"
+  
+    - name: add CertKey
+      fadcos_system_certificate_local_upload:
+       action: del
+       type: CertKey
+       name: employeedb-ssl
+  
     - name: Delete real server pool member
       fadcos_real_server_pool_member:
         action: delete

@@ -259,9 +259,9 @@ cat $DEMOPATH/playbook/fortiadc-lb-vars-${APPNAME}.yaml | sed \
 
 cp $DEMOPATH/playbook/fortiadc-lb-config.yaml /tmp
 cp $DEMOPATH/playbook/fortiadc-lb-delete.yaml /tmp
-execCat "$TMPDIR/fortiadc-lb-config-ssl.yaml"
+execCat "$TMPDIR/fortiadc-lb-config.yaml"
 
-prtHead "Run the Ansible Playbook (/tmp/fortiadc-lb-config-ssl.yaml)"
+prtHead "Run the Ansible Playbook (/tmp/fortiadc-lb-config.yaml)"
 prtText "The Playbook creates am Virtual Server (employeedb-ssl) for TLS/SSL. Therefor we need to create a"
 prtText "Client SSL Profile containing the Certificate with a Cert Group and a local Certificate."
 echo -e "     => ansible-playbook /tmp/fortiadc-lb-config.yaml \\"
