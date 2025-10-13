@@ -9,6 +9,7 @@
 # CHANGE LOG: 
 # 2025-03-15 sdubois Initial version
 # 2025-05-07 sdubois Added dependancy file
+# 2025-10-12 sdubois Added ldap-utils
 #===============================================================================
 
 export INSTALL_GOLANG=0
@@ -36,7 +37,7 @@ apt install hping3 lynx -y -qq  > /dev/null 2>&1
 pip3 install --trusted-host pypi.org --trusted-host files.pythonhosted.org Faker  > /dev/null 2>&1
 pip3 install scapy > /dev/null 2>&1
 
-for pkg in libnss3-tools mysql-client curl software-properties-common bat python3 python3-pip net-tools jq traceroute wireshark gnupg; do
+for pkg in libnss3-tools mysql-client curl software-properties-common bat python3 python3-pip net-tools jq traceroute wireshark gnupg ldap-utils; do
   dpkg -s "$pkg" >/dev/null 2>&1; ret=$?
   if [ $ret -ne 0 ]; then
     apt install -y -qq "$pkg" > /tmp/${pkg}.log 2>&1; ret=$?
