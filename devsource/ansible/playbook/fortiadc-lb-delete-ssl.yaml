@@ -19,6 +19,36 @@
         profile: LB_PROF_HTTPS
         vstype: l7-load-balance
         client_ssl_profile: "{{ client_ssl_profile }}"
+     
+    - name: Delete virtual server 
+      fadcos_virtual_server:
+        action: delete
+        name: "{{ virtual_server_name }}"
+      
+    - name: Delete real server pool member
+      fadcos_real_server_pool_member:
+        action: delete
+        pool_name: "{{ pool_name }}"
+        member_id: "{{ item.id }}"
+        rs: "{{ item.name }}"
+      loop: "{{ real_servers }}"
+       
+    - name: Delete the Real Server Pool 
+      fadcos_real_server_pool:
+        action: delete
+        name: "{{ pool_name }}"
+        
+    - name:  Delete the real server
+      fadcos_real_server:
+        action: delete
+        name: "{{ item.name }}"
+      loop: "{{ real_servers }}"
+        
+    - name: Delete Health Checks
+      fadcos_health_check: 
+        action: delete 
+        name: LBHC_HTTP_200
+      no_log: true 
             
     - name: Manage Client SSL Profile {{ client_ssl_profile }}
       fadcos_client_ssl_profile:
