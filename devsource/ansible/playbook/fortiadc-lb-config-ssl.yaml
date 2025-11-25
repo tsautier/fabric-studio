@@ -8,6 +8,55 @@
     - /tmp/vault.yaml  # Load encrypted variables
 
   tasks:
+    - name: Create/Verify real server and change status to 'disable'
+      fadcos_real_server:
+        action: add
+        name: "{{ item.name }}"
+        ip: "{{ item.ip }}"
+        status: disable
+        vdom: root
+      loop: "{{ real_servers }}"
+         
+    - name: Update IP addresses of real servers
+      fadcos_real_server:
+        action: edit
+        name: "{{ item.name }}"
+        ip: "{{ item.ip }}"
+        status: "{{ item.status }}"
+        vdom: root
+      loop: "{{ real_servers }}"
+         
+    - name: Manage Health Checks LBHC_HTTP_200
+      fadcos_health_check:
+        action: add
+        name: LBHC_HTTP_200
+        status_code: 200
+        send_string: /
+        dest_addr_type: ipv4
+        hc_type: http
+      no_log: true
+         
+    - name: Manage Real Server Pool $x{{ pool_name }}
+      fadcos_real_server_pool:
+        action: add
+        name: "{{ pool_name }}"
+        iptype: "{{ iptype }}"
+        vdom: "{{ vdom }}"
+        healthcheck: enable
+        health_check_list:
+          - LBHC_HTTP_200
+         
+    - name: Manage real server pool member
+      fadcos_real_server_pool_member:
+        action: add
+        pool_name: "{{ pool_name }}"
+        status: "{{ item.status }}"
+        member_id: "{{ item.id }}"
+        port: "{{ item.port }}"
+        rs: "{{ item.name }}"
+        weight: "{{ item.weight }}"
+      loop: "{{ real_servers }}"
+         
     - name: add CertKey
       fadcos_system_certificate_local_upload:
        action: add

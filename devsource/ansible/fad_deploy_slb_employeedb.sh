@@ -160,7 +160,7 @@ cat <<EOF > $TMPDIR/fortiadc-lb-vars-${APPNAME}.yaml
 pool_name: employeedb
          
 # Virtual Server Configuration
-virtual_server_name: ws-employeedb-fad-vi
+virtual_server_name: ws-employeedb-fad-vs
 virtual_server_ip: $VS_IP_ADDRESS
 virtual_server_interface: port1
 virtual_server_port: 443
@@ -253,23 +253,23 @@ prtHead "Let's create an Ansible Playbook to configure SSL/TLS on the Virtual Se
 prtText "At first, we create a variable file again"
 
 wt1=1; wt2=1; wt3=1
-cat $DEMOPATH/playbook/fortiadc-lb-vars-${APPNAME}.yaml | sed \
+cat $DEMOPATH/playbook/fortiadc-lb-vars-${APPNAME}-ssl.yaml | sed \
   -e "s+XXX1XXX+${EMPLOYEEDB_CERTIFICATE}+g" -e "s+XXX2XXX+${EMPLOYEEDB_PROVATE_KEY}+g" \
   > $TMPDIR/fortiadc-lb-vars-${APPNAME}-ssl.yaml
 
-cp $DEMOPATH/playbook/fortiadc-lb-config.yaml /tmp
-cp $DEMOPATH/playbook/fortiadc-lb-delete.yaml /tmp
-execCat "$TMPDIR/fortiadc-lb-config.yaml"
+cp $DEMOPATH/playbook/fortiadc-lb-config-ssl.yaml /tmp
+cp $DEMOPATH/playbook/fortiadc-lb-delete-ssl.yaml /tmp
+execCat "$TMPDIR/fortiadc-lb-config-ssl.yaml"
 
-prtHead "Run the Ansible Playbook (/tmp/fortiadc-lb-config.yaml)"
+prtHead "Run the Ansible Playbook (/tmp/fortiadc-lb-config-ssl.yaml)"
 prtText "The Playbook creates am Virtual Server (employeedb-ssl) for TLS/SSL. Therefor we need to create a"
 prtText "Client SSL Profile containing the Certificate with a Cert Group and a local Certificate."
-echo -e "     => ansible-playbook /tmp/fortiadc-lb-config.yaml \\"
+echo -e "     => ansible-playbook /tmp/fortiadc-lb-config-ssl.yaml \\"
 echo -e "          -i /tmp/inventory --extra-vars \"@/tmp/fortiadc-lb-vars-${APPNAME}.yaml\" \\"
 echo -e "          --vault-password-file $HOME/.ansible/vault_password\c\b"; read x
 messageLineIntendDemos
 
-ansible-playbook /tmp/fortiadc-lb-config.yaml \
+ansible-playbook /tmp/fortiadc-lb-config-ssl.yaml \
   -i /tmp/inventory --extra-vars "@/tmp/fortiadc-lb-vars-${APPNAME}.yaml" \
  --vault-password-file $HOME/.ansible/vault_password -v 2>/dev/null | python3 $DEMOPATH/scripts/indent_output.py
 

@@ -50,15 +50,15 @@ echo '          ----------------------------------------------------------------
 echo '                                                                                      '
 
 prtHead "To delete the configuaration we need to create a removal Playbook to cleanup the configuration"
-execCat "$TMPDIR/fortiadc-lb-delete.yaml"
+execCat "$TMPDIR/fortiadc-lb-delete-ssl.yaml"
 
 prtHead "Delete the Server Load Balancer with the Ansible Playbook"
-echo -e "     => ansible-playbook /tmp/fortiadc-lb-delete.yaml \\"
+echo -e "     => ansible-playbook /tmp/fortiadc-lb-delete-ssl.yaml \\"
 echo -e "          -i /tmp/inventory --extra-vars \"@/tmp/fortiadc-lb-vars-${APPNAME}.yaml\" \\"
 echo -e "          --vault-password-file $HOME/.ansible/vault_password\c\b"; read x
 messageLineIntendDemos
 
-ansible-playbook /tmp/fortiadc-lb-delete.yaml \
+ansible-playbook /tmp/fortiadc-lb-delete-ssl.yaml \
   -i /tmp/inventory --extra-vars "@/tmp/fortiadc-lb-vars-${APPNAME}.yaml" \
   --vault-password-file $HOME/.ansible/vault_password | python3 $DEMOPATH/scripts/indent_output.py; ret=$?
 
