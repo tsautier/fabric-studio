@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" meta name="google" content="notranslate">
+    <title>Deploy a Server Load-Balancer (SLB) with Ansible</title>
+        <style>
+        body {
+            background-color: #FFFFFF; /* White background */
+            color: #1A1A1A; /* Dark foreground text */
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.2;
+            padding: 20px;
+        }
+
+        h2 {
+            font-weight: 600;
+            color: #000000; /* Dark heading */
+        }
+
+        a {
+            color: #003366; /* Darker link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        img {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #F5F5F5; /* Light grey for code blocks */
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #2A2A2A; /* Dark text inside code */
+        }
+    </style>
+</head>
+<body>
+    <h2>Deploy a Server Load-Balancer (SLB) with Terraform</h2>
+    <p>The following is an example of how complexx taks such the deployment of a Server Load Balancer with Realservice Pool, Real Servers, Certificates and Healthceks can be automated with Terraforms.
+    <img src="images/R09S02.jpg" alt="Terraform Diagram" style="width: 100%;" />
+
+    <p>The FortiADC Terraform Provider is OpenSource and the Documentation is available on <a href="https://registry.terraform.io/providers/fortinetdev/fortiadc/latest/docs">FortiADC Terraform Provider</a>  </p>
+    <h2>FortiADC - Deploy a Server Load Balancer (SLB) for the EmployeeDB Applicaiton with Terraform</h2>
+    <a href="runscript:/home/fortinet/terraform/fad_deploy_slb_employeedb.sh">▶ Deploy SLB Config: fad_deploy_slb_employeedb.sh</a><br>
+    <a href="runscript:/home/fortinet/terraform/fad_delete_slb_employeedb.sh">▶ Delete SLB Config: fad_delete_slb_employeedb.sh</a><br>
+    
+    <h4>Verify EmployeeDB Backend</h4>
+    <a href="http://10.1.1.211:8080">▶ EmployeeDB Backend (ws1): http://10.1.1.211:8080</a><br>
+    <a href="http://10.1.1.212:8080">▶ EmployeeDB Backend (ws2): http://10.1.1.212:8080</a><br>
+    <a href="http://10.1.1.213:8080">▶ EmployeeDB Backend (ws3): http://10.1.1.213:8080</a><br>
+    <h4>Verify EmployeeDB via Server Load Balancer (SLB)</h4>
+    <a href="https://employeedb.apps.fortidemo.net">▶ EmployeeDB: https://employeedb.apps.fortidemo.net</a><br>
+
+    </body>
+</html>
+
