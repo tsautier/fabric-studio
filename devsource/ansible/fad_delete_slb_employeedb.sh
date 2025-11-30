@@ -49,6 +49,48 @@ echo '                                  by Sacha Dubois, Fprtinet Inc           
 echo '          ----------------------------------------------------------------------------'
 echo '                                                                                      '
 
+wt1=1; wt2=1; wt3=1
+cat <<EOF > $TMPDIR/fortiadc-lb-vars-${APPNAME}.yaml
+# Real Server Pool
+pool_name: employeedb
+
+# Virtual Server Configuration
+virtual_server_name: ws-employeedb-fad-vs
+virtual_server_ip: $VS_IP_ADDRESS
+virtual_server_interface: port1
+virtual_server_port: 443
+virtual_server_type: http
+iptype: ipv4
+vdom: root
+
+# Certificate Configuration
+ssl_cert: $EMPLOYEEDB_CERTIFICATE
+ssl_key: $EMPLOYEEDB_PROVATE_KEY
+local_cert_group: EMPLOYEEDB_CERT_GROUP
+client_ssl_profile: LB_CLIENT_SSL_EMPLOYEEDB
+
+# Real Server Pool Members
+real_servers:
+  - name: rs_employeedb1
+    id: 1
+    port: 8080
+    status: enable
+    ip: ${ip1}
+    weight: ${wt1}
+  - name: rs_employeedb2
+    id: 2
+    port: 8080
+    status: enable
+    ip: ${ip2}
+    weight: ${wt2}
+  - name: rs_employeedb3
+    id: 3
+    port: 8080
+    status: enable
+    ip: ${ip3}
+    weight: ${wt3}
+EOF
+
 prtHead "To delete the configuaration we need to create a removal Playbook to cleanup the configuration"
 execCat "$TMPDIR/fortiadc-lb-delete-ssl.yaml"
 
@@ -61,14 +103,6 @@ messageLineIntendDemos
 ansible-playbook /tmp/fortiadc-lb-delete-ssl.yaml \
   -i /tmp/inventory --extra-vars "@/tmp/fortiadc-lb-vars-${APPNAME}.yaml" \
   --vault-password-file $HOME/.ansible/vault_password | python3 $DEMOPATH/scripts/indent_output.py; ret=$?
-
-prtHead "Deleting kubernetes deployment of $APPNAME"
-for n in 01 02 03; do
-  kubectl -n $NAMESPACE delete svc ${APPNAME}-$n > /dev/null 2>&1
-  kubectl -n $NAMESPACE delete deployment ${APPNAME}-$n > /dev/null 2>&1
-  kubectl wait --for=delete pod -l app=${APPNAME}-$n -n $NAMESPACE --timeout=300s > /dev/null 2>&1
-done
-kubectl delete ns $NAMESPACE > /dev/null 2>&1
 
 if [ $ret -ne 0 ]; then
   echo "ERROR: The ansible playbook failed to remove the deployment, please fix the error and start over"

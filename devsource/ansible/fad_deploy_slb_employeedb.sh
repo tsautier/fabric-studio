@@ -249,8 +249,8 @@ if [ "$not_after_unix" -lt "$current_time" ]; then
     exit
 fi
 
-prtHead "Let's create an Ansible Playbook to configure SSL/TLS on the Virtual Server"
-prtText "At first, we create a variable file again"
+prtHead "Create the Ansible Playbook"
+prtText "Let's create the Ansible Playbook to upload the SSL/TSL Certificate, configure the Real Servers and Real Servers Pool, Health Check," prtText "Client SSL Profile and the Virtual Server. The order of these tasks are important, as some are depending on previous executed tasks.""
 
 wt1=1; wt2=1; wt3=1
 cat $DEMOPATH/playbook/fortiadc-lb-vars-${APPNAME}-ssl.yaml | sed \
@@ -335,7 +335,8 @@ if [ "$ret" == "y" ]; then
     > $TMPDIR/fortiadc-lb-vars-${APPNAME}.yaml
     
   emptyLine
-  prtText "We are going to modify the configuration that each Member gets the following traffic weighing (Member-1: $wt1, Member-2, $wt2 and Member-3: $wt3)"
+  prtText "We are going to modify the configuration that Member-2 gets disabled. This is useful in case that a Real Server needs to be taken down for"
+  prtText "maintenance and the packages should be distributed to the other Servers instead."
   execCat "$TMPDIR/fortiadc-lb-vars-${APPNAME}.yaml"
     
   prtText "To only update the Real Server Pool Members, we create an Real Server Pool Member Ansible Playbook"
