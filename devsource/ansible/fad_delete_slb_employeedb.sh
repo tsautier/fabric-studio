@@ -91,6 +91,9 @@ real_servers:
     weight: ${wt3}
 EOF
 
+prtHead "Let's review the ansible variable file created during the deployment"
+execCat "$TMPDIR/fortiadc-lb-vars-${APPNAME}.yaml"
+
 prtHead "To delete the configuaration we need to create a removal Playbook to cleanup the configuration"
 execCat "$TMPDIR/fortiadc-lb-delete-ssl.yaml"
 
