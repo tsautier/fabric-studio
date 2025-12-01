@@ -380,7 +380,8 @@ subjectAltName = @alt_names
 [ alt_names ]           
 DNS.1 = fortigate.fortidemo.net
 DNS.2 = proxy.fortidemo.net
-DNS.2 = portal.fortidemo.net
+DNS.3 = portal.fortidemo.net
+DNS.4 = fortiauth.fortidemo.net
 EOF
 
 # generate the CSR

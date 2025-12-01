@@ -106,7 +106,7 @@ execCmd() {
     sleep 3
   done
 
-  $SED '${/^$/d;}' /tmp/execCmd.log | $SED -e '/^$/d' -e 's/^/     /g'
+  sed -e ':a;$!N;$!ba;s/\(.*\)\n\x1b\[0m$/\1\x1b\[0m\n/' -e '${/^$/d;}' /tmp/execCmd.log | sed -e '/^$/d' -e 's/^/     /g' | sed '${/^ *$/d}'
 
   #DELETEME
   #eval "$1" 2>&1 | $SED '${/^$/d;}' | $SED 's/^/     /g' 

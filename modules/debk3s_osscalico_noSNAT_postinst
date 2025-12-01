@@ -9,6 +9,8 @@
 # CHANGE LOG:
 # 2025-03-15 sdubois Initial version
 # 2025-05-07 sdubois Added dependancy file
+# 2025-09-04 sdubois Added Kubernetes audit logging
+# 2025-09-28 sdubois restric kubernetes to INSTALL_K3S_VERSION="v1.32.9+k3s1" 
 #===============================================================================
 
 export COPY_KUBCONFIG_DEBCLI=0
@@ -50,9 +52,45 @@ apt install curl net-tools traceroute jq -y -qq  > /dev/null 2>&1
 echo "=> Installing Helm"
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 2>/dev/null | bash > /dev/null 2>&1
 
+#-------------------------------------------------------------------------------
+# Enable Kubernetes Audit Logging
+# Audit Logs: /var/lib/rancher/k3s/server/logs/audit.log
+#-------------------------------------------------------------------------------
+echo "=> Enabling Kubernetes Audit Logging"
+
+# Create audit policy file
+mkdir -p /etc/rancher/k3s
+cat <<EOF >/etc/rancher/k3s/audit-policy.yaml
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+  - level: Metadata
+EOF
+
+#-------------------------------------------------------------------------------
+# Install K3S with Calico
+#-------------------------------------------------------------------------------
 echo "=> Installing K3S Kubernetes (debk3s_osscalico_noSNAT_postinst)"
 # https://docs.tigera.io/calico/latest/getting-started/kubernetes/k3s/quickstart
-curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="--tls-san 10.1.1.200 --flannel-backend=none --cluster-cidr=192.168.0.0/16 --disable-network-policy --disable=traefik" sh -
+curl -sfL https://get.k3s.io | \
+  INSTALL_K3S_VERSION="v1.32.9+k3s1" \
+  K3S_KUBECONFIG_MODE="644" \
+  INSTALL_K3S_EXEC="--tls-san 10.1.1.200 \
+    --flannel-backend=none \
+    --cluster-cidr=192.168.0.0/16 \
+    --disable-network-policy \
+    --disable=traefik \
+    --kube-apiserver-arg=audit-policy-file=/etc/rancher/k3s/audit-policy.yaml \
+    --kube-apiserver-arg=audit-log-path=/var/lib/rancher/k3s/server/logs/audit.log \
+    --kube-apiserver-arg=audit-log-maxage=30 \
+    --kube-apiserver-arg=audit-log-maxbackup=10 \
+    --kube-apiserver-arg=audit-log-maxsize=100" \
+  sh -
+
+#echo "=> Installing K3S Kubernetes (debk3s_osscalico_noSNAT_postinst)"
+# https://docs.tigera.io/calico/latest/getting-started/kubernetes/k3s/quickstart
+#curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="--tls-san 10.1.1.200 --flannel-backend=none --cluster-cidr=192.168.0.0/16 --disable-network-policy --disable=traefik" sh -
+
 sleep 10
 
 echo "# Install Calico and patch 'natOutgoing: true' to 'natOutgoing: false' in IP-Pool: default-ipv4-ippoolit"
