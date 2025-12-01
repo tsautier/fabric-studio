@@ -278,8 +278,10 @@ ansible-playbook /tmp/fortiadc-lb-config-ssl.yaml \
   -i /tmp/inventory --extra-vars "@/tmp/fortiadc-lb-vars-${APPNAME}.yaml" \
  --vault-password-file $HOME/.ansible/vault_password -v 2>/dev/null | python3 $DEMOPATH/scripts/indent_output.py
 
-prtHead "Now let's test the new Virtual Server"
-prtText "Open WebBrowser and verify the deployment"
+prtHead "The EmployeeDB Application has been already deployed on the the Backend Servers."
+execCmd "curl https://${APPNAME}.${DOMAIN}/actuator/health 2>/dev/null | jq -r"
+
+prtText "Open WebBrowser and verify the deployment from the Browser"
 echo "     => https://${APPNAME}.${DOMAIN}"
 echo "     => https://${APPNAME}.${DOMAIN}/actuator/health"
 echo ""
