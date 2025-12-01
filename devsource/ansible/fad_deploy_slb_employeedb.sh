@@ -142,6 +142,11 @@ nc -w 1 -z $ip3 $APPPORT && ipstat3="up" || ipstat3="down"
 
 echo ""
 prtText "The EmployeeDB Application has been already deployed on the the Backend Servers."
+execCmd "curl http://10.1.1.211:8080/actuator/health 2>/dev/null | jq -r"
+execCmd "curl http://10.1.1.212:8080/actuator/health 2>/dev/null | jq -r"
+execCmd "curl http://10.1.1.213:8080/actuator/health 2>/dev/null | jq -r"
+
+prtText "You can verify the EmployeeDB Backend via Web Browser directly"
 prtText "Open WebBrowser and verify the EmployeeDB Backend"
 echo "     => http://$ip1:$APPPORT ($ipstat1)"
 echo "     => http://$ip2:$APPPORT ($ipstat2)"
