@@ -13,7 +13,7 @@
  ▪ Test proxy access with the toolbox pod which is configured with proxy access. Curl needs (-k) as the proxy certificate is not impored
    => kubectl -n toolbox exec -it $(kubectl -n toolbox get pod -l app=toolbox -o jsonpath='{.items[0].metadata.name}') -- /bin/sh
       / # echo -e "HTTP_PROXY...: $HTTP_PROXY\nHTTPS_PROXY..: $HTTPS_PROXY\nNO_PROXY....: $NO_PROXY"
-      / # curl -k https://www.hackthebox.com    # Not Allowed
-      / # curl -k https://heise.com             # Allowed
-      / # curl -k https://blick.com             # Allowed
+      / # curl -k https://www.hackthebox.com                     # Not Allowed
+      / # curl https://postman-echo.com/get 2>/dev/null | jq -r  # Allowed
+      / # curl https://echoserver.apps.fortidemo.ch              # Allowed
 
