@@ -3,7 +3,7 @@ import time
 
 class SlowHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        time.sleep(10)  # simulate delay
+        time.sleep(1)  # simulate delay
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
