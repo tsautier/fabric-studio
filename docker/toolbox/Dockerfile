@@ -4,7 +4,7 @@ FROM alpine:latest
 RUN apk add --no-cache python3 curl
 
 # Copy the slow HTTP server script
-COPY slowserver.py /slowserver.py
+COPY slowserver.py /slowserver.py ca-certificates
 
 # Expose port 8080
 EXPOSE 8080
